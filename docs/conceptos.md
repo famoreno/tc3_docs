@@ -1,22 +1,19 @@
-# Conceptos generales (WIP)
+# ✔ Conceptos generales (WIP)
 
-{==
-
-## Leyenda
-
-- **CD**: Clic derecho del ratón
-- **CI**: Clic izquierdo del ratón
-- **DCI**: Doble clic izquierdo del ratón
-- **TC3**: TwinCAT3
-- **CV**: Campus Virtual
-- **FB**: Bloque funcional (*Functional Block*)
-
-==}
+??? info "Leyenda"
+    | Abrev. | Significado |
+    |-------|-------------|
+    | **CD** | Clic derecho del ratón |
+    | **CI** | Clic izquierdo del ratón |
+    | **DCI** | Doble clic izquierdo del ratón |
+    | **TC3** | TwinCAT3 |
+    | **CV** | Campus Virtual |
+    | **FB** | Bloque funcional (*Functional Block*) |
 
 ---
-## Creación de proyectos en TwinCAT3
+## 🏗️ Crear soluciones en TC3
 
-### Crear un proyecto de TwinCAT3
+### Crear proyecto TC3
 
 1. Abrir el *software* `Twincat XAE Shell`, desde el menú **Inicio** de Windows o desde el icono de la barra de programas en segundo plano que hay abajo a la derecha en la barra de tareas.
 2. Seleccionar **New TwinCAT Project**.
@@ -34,9 +31,11 @@
 
 5. Por defecto, tanto la **Solution** de Visual Studio como el proyecto de **TC3** tendrán el mismo nombre.
 
-> **<u>Recomendación</u>**: Ocultar las secciones del proyecto que no se van a utilizar: `MOTION`, `SAFETY`, `C++`, `VISION`, `ANALYTICS`. Nos quedaremos solo con `SYSTEM`, `PLC` e `I/O`.
+!!! note "Recomendación"
+    Ocultar las secciones del proyecto que no se van a utilizar: `MOTION`, `SAFETY`, `C++`, `VISION`, `ANALYTICS`.
+    Nos quedaremos solo con `SYSTEM`, `PLC` e `I/O`.
 
-### Crear un proyecto PLC
+### Crear proyecto PLC
 
 1. Una vez creado un proyecto de TC3, procedemos a crear un proyecto PLC.
 2. Hacer **CD** sobre la sección `PLC` y seleccionar **Add New Item**.
@@ -62,14 +61,14 @@
  
 6. **A partir de aquí se puede empezar a implementar el proyecto.**
 
-### Crear un bloque funcional
+### Crear bloque funcional
 
 1. Hacer **CD** sobre la sección `POUs`.
 2. Seleccionar `Add → POU → Functional Block`.
 3. Darle un nombre significativo.
 4. Seleccionar el lenguaje a utilizar. Normalmente utilizaremos `ST` o `SFC`.
 
-#### Structured Text (ST)
+#### *Structured Text* (ST)
 
 - Es recomendable acceder a la ayuda y documentación que ofrece Beckhoff en su portal **[Infosys](https://infosys.beckhoff.com/)**.
 - Las **instrucciones** deben terminar con `;`.
@@ -121,7 +120,9 @@
 
 - **Añadir un etapa y una transición**:
     - Hacer **CD** sobre la **etapa** donde queramos introducir una nueva y seleccionar **Add step-transition** o **Add step-transition after**, dependiendo de si queremos añadirla antes o después, respectivamente, de la etapa seleccionada.
-    - **<u>Importante</u>**: Comprobar que no quedan dos etapas o dos transiciones consecutivas. En caso contrario, borrar aquello que no sirva (**CI** sobre él y pulsar *Supr*).
+    
+    !!! warning "Importante"
+        Comprobar que no quedan dos etapas o dos transiciones consecutivas. En caso contrario, borrar aquello que no sirva (**CI** sobre él y pulsar *Supr*).
 
 - **Asociar una acción a una etapa**:
     - Asociar una acción **no memorizada** a un etapa
@@ -131,7 +132,6 @@
             ![Imagen](images/cb/image%205.png){width=288px}
 
             - Tipos de modificadores de acciones
-                - **<u>Importante</u>**: Usaremos, por defecto, las acciones no memorizadas, aunque se pueden usar las otras si tiene sentido para el proyecto.
                 - `N`: No memorizada (o continua): se ejecuta/activa mientras la etapa esté activa.
                 - `R0` (Reinicio): la acción se desactiva.
                 - `S0` (Activación): la acción se ejecuta/activa cuando se activa la etapa y continúa activa aunque la etapa se desactive.
@@ -142,15 +142,20 @@
                 - `DS` (Retardo de activación): se activa solo sí la etapa permanece activa.
                 - `SL` (Activación limitada)
 
+                !!! warning "Importante"
+                    Usaremos, por defecto, las acciones no memorizadas, aunque se pueden usar las otras si tiene sentido para el proyecto.
+
+
     - Asociar una **acción de entrada o salida** a un etapa
         - Podemos crear acciones con activación **a la entrada** o **a la salida** de una etapa.
         - Estas acciones se implementan en alguno de los lenguajes de la norma y permiten realizar acciones que se ejecutan **solo una vez** durante la etapa, en lugar de hacerse de manera continua.
-        - **<u>Importante</u>**: Nada impide que una etapa tenga asociadas una o varias acciones no memorizadas, una con activación a la entrada y otra con activación a la salida.
+
             - **A la entrada**
                 - Las acciones con activación a la **entrada** se ejecutan solo una vez **inmediatamente después** de entrar en la etapa donde se asocian. **Posteriormente** se comprueba si la condición de transición para pasar a la siguiente etapa es cierta o no.
                 - Normalmente usaremos estas acciones para inicializar variables memorizadas, actualizar contadores, etc.
                 - Para crear una de este tipo, hacer **CD** sobre la etapa donde la queremos asociar y seleccionar **Add entry action**.
                 - Aparece un popup donde se nos pregunta por el nombre que le queremos poner y el lenguaje a utilizar. Se recomienda dejar el nombre por defecto (`S0_entry` en la figura) ya que nos indica en qué etapa está y de qué tipo es.
+                 
                     ![Imagen](images/cb/image%206.png){width=384px}
 
                 - En nuestros proyectos, **estas acciones siempre serán en ST**, pero podrían ser implementadas en cualquier otro lenguaje de la norma.
@@ -163,14 +168,21 @@
                 - Normalmente usaremos estas acciones para inicializar variables memorizadas, actualizar contadores, etc.
                 - Para crear una de este tipo, hacer **CD** sobre la etapa donde la queremos asociar y seleccionar **Add exit action**.
                 - Aparece un *popup* donde se nos pregunta por el nombre que le queremos poner y el lenguaje a utilizar. Se recomienda dejar el nombre por defecto (`S0_exit` en la figura) ya que nos indica en qué etapa está y de qué tipo es.
+
                     ![Imagen](images/cb/image%208.png){width=384px}
+
                 - En nuestros proyectos, **estas acciones siempre serán en ST**, pero podrían ser implementadas en cualquier otro lenguaje de la norma.
                 - Una vez creada, aparece en el SFC como un cuadrado con una **E** en la esquina inferior izquierda de la etapa.
+                 
                     ![Imagen](images/cb/image%209.png){width=288px}
-    - Asociar una **acción principal** a un etapa <font color="#FF0000">[TODO]</font>
+
+            !!! warning "Importante" 
+                Nada impide que una etapa tenga asociadas una o varias acciones no memorizadas, una con activación a la entrada y otra con activación a la salida.
+        
+        - Asociar una **acción principal** a un etapa <font color="#FF0000">[TODO]</font>
 ---
 
-## Estructuras de evolución básicas
+## 🔀 Estructuras de evolución
 
 ### Secuencia básica
 
@@ -210,7 +222,7 @@
 
 ---
 
-## Crear una visualización
+## 🖥️ Crear visualización
 
 - Hacer **CD** sobre la sección `VISUs`.
 
@@ -220,9 +232,11 @@
 
 - En la parte derecha de la pantalla aparecerá la sección `Toolbox` donde, en la sección `Basic` aparecen las formas básicas. Arrastrar a la visualización los elementos que se quieran.
 
-- **<u>Importante</u>**: Si no aparece la sección, mostrarlo entrando en el **Menú** `View → Toolbox`.
+!!! warning "Importante"
+    Si no aparece la sección, mostrarlo entrando en el **Menú** `View → Toolbox`
 
-- Se recomienda utilizar **rectángulos** para crear botones tanto para las entradas como para las salidas.
+!!! note "Recomendación"
+    Se recomienda utilizar **rectángulos** para crear botones tanto para las entradas como para las salidas.
 
 ### Botones para cambiar valores de variables
 
@@ -242,7 +256,7 @@
 
 ---
 
-## Declaración de variables en TwinCAT3
+## 🏷️ Declaración de variables
 
 - Se recomienda utilizar la convención **[CamelCase](https://es.wikipedia.org/wiki/Camel_case)** para declarar las variables.
 - La sintaxis para la declaración de variables es la siguiente:
@@ -280,7 +294,7 @@ Ocupado: ARRAY[0..3] OF BOOL; // array de cuatro elementos de tipo BOOL; acceso 
 
 ---
 
-## Exportar e importar POUs y VISUs entre proyectos
+## 🔄 Exportar e importar
 
 1. Podemos exportar `POUs` y `VISUs` desde una solución de **TC3** e importarla de nuevo en otra distinta. De esta manera podemos reutilizar código de distintas proyectos.
 2. Para realizar esto, en la solución origen, simplemente hay que hacer **CD** sobre el `POU` o `VISU` a exportar y seleccionar **Export to ZIP**. Se selecciona donde guardar el archivo exportado y se pulsa **Save**.
@@ -288,7 +302,7 @@ Ocupado: ARRAY[0..3] OF BOOL; // array de cuatro elementos de tipo BOOL; acceso 
 
 ---
 
-## Guardar y llevar el proyecto a otro equipo
+## 💾 Guardar y mover proyectos
 
 ### Usando la carpeta completa
 
@@ -296,7 +310,8 @@ Ocupado: ARRAY[0..3] OF BOOL; // array de cuatro elementos de tipo BOOL; acceso 
 2. Solo hay que copiar la carpeta raíz en un *pendrive* y pegar la carpeta en el equipo destino.
 3. Posteriormente, hacer **DCI** sobre el fichero de *Solution* (`.sln`) para que se abra de nuevo en TC3.
 
-> **Importante**: Si la carpeta ha sido comprimida para ser trasladada, hay que asegurarse de haber descomprimido la carpeta completa en el destino antes de abrir el proyecto.
+!!! warning "Importante"
+    Si la carpeta ha sido comprimida para ser trasladada, hay que asegurarse de haber descomprimido la carpeta completa en el destino antes de abrir el proyecto.
 
 ### Exportando como .tnzip
 
@@ -312,7 +327,7 @@ Ocupado: ARRAY[0..3] OF BOOL; // array de cuatro elementos de tipo BOOL; acceso 
 
 ---
 
-## Convenciones para nombrar (y renombrar) elementos
+## 📝 Convenciones de nombres
 
 - Se recomienda llamar a todos los elementos del proyecto con el nombre adecuado **desde el principio**, ya que renombrar *a posteriori* puede acarrear problemas derivados del acceso a elementos cuya ruta ha cambiado. No obstante, si es necesario renombrar los elementos, el procedimiento es como sigue.
 
@@ -335,7 +350,7 @@ Ocupado: ARRAY[0..3] OF BOOL; // array de cuatro elementos de tipo BOOL; acceso 
 
 ---
 
-## Ejecutar un programa en TwinCAT3
+## ▶️ Ejecutar programa
 
 1. Una vez el programa está implementado (independientemente del lenguaje utilizado):
    - Compilar el proyecto: Menú `Build → Build [nombre del proyecto]`.
@@ -344,26 +359,28 @@ Ocupado: ARRAY[0..3] OF BOOL; // array de cuatro elementos de tipo BOOL; acceso 
 3. Descargar el programa en el `Target` (**Login**), donde se preguntará, en un *popup*, si quieres crear un puerto de comunicación con el `Target` y descargar el programa. Pulsar en **Yes**.
 4. Ejecutar el programa (**Start**).
 
-> **Importante**: Para poder modificar de nuevo el programa, primero hay que parar el programa (**Stop**) [**recomendado**] y posteriormente hacer **Logout**.
+!!! warning "Importante"
+    Para poder modificar de nuevo el programa, primero hay que parar el programa (**Stop**) [**recomendado**] y posteriormente hacer **Logout**.
 
 ---
 
-## Activar/desactivar el *hardware*
+## 🔌 Activar/desactivar *hardware*
 
 1. Si has vinculado las variables de tu programa con el **equipo remoto** (hiciste la búsqueda del equipo remoto y la exploración de los módulos de E/S), cuando quieras probar tu programa en el **Runtime Local**, aparecerá una ventana *popup* indicando un error.
 2. Esto se debe a que TC3 quiere establecer conexión con el *hardware* al que estuviste conectado pero no puede, ya que el `Target` es el local.
 3. Para evitar esto, solo tienes que deshabilitar el *hardware* haciendo **CD** sobre el dispositivo buscado y seleccionar **Disable**.
 
-> **Importante**: Recuerda volver a habilitarlo cuando quieras volver a usar el equipo remoto.
+!!! warning "Importante"
+    Recuerda **volver a habilitarlo** cuando quieras volver a usar el equipo remoto.
 
 ---
 
-## Búsqueda de equipos remotos
+## 🌐 Búsqueda de equipos
 
 - Hay un video de ejemplo en el Campus Virtual en *Automatización > Videos > TC3* con nombre `9_Runtime_Target_*.mkv`.
 
 ---
 
-## Enlace de variables y terminales de E/S
+## 🔗 Enlace de variables y E/S
 
 - Hay un video de ejemplo en el Campus Virtual en *Automatización > Videos > TC3* con nombre `9_Runtime_Target_*.mkv`.
