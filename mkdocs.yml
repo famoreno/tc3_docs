@@ -4,6 +4,8 @@ site_url: https://famoreno.github.io/tc3_docs/
 theme:
   name: material
   language: es
+  logo: images/_resource/AutoISATeam_logo.png
+  favicon: images/_resource/AutoISATeam_logo.png
 
   palette:
     - scheme: default
@@ -35,9 +37,9 @@ theme:
 
 nav:
   - Inicio: index.md
-  - Beckhoff y TwinCAT 3: tc3_presentacion.md
-  - TC3 Conceptos Generales: conceptos.md
-  - TC3 Demo: readme_tc3_demo.md
+  - Beckhoff y TwinCAT 3: contenidos/00_presentacion.md
+  - TC3 Conceptos Generales: contenidos/01_conceptos.md
+  - TC3 Demo: contenidos/02_tc3_demo.md
 
 markdown_extensions:
   - admonition
@@ -45,6 +47,9 @@ markdown_extensions:
   - md_in_html
   - toc:
       permalink: true
+  - pymdownx.snippets:
+      check_paths: true
+      base_path: !relative $docs_dir
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.highlight

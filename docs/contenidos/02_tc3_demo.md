@@ -7,9 +7,8 @@ Enlace al repositorio en Github: [TC3_Demo](https://github.com/vetorres-uma/TC3_
 El proyecto Demo pretende ser un **Hola Mundo** para **automatas programables (PLC)**. 
 
 Es un proyecto mínimo y funcional, que muestra la declaración y el uso básico de variables booleanas y enteras, ubicadas en los espacios de memoria de marcas, imagen de entrada e imagen de salida. Cubriendo los elementos esenciales de programación de los lenguajes de la norma **IEC 61131-3** para la programación de PLC.
-<div align="center">
-  <img src="../images/tc3_demo/VISU_Demo.png" alt="Visualización de Demo" width="240px">
-</div>
+
+![Imagen](../images/02_tc3_demo/VISU_Demo.png){width=240px}
 
 Este proyecto incluye además, una **visualización** elemental que permite interactuar con las variables del proyecto, con objetos gráficos. **Formas rectangulares** para mostrar el valor de variables booleanas y numéricas y **botones** para modificar el valor de variables booleanas y numéricas.
 

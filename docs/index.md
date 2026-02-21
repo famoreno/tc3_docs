@@ -13,6 +13,6 @@ Archivo de documentación que contiene conceptos teóricos y fundamentales relac
 Archivo README que proporciona instrucciones de demostración y uso específico para el componente o módulo TC3. Contiene guías de instalación, ejemplos prácticos de ejecución, requisitos previos, y pasos paso a paso para ejecutar la demostración del TC3.
 
 ## Contenidos
-- [Beckhoff y TwinCAT 3](tc3_presentacion.md)
-- [TwinCAT 3 Conceptos Generales](conceptos.md)
-- [TwinCAT 3 Demo](readme_tc3_demo.md)
+- [Beckhoff y TwinCAT 3](contenidos/00_presentacion.md)
+- [TwinCAT 3 Conceptos Generales](contenidos/01_conceptos.md)
+- [TwinCAT 3 Demo](contenidos/02_tc3_demo.md)
