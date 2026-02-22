@@ -1,5 +1,5 @@
-site_name: TC3 Docs
-site_url: https://famoreno.github.io/tc3_docs/
+site_name: TC3 Tutorial
+site_url: https://famoreno.github.io/tc3_tutorial/
 
 theme:
   name: material
@@ -65,7 +65,7 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/famoreno/tc3_docs
+      link: https://github.com/famoreno/tc3_tutorial
 
 extra_css:
   - stylesheets/extra.css
