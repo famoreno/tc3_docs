@@ -6,6 +6,16 @@
 ---
 --8<-- "contenidos/01_conceptos/02_tc3_declarar_variables.md"
 ---
+--8<-- "contenidos/01_conceptos/07_tc3_crear_visualizacion.md"
+---
+--8<-- "contenidos/01_conceptos/11_tc3_ejecutar_programa.md"
+---
+--8<-- "contenidos/01_conceptos/13_tc3_busqueda_equipos.md"
+---
+--8<-- "contenidos/01_conceptos/14_tc3_enlace_es.md"
+---
+--8<-- "contenidos/01_conceptos/12_tc3_activar_hw.md"
+---
 --8<-- "contenidos/01_conceptos/03_tc3_crear_duts.md"
 ---
 --8<-- "contenidos/01_conceptos/04_tc3_lenguaje_st.md"
@@ -14,19 +24,9 @@
 ---
 --8<-- "contenidos/01_conceptos/06_tc3_estructuras_evolucion.md"
 ---
---8<-- "contenidos/01_conceptos/07_tc3_crear_visualizacion.md"
----
 --8<-- "contenidos/01_conceptos/08_tc3_importar_exportar.md"
 ---
 --8<-- "contenidos/01_conceptos/09_tc3_guardar_mover.md"
 ---
 --8<-- "contenidos/01_conceptos/10_tc3_convenciones.md"
----
---8<-- "contenidos/01_conceptos/11_tc3_ejecutar_programa.md"
----
---8<-- "contenidos/01_conceptos/12_tc3_activar_hw.md"
----
---8<-- "contenidos/01_conceptos/13_tc3_busqueda_equipos.md"
----
---8<-- "contenidos/01_conceptos/14_tc3_enlace_es.md"
 ---
