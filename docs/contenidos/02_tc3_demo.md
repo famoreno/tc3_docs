@@ -56,6 +56,13 @@ Este proyecto incluye además, una **visualización** elemental que permite inte
 
 ## 🚀 Puesta en Marcha
 
+### Mediante el Campus Virtual
+
+1. **Copiar** a tu equipo local el fichero `CV > Automatización > ejemplos > tc3_demo > tc3_demo.tnzip` que hay en la carpeta del campus virtual.
+2. **Seguir el procedimiento** descrito [aquí](../../contenidos/01_conceptos/#abrir-un-fichero-tnzip).
+3. 
+### Mediante GIT
+
 Para descargar, compilar y ejecutar este proyecto en el entorno de TwinCAT 3, siga los siguientes pasos:
 
 1. **Clonar Repositorio:**
@@ -73,9 +80,15 @@ Para descargar, compilar y ejecutar este proyecto en el entorno de TwinCAT 3, si
 ---
 
 ## 🔨 Procedimiento operativo
+
+!!! tip "Sugerencia"
+    Pulsa en ➡️ para obtener más información sobre cómo realizar el paso especificado.
+
+Para replicar la creación de la solución completa, seguir este procedimiento:
+
 1. Crear una solución de TwinCAT3 con nombre `tc3_demo` [➡️](../../contenidos/01_conceptos/#crear-proyecto-tc3)
 2. Crear un proyecto PLC con nombre `demo_PLC` [➡️](../../contenidos/01_conceptos/#crear-proyecto-plc)
-3. Declarar las variables
+3. Declarar las variables [➡️](../../contenidos/01_conceptos/#declaracion-de-variables)
     ```st
         PROGRAM MAIN
         VAR
