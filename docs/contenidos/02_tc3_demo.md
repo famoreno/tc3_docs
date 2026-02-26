@@ -54,56 +54,31 @@ Este proyecto incluye además, una **visualización** elemental que permite inte
 
 ---
 
-## 🚀 Puesta en Marcha
+## 🔨 Replicar el proyecto
 
-### Mediante el Campus Virtual
-
-1. **Copiar** a tu equipo local el fichero `CV > Automatización > ejemplos > tc3_demo > tc3_demo.tnzip` que hay en la carpeta del campus virtual.
-2. **Seguir el procedimiento** descrito [aquí](../../contenidos/01_conceptos/#abrir-un-fichero-tnzip).
-
-### Mediante GIT
-
-Para descargar, compilar y ejecutar este proyecto en el entorno de TwinCAT 3, siga los siguientes pasos:
-
-1. **Clonar Repositorio:**
-
-```bash
-    git clone https://github.com/vetorres-uma/TC3_Demo.git
-```
-
-2. **Abrir el Proyecto:** abra el archivo `.sln` (Solución) ubicado en la carpeta principal utilizando el entorno de ingeniería **TwinCAT XAE** (integrado en Visual Studio).
-1. **Selección del Controlador:** seleccione el simulador (**UmRT_Default**) o controlador local o remoto (**Choose Runtime System**).
-1. **Activación de Configuración:** en el modo **Configuración**, active la configuración (**Activate Configuration**) y reinicie TwinCAT en modo **Ejecución (Run Mode)**.
-1. **Carga del Código:** en el entorno PLC, inicie la sesión y descargue el programa al PLC (**Login**).
-1. **Poner el código en ejecución:** ejecute la lógica de control en el controlador (**Start**). Puede utilizar la visualización integrada en el proyecto PLC para facilitar la prueba.
-
----
-
-## 🔨 Procedimiento operativo
+**Para replicar la creación de la solución completa, seguir este procedimiento:**
 
 !!! tip "Sugerencia"
     Pulsa en ➡️ para obtener más información sobre cómo realizar el paso especificado.
-
-Para replicar la creación de la solución completa, seguir este procedimiento:
 
 1. Crear una solución de TwinCAT3 con nombre `tc3_demo` [➡️](../../contenidos/01_conceptos/#crear-proyecto-tc3)
 2. Crear un proyecto PLC con nombre `demo_PLC` [➡️](../../contenidos/01_conceptos/#crear-proyecto-plc)
 3. Declarar las variables [➡️](../../contenidos/01_conceptos/#declaracion-de-variables)
     ```st
-        PROGRAM MAIN
-        VAR
-            ContadorCiclos    : UINT; // Variable numérica en el espacio de marcas
-            i_Pulsador AT %I* : BOOL; // Variable booleana en la imagen de entrada
-            o_Lampara  AT %Q* : BOOL; // Variable booleana en la imagen de salida
-        END_VAR
+    PROGRAM MAIN
+    VAR
+        ContadorCiclos    : UINT; // Variable numérica en el espacio de marcas
+        i_Pulsador AT %I* : BOOL; // Variable booleana en la imagen de entrada
+        o_Lampara  AT %Q* : BOOL; // Variable booleana en la imagen de salida
+    END_VAR
     ```
 4. Escribir el código
     ```st
-        // Uso de una variable numérica (se incrementa con cada ciclo de ejecución)
-        ContadorCiclos := ContadorCiclos + 1;
+    // Uso de una variable numérica (se incrementa con cada ciclo de ejecución)
+    ContadorCiclos := ContadorCiclos + 1;
 
-        // Uso de variables de entrada y salida booleanas (copia la entrada en la salida)
-        o_Lampara := i_Pulsador;
+    // Uso de variables de entrada y salida booleanas (copia la entrada en la salida)
+    o_Lampara := i_Pulsador;
     ```
 5. Diseñar la visualización añadiendo: [➡️](../../contenidos/01_conceptos/#crear-visualizacion)
     
@@ -119,14 +94,15 @@ Para replicar la creación de la solución completa, seguir este procedimiento:
         ??? info "Parámetros"
             - Color > Normal state > Frame color = [0, 0, 0]
             - Color > Normal state > Fill color = [255, 255, 255]        
-            - Texts > Text = [%d] -> *Formato estilo printf*
+            - Texts > Text = [%d]
+                - *Formato estilo printf que indica que se va a sustituir por un número entero.*
             - Text variables > Text variable = [`MAIN.ContadorCiclos`]
    
     3. Botón (*Button*) para reiniciar el contador
         
         ??? info "Parámetros"
             - Texts > Text = [**Reinicia**]
-            - Inputconfiguration               - 
+            - Inputconfiguration 
                 - OnMouseClick > Configure > Execute ST-Code = [`MAIN.ContadorCiclos := 0;`]
    
     4. Botón (*Button*) para el pulsador
@@ -134,7 +110,7 @@ Para replicar la creación de la solución completa, seguir este procedimiento:
         ??? info "Parámetros"
             - Texts > Text = [**Marcha**]
             - Inputconfiguration
-               - Tap > Variable = [`MAIN.i_Pulsador`]
+                - Tap > Variable = [`MAIN.i_Pulsador`]
     
     5. Rectángulo (*Rectangle*) para la lámpara
         
@@ -164,6 +140,34 @@ Para replicar la creación de la solución completa, seguir este procedimiento:
 
             !!! warning "Importante"
                 La ejecución del ciclo básico hace que el valor del pulsador **se actualice con el valor del pulsador real** al inicio de cada ciclo.
+
+---
+
+## 🚀 Puesta en Marcha
+
+**Para descargar, compilar y ejecutar este proyecto en el entorno de TwinCAT 3, seguir una de estas dos opciones:**
+
+- Mediante el Campus Virtual
+- Mediante GIT
+ 
+### Mediante el Campus Virtual
+
+1. **Copiar** a tu equipo local el fichero `CV > Automatización > ejemplos > tc3_demo > tc3_demo.tnzip` que hay en la carpeta del campus virtual.
+2. **Seguir el procedimiento** descrito [aquí](../../contenidos/01_conceptos/#abrir-un-fichero-tnzip).
+
+### Mediante GIT
+
+1. **Clonar Repositorio:**
+
+```bash
+git clone https://github.com/vetorres-uma/TC3_Demo.git
+```
+
+2. **Abrir el Proyecto:** abra el archivo `.sln` (Solución) ubicado en la carpeta principal utilizando el entorno de ingeniería **TwinCAT XAE** (integrado en Visual Studio).
+1. **Selección del Controlador:** seleccione el simulador (**UmRT_Default**) o controlador local o remoto (**Choose Runtime System**).
+1. **Activación de Configuración:** en el modo **Configuración**, active la configuración (**Activate Configuration**) y reinicie TwinCAT en modo **Ejecución (Run Mode)**.
+1. **Carga del Código:** en el entorno PLC, inicie la sesión y descargue el programa al PLC (**Login**).
+1. **Poner el código en ejecución:** ejecute la lógica de control en el controlador (**Start**). Puede utilizar la visualización integrada en el proyecto PLC para facilitar la prueba.
 
 ---
 
