@@ -13,6 +13,18 @@
 <NombreVariable> : <tipo> [:=<ValorInicial>]
 ```
 
+Los tipos de datos más utilizados son los siguientes:
+
+| Tipo de dato        | Descripción |
+|---------------------|-------------|
+| `BOOL`              | Variable booleana/binaria. Solo puede valer `TRUE` o `FALSE`. |
+| `INT`               | Entero con signo de 16 bits (-32768 a 32767). |
+| `UINT`              | Entero sin signo de 16 bits (0 a 65535). |
+| `FLOAT`             | Número real en coma flotante (32 bits). Permite decimales. |
+| `TIME`              | Tipo de dato para representar tiempos o duraciones. |
+| `R_TRIG`            | Bloque de función para detectar flanco ascendente (`FALSE` → `TRUE`). |
+| `ARRAY[x..y] OF ...`| Conjunto de variables del mismo tipo indexadas entre `x` e `y`. |
+
 !!! question "Ejemplo"
     ```pascal
     // bool
@@ -55,7 +67,7 @@
         !!! question "Ejemplo"
             `Ocupado[1] := TRUE;`
 
-- Las variables en TC3 se declaran dentro de los ámbitos existentes en el POU correspondiente: **marcas** (locales), **entrada** y **salida**.
+- Las variables en TC3 se declaran dentro de los ámbitos existentes en el POU correspondiente: **locales**, **entrada** y **salida**.
 
 ### Variables locales
 
