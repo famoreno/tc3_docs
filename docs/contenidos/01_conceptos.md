@@ -2,6 +2,8 @@
 
 --8<-- "contenidos/01_conceptos/00_leyenda.md"
 ---
+--8<-- "contenidos/01_conceptos/15_tc3_interfaz.md"
+---
 --8<-- "contenidos/01_conceptos/01_tc3_crear_soluciones.md"
 ---
 --8<-- "contenidos/01_conceptos/02_tc3_declarar_variables.md"
