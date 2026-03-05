@@ -13,7 +13,7 @@ Una vez el programa está implementado (independientemente del lenguaje utilizad
 El programa puede ser ejecutado en distintos "controladores"
 
 - Emulador `Local`.
-- Simulador `Um_RT` (*User Mode Real Time*). <font color="red">Recomendado para el laboratorio.</font>
+- Simulador `Um_RT_Default` (*User Mode Real Time*). <font color="red">Recomendado para el laboratorio.</font>
 - Controlador remoto (PLC).
 
 #### Emulador local
