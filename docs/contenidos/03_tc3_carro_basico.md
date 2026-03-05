@@ -29,7 +29,7 @@ El funcionamiento del carro básico es como sigue.
 
 1. El carro se pone en marcha hacia la derecha cuando se acciona el pulsador de marcha. 
 1. Cuando el carro alcanza el final de carrera derecha invierte el sentido de la marcha.
-1. El carro se deteine al alcanzar, de nuevo,  el final de carrera izquierda (posición inicial).
+1. El carro se detiene al alcanzar, de nuevo,  el final de carrera izquierda (posición inicial).
 
 - **Condición inicial**: carro detenido sobre el final de carrera izquierda.
 
