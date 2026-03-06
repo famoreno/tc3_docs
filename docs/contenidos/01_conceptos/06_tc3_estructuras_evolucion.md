@@ -1,6 +1,6 @@
-## 🔀 Estructuras de evolución
+### Estructuras de evolución
 
-### Secuencia básica
+#### Secuencia básica
 
 - Una secuencia básica se compone de una **sucesión lineal de etapas y transiciones**, donde las primeras se van a ir ejecutando en secuencia conforme las condiciones asociadas a las segundas se vayan cumpliendo.
 
@@ -10,7 +10,7 @@
 
 - Para insertar un salto detrás de una transición, hay que hacer **CD** sobre la transición y seleccionar ***Insert jump after***. Solo hay que indicar el nombre de la etapa a la que queremos saltar.
 
-### Bifurcación
+#### Bifurcación
 
 - Tras una etapa podemos realizar una **bifurcación** en distintas ramas en función de distintas condiciones. Esto nos permite dirigir la secuencia por un camino si ocurre un evento y por otros distintos si ocurren otros eventos.
 
@@ -26,7 +26,7 @@
 
 - Si ocurriera que varias o todas las condiciones son verdaderas a la vez, el programa evolucionará por la rama de la izquierda. **Aunque esto puede ser útil en algunos casos, esto suele indicar que hay un mal diseño en el programa.**
 
-### Paralelismo
+#### Paralelismo
 
 - Si queremos que el programa evolucione por dos secuencias en paralelo (se ejecutan simultáneamente) podemos incluir un paralelismo en el código.
 

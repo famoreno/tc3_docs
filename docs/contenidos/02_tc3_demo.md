@@ -56,6 +56,34 @@ Este proyecto incluye además, una **visualización** elemental que permite inte
 
 ---
 
+## 🚀 Descargar el ejemplo
+
+**Para descargar, compilar y ejecutar este proyecto en el entorno de TwinCAT 3, seguir una de estas dos opciones:**
+
+- Mediante el Campus Virtual
+- Mediante GIT
+ 
+### Mediante el Campus Virtual
+
+1. **Copiar** a tu equipo local el fichero `CV > Automatización > ejemplos > 1_tc3_demo > tc3_demo.tnzip` que hay en la carpeta del campus virtual.
+2. **Seguir el procedimiento** descrito [aquí](../../contenidos/01_conceptos/#abrir-un-fichero-tnzip) para generar la **Solución** a partir del fichero.
+
+### Mediante GIT
+
+1. **Clonar Repositorio:**
+
+```bash
+git clone https://github.com/vetorres-uma/TC3_Demo.git
+```
+
+2. **Abrir el Proyecto:** abra el archivo `.sln` (Solución) ubicado en la carpeta principal utilizando el entorno de ingeniería **TwinCAT XAE** (integrado en Visual Studio).
+1. **Selección del Controlador:** seleccione el simulador (**UmRT_Default**) o controlador local o remoto (**Choose Runtime System**).
+1. **Activación de Configuración:** en el modo **Configuración**, active la configuración (**Activate Configuration**) y reinicie TwinCAT en modo **Ejecución (Run Mode)**.
+1. **Carga del Código:** en el entorno PLC, inicie la sesión y descargue el programa al PLC (**Login**).
+1. **Poner el código en ejecución:** ejecute la lógica de control en el controlador (**Start**). Puede utilizar la visualización integrada en el proyecto PLC para facilitar la prueba.
+
+---
+
 ## 🔨 Replicar el proyecto
 
 **Para replicar la creación de la solución completa, seguir este procedimiento:**
@@ -167,34 +195,6 @@ Ahora vamos a ejecutar el programa en un **controlador remoto** (por ejemplo, un
 
         !!! warning "Importante"
             Esto se debe a que la ejecución del ciclo básico hace que el valor del pulsador **se actualice con el valor del pulsador físico** al inicio de cada ciclo, sobreescribiendo el valor que fija el botón de la visualización. 
-
----
-
-## 🚀 Descargar el ejemplo
-
-**Para descargar, compilar y ejecutar este proyecto en el entorno de TwinCAT 3, seguir una de estas dos opciones:**
-
-- Mediante el Campus Virtual
-- Mediante GIT
- 
-### Mediante el Campus Virtual
-
-1. **Copiar** a tu equipo local el fichero `CV > Automatización > ejemplos > 1_tc3_demo > tc3_demo.tnzip` que hay en la carpeta del campus virtual.
-2. **Seguir el procedimiento** descrito [aquí](../../contenidos/01_conceptos/#abrir-un-fichero-tnzip) para generar la **Solución** a partir del fichero.
-
-### Mediante GIT
-
-1. **Clonar Repositorio:**
-
-```bash
-git clone https://github.com/vetorres-uma/TC3_Demo.git
-```
-
-2. **Abrir el Proyecto:** abra el archivo `.sln` (Solución) ubicado en la carpeta principal utilizando el entorno de ingeniería **TwinCAT XAE** (integrado en Visual Studio).
-1. **Selección del Controlador:** seleccione el simulador (**UmRT_Default**) o controlador local o remoto (**Choose Runtime System**).
-1. **Activación de Configuración:** en el modo **Configuración**, active la configuración (**Activate Configuration**) y reinicie TwinCAT en modo **Ejecución (Run Mode)**.
-1. **Carga del Código:** en el entorno PLC, inicie la sesión y descargue el programa al PLC (**Login**).
-1. **Poner el código en ejecución:** ejecute la lógica de control en el controlador (**Start**). Puede utilizar la visualización integrada en el proyecto PLC para facilitar la prueba.
 
 ---
 

@@ -16,7 +16,7 @@
 Las acciones continuas se ejecutan de manera continuada mientras el sistema está en la etapa asociada. Esto nos va a permitir:
 
 - **Activar una señal booleana** durante todo el tiempo que la etapa esté activa. 
-- **Ejecutar una acción más compleja** asociada al **FB** de manera continua mientras la etapa esté activa.
+- **Ejecutar una acción condicionada** asociada a la etapa, es decir, queremos activar una señal en esta etapa **condicionada** a que una expresión lógica sea verdadera.
 
 El procedimiento para su creación es el siguiente:
 
@@ -45,15 +45,15 @@ Existen varios tipos de modificadores de acciones:
 !!! warning "Importante"
     Usaremos, por defecto, las **acciones no memorizadas**, aunque se pueden usar las otras si tiene sentido para el proyecto.
 
-##### Acción compleja
+##### Acción condicionada
 
-Si, por el contrario, lo que queremos asociar a esta etapa es una **acción compleja**, tendremos que realizar el siguiente procedimiento:
+Si, por el contrario, lo que queremos asociar a esta etapa es una **acción condicionada**, tendremos que realizar el siguiente procedimiento:
 
 - Añadir una acción haciendo **CD** sobre el FB donde queremos usar la acción y seleccionar `Add > Action...`
 
     ![Imagen](../images/01_conceptos/add_action.png){width=400px}
 
-- Especificar el nombre de la acción que queramos y seleccionar el lenguaje en el que la vamos a implementar.
+- Especificar el nombre de la acción que queramos y seleccionar el lenguaje en el que la vamos a implementar (`ST` habitualmente).
     
     ![Imagen](../images/01_conceptos/select_lang_action.png){width=250px}
 
@@ -64,7 +64,7 @@ Si, por el contrario, lo que queremos asociar a esta etapa es una **acción comp
 
     ```st
     BLK();
-    o_LamparaMarcha := (S0.x AND BLK.Q) OR NOT S0.x;
+    o_LamparaMarcha := (S0.x AND BLK.Q) OR NOT S0.x;  // acción condicionada que enciende la lámpara
     ```
 
 - Asociarlo a una etapa en la caja de acción contínua.
@@ -73,8 +73,8 @@ Si, por el contrario, lo que queremos asociar a esta etapa es una **acción comp
 
 - A partir de este momento, el código de la acción se ejecutará de **manera continua** (en cada ciclo básico del PLC) mientras la etapa asociada esté activa.
 
-#### Acción de entrada o salida
-También podemos crear acciones con activación **a la entrada** o **a la salida** de una etapa. Estas acciones se implementan en cualquiera de los lenguajes de la norma y permiten realizar acciones que se ejecutan **solo una vez** durante la etapa, en lugar de hacerse de manera continua.
+#### Acción memorizada
+También podemos crear acciones memorizadas con activación **a la entrada** o **a la salida** de una etapa. Estas acciones se implementan en cualquiera de los lenguajes de la norma y permiten realizar acciones que se ejecutan **solo una vez** durante la etapa, en lugar de hacerse de manera continua. Se utilizan para establecer valores de variables, actualizar contadores, comprobaciones, etc.
 
 ##### **A la entrada**
 - Las acciones con activación a la **entrada** se ejecutan solo una vez **inmediatamente después** de entrar en la etapa donde se asocian. **Posteriormente** se comprueba si la condición de transición para pasar a la siguiente etapa es cierta o no.
@@ -120,5 +120,5 @@ Una vez asociada a la etapa, aparece representada en el diagrama SFC con un tri�
 ![Imagen](../images/01_conceptos/main_action_step.png){width=140px}
 
 !!! warning "Importante" 
-    Conceptualmente no hay diferencia sustancial con las acciones complejas utilizadas en las cajas de acción, pero tomaremos la convención de utilizar este tipo de acciones cuando **las variables involucradas no estén relacionadas con las E/S *hardware* de nuestro sistema** y las **acciones en la caja de acción** en caso contrario.
+    Conceptualmente no hay diferencia sustancial con las acciones condicionadas utilizadas en las cajas de acción, pero tomaremos la convención de utilizar este tipo de acciones cuando **las variables involucradas no estén relacionadas con las E/S *hardware* de nuestro sistema** y las **acciones condicionadas** en caso contrario.
 

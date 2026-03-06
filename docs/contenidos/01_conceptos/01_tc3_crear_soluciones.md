@@ -53,7 +53,37 @@
 
 ### Crear bloque funcional
 
+Habitualmente, encapsularemos las funcionalidades del sistema en **bloques funcionales**. 
+Un bloque funcional (**Function Block** o **FB**) es *módulo* de programa que encapsula **datos** y **comportamiento** para realizar una tarea concreta dentro del control de un PLC. 
+A diferencia de una función simple, un bloque funcional **mantiene memoria interna entre ciclos de ejecución**, lo que permite modelar cosas que tienen estado, como temporizadores, contadores o el control de una estación. 
+Se utiliza **creando una instancia** del bloque en el programa y llamándola en cada ciclo, pasando entradas y recibiendo salidas, mientras el bloque conserva sus variables internas para saber qué ocurrió en ciclos anteriores.
+
+!!! warning "Importante"
+    Nuestro `Ejemplo - Demo`, al ser solo un ejemplo sencillo, no hace uso de bloques funcionales, sino que implementa toda la funcionalidad en el programa principal, pero esto no será lo habitual.
+
+Para crear un FB, seguimos este procedimiento:
+
 1. Hacer **CD** sobre la sección `POUs`.
 2. Seleccionar `Add → POU → Functional Block`.
 3. Darle un nombre significativo.
 4. Seleccionar el lenguaje a utilizar. Normalmente utilizaremos `ST` o `SFC`.
+
+### Instanciar bloque funcional
+
+Para hacer uso del bloque funcional en un programa, deberemos **instanciar** dicho FB y llamar a la instancia:
+
+!!! info "Declaración"
+    ```pascal
+    PROGRAM MAIN
+    VAR
+        Carro: FB_Carro;
+    END_VAR
+    ```
+    
+!!! info "Código"
+    ```pascal
+    Carro();
+    ```
+
+!!! tip "Nota"
+    Un bloque funcional puede ser instanciado y usado dentro de otro bloque funcional.
