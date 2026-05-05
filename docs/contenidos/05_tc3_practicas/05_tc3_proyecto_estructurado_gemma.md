@@ -69,8 +69,8 @@ El proyecto desarrollado debe tener implementar las siguientes funcionalidades (
 - `MAIN`: programa principal (`ST`)
     - `FB_Estacion`: contenedor principal (`ST`)
         - `FB_EstacionDirector`: gestor de los modos de funcionamiento (implementación del gráfico GDMMA) (`ST`).
-        - `FB_EstacionCoordinador`: implementa el grafcet coordinador de tareas (`SFC`).
-        - `FB_*`: implementa la lógica de control de la tarea; un bloque funcional por cada tarea (ej.: `FB_SituarPale`) (`SFC`).
+        - `FB_EstacionCoordinador_SFC`: implementa el grafcet coordinador de tareas (`SFC`).
+        - `FB_*_SFC`: implementa la lógica de control de la tarea; un bloque funcional por cada tarea (ej.: `FB_SituarPale`) (`SFC`).
 - `VISU_Estacion`: interfaz gráfica
 
 ## Itinerario
@@ -85,18 +85,18 @@ El proyecto desarrollado debe tener implementar las siguientes funcionalidades (
 
 - [ ] Crear un tipo `ENUM` para contener los modos de funcionamiento (`E_GEMMA`).
 - [ ] Crear una lista de textos para contener las descripciones de los modos de funcionamiento (`TL_GEMMA`).
-- [ ] Crear un director que implemente el gráfico **GDMMA** (`FB_EstacionDirector`).
-- [ ] Incluir, inicialmente, únicamente los modos: **"Parada en el estado inicial"** y **"Producción normal"** (`A1`, `F1`).
-- [ ] Incluir en la visualización la gestión de los modos de funcionamiento (etiqueta y descripción).
+- [ ] Crear un **director** en `ST` que implemente el gráfico **GDMMA** (`FB_EstacionDirector`).
+- [ ] Incluir, inicialmente, solo los modos: **"Parada en el estado inicial"** y **"Producción normal"** (`A1`, `F1`).
+- [ ] Incluir en la visualización la indicación de los modos de funcionamiento (etiqueta y descripción).
     - Utilizar textos dinámicos para la descripción.
-- [ ] Integrar el director en `FB_Estacion`.
+- [ ] Integrar el director en `FB_Estacion`: declaración de variable, invocación y ajuste de parámetros de entrada y salida.
 - [ ] Añadir, integrar y validar poco a poco nuevos modos (`FB_Estacion`, `FB_Director`, `VISU_Estacion`).
     - **"Verificación en desorden"** (modo manual) (`F4`).
     - **"Situando la PO en el estado inicial"** para recuperar las condiciones iniciales (`A6`).
-        - Incluir la tarea `FB_EstacionRestaurar` que implemente la secuencia de restauración.
+        - Incluir la tarea `FB_EstacionRestaurar_SFC` que implemente la secuencia de restauración.
     - **"Parada de emergencia"** (`D1`).
     - **"Parada solicitada a final de ciclo"** (`A2`).
     - **"Secuencia de preparación"** (`F2`).
-        - Incluir la tarea `FB_EstacionPreparar` que implemente la secuencia de preparación.
+        - Incluir la tarea `FB_EstacionPreparar_SFC` que implemente la secuencia de preparación.
     - **"Secuencia de cierre"** (`F3`).
-        - Incluir la tarea `FB_EstacionFinalizar` que implemente la secuencia de finalización.
+        - Incluir la tarea `FB_EstacionFinalizar_SFC` que implemente la secuencia de finalización.

@@ -56,9 +56,9 @@ El proyecto desarrollado debe tener implementar las siguientes funcionalidades (
 
 - `MAIN`: programa principal (`ST`)
     - `FB_Estacion`: contenedor principal (`ST`)
-        - `FB_EstacionDirector`: implementa el gestor de modos del sistema (`SFC`).
-        - `FB_EstacionCoordinador`: implementa el grafcet coordinador de tareas (`SFC`).
-        - `FB_*`: implementa la lógica de control de la tarea; un bloque funcional por cada tarea (ej.: `FB_SituarPale`) (`SFC`).
+        - `FB_EstacionDirector_SFC`: implementa el gestor de modos del sistema (`SFC`).
+        - `FB_EstacionCoordinador_SFC`: implementa el grafcet coordinador de tareas (`SFC`).
+        - `FB_*_SFC`: implementa la lógica de control de la tarea; un bloque funcional por cada tarea (ej.: `FB_SituarPale`) (`SFC`).
 - `VISU_Estacion`: interfaz gráfica
 
 ## Itinerario
@@ -72,32 +72,38 @@ El proyecto desarrollado debe tener implementar las siguientes funcionalidades (
     📃 Versión descargable [aquí](../../pdfs/Checklist_Itinerario_Proyecto_Estructurado.pdf){target="_blank"}.
 
 - [ ] Renombrar `FB_Estacion` por `_FB_Estacion_Monolitico`.
-- [ ] Crear un nuevo `FB_Estacion` (`ST`).
+- [ ] Crear un nuevo `FB_Estacion` en lenguaje `ST`.
 - [ ] Trasladar toda la parte de declaración de `_FB_Estacion_Monolitico` a `FB_Estacion`.
 - [ ] Eliminar la invocación al proceso (`MAIN`).
 - [ ] Eliminar la gestión del modo manual (`MAIN`).
-- [ ] Implementar las tareas (funcionalidades).
-    - Crear los bloques funcionales de cada tarea una por una (`FB_*`).
-    - Dotar a cada bloque funcional de tarea de la estructura de rutina (`Execute`, `Ack`, `Ready`, `Done`) (`FB_*`).
-    - Incluir en cada tarea un parámetro de entrada para cada sensor y un parámetro de salida para cada actuador que necesite para cumplir su función (`FB_*`).
-    - Integrar cada tarea en la estación (declaración, invocación y parámetros de entrada y salida) (`FB_Estacion`).
-    - Validar cada tarea antes de iniciar la siguiente, usando el pulsador de marcha para iniciar la tarea seleccionada (`FB_Estacion`, `FB_*`).
-- [ ] Crear un coordinador de tareas secuencial (`FB_EstacionCoordinador`).
-    - Dotar al bloque funcional de coordinación de la estructura de rutina.
-    - Implementar únicamente la secuencia principal «directa».
-    - El coordinador dispondrá de parámetros de entrada y salidas para comunicarse con cada tarea de forma que, al menos, tenga un parámetro de salida (indicado en imperativo) para dar la orden de ejecución de la funcionalidad y un parámetro de entrada (indicado en participio pasado) para recibir la respuesta de que la tarea se ha completado satisfactoriamente.
-    - Integrar el coordinador de tareas en la estación (declaración, invocación y parámetros de entrada y salida) (`FB_Estacion`).
-    - Integrar el coordinador con cada una de las tareas (parámetros de entrada/salida) en el `FB_Estacion`.
-    - El pulsador de marcha inicia la ejecución del coordinador (`FB_Estacion`, `FB_EstacionCoordinador`).
+- [ ] Implementar las **tareas** (funcionalidades).
+    - Crear los bloques funcionales de cada tarea una por una (`FB_*_SFC`), incluyendo `FB_EstacionPreparar_SFC`, `FB_EstacionFinalizar_SFC`, `FB_EstacionRestaurar_SFC`.
+    - Dotar a cada bloque funcional de tarea de la estructura de rutina SFC (`Execute`, `Ack`, `Ready`, `Done`) (`FB_*_SFC`).
+    - Incluir en cada tarea un **parámetro de entrada** para cada sensor que necesite utilizar y un **parámetro de salida** para cada actuador que necesite para cumplir su función (`FB_*_SFC`).
+    - Integrar cada tarea en la estación (declarar una variable cuyo tipo es el correspondiente **FB**, invocarlo en el código y especificar sus parámetros de entrada y salida) (`FB_Estacion`).
+    - Validar cada tarea antes de iniciar la siguiente, usando el pulsador de marcha para iniciar la tarea seleccionada (`FB_Estacion`, `FB_*_SFC`).
+- [ ] Crear un **coordinador** de tareas secuencial en lenguaje `SFC` (`FB_EstacionCoordinador_SFC`).
+    - Dotar al bloque funcional de coordinación de la estructura de rutina SFC.
+    - Implementar únicamente la secuencia principal «directa» (la equivalente a un ciclo completo de producción).
+    - El coordinador dispondrá de parámetros de entrada y salida para comunicarse con cada tarea de forma que, al menos, tenga un parámetro de salida (indicado en imperativo) para dar la orden de ejecución de la funcionalidad y un parámetro de entrada (indicado en participio pasado) para recibir la respuesta de que la tarea se ha completado satisfactoriamente. Ejemplo: `AlimentaBase` y `BaseAlimentada`.
+    - Integrar el coordinador de tareas en la estación (declarar una variable de tipo `FB_EstacionCoordinador_SFC`, invocarlo y especificar sus parámetros de entrada y salida) (`FB_Estacion`).
+    - Integrar el coordinador con cada una de las tareas (ajustar los parámetros de entrada/salida) en el `FB_Estacion`.
+    - Usar el pulsador de marcha para iniciar una **prueba** de ejecución del coordinador (`FB_Estacion`, `FB_EstacionCoordinador_SFC`).
+- [ ] Crear un **director** para la gestión del modo de funcionamiento en lenguaje `SFC` (`FB_EstacionDirector_SFC`).
+    - Incluir la secuencia principal para la **Preparación**, **Producción** y **Finalización** (`FB_EstacionDirector_SFC`, `FB_*_SFC`).
 - [ ] Incluir la gestión de las condiciones iniciales (`FB_Estacion`).
-- [ ] Incluir la gestión de la tarea (`FB_Estacion`, `FB_EstacionCoordinador`).
-- [ ] Incluir la gestión de la falta de material (`FB_*`).
-- [ ] Incluir la gestión del tipo de pieza, si procede (`VISU_Estacion`).
+- [ ] Incluir la gestión de la tarea: contadores de maniobras (`FB_Estacion`, `FB_EstacionDirector_SFC`, `FB_EstacionCoordinador_SFC`).
+    - Declaración en `FB_Estacion`.
+    - Paso como parámetros de entrada a `FB_EstacionDirector_SFC` y `FB_EstacionCoordinador_SFC`.
+    - Inicialización en `FB_EstacionDirector_SFC`.
+    - Actualización en `FB_EstacionCoordinador_SFC`.
+- [ ] Incluir la gestión de la falta de material en la tarea que se encargue de ella (`FB_*_SFC`).
+- [ ] Incluir la gestión del tipo de pieza, si procede, en la tarea que se encargue de ella y en la visualización (`FB_*_SFC`, `VISU_Estacion`).
 - [ ] Incluir la gestión del panel de operador (señalización) (`FB_Estacion`).
-- [ ] Implementar la parada solicitada a final de ciclo (`FB_Director`).
+- [ ] Implementar la parada solicitada a final de ciclo (`FB_EstacionDirector_SFC`).
 - [ ] Implementar la parada inmediata (`SFCPause`) con detención de los actuadores (según convenga) (`FB_Estacion`).
 - [ ] Incluir funcionalidades adicionales.
     - Funcionamiento ciclo-a-ciclo (`FB_Estacion`).
     - Reinicio (`SFCReset`).
-    - Secuencia de restauración (`FB_Director`, `FB_*`).
-    - Secuencias paralelas (opcional) (`FB_EstacionCoordinador`).
+    - Incluir la secuencia de **Restauración** (`FB_EstacionDirector_SFC`, `FB_*_SFC`).
+    - Secuencias paralelas (**opcional**) (`FB_EstacionCoordinador_SFC`).

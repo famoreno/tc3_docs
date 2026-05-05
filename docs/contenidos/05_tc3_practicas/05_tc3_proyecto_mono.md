@@ -100,5 +100,5 @@ El proyecto desarrollado debe tener las siguientes funcionalidades:
     - [ ] Funcionamiento ciclo-a-ciclo.
     - [ ] Reinicio (`SFCReset`).
     - [ ] Implementar la parada inmediata (`SFCPause`).
-    - [ ] Secuencias paralelas (opcional).
-    - [ ] Normalización y escalado de las señales analógicas, si procede (opcional).
+    - [ ] Secuencias paralelas (**opcional**).
+    - [ ] Normalización y escalado de las señales analógicas, si procede (**opcional**).
