@@ -8,11 +8,11 @@ Se recomienda llamar a las soluciones de TC3 de la misma forma que los Proyectos
 
 Para renombrarlo una vez creado:
 
-  1. **CD** sobre el nombre de la solución y seleccionar ***Rename***.
+  1.  **CD** sobre el nombre de la solución y seleccionar ***Rename***.
 
     ![Imagen](../images/01_conceptos/image%2018.png){width=240px}
 
-  2. Escribir el nuevo nombre.
+  1.  Escribir el nuevo nombre.
 
 ### Proyectos TwinCAT3
 
@@ -22,16 +22,15 @@ Para renombrarlo una vez creado:
 
         !!! question "Ejemplo"
             `TC3_Lampara`
-            
-            `TC3_Carro`
 
+            `TC3_Carro`
 
     - **Para los trabajos finales**: `[codigo]_TC3_G[grupo]`  
       donde `codigo` debe escogerse según la asignatura (`AIM`, `AIE`, `SR`, etc.) y `grupo` debe ser el número del grupo con dos dígitos (`01`, `02`, ...).
 
         !!! question "Ejemplo"
             `AIM_TC3_G01`
-            
+
             `SR_TC3_G12`
 
     - Códigos de las asignaturas:
@@ -55,7 +54,7 @@ Para renombrarlo una vez creado:
 
     !!! question "Ejemplo"
         `Lampara_PLC`
-            
+
         `FMS201_Monolitico_PLC`
 
 - Para renombrarlo una vez creado:
@@ -63,13 +62,13 @@ Para renombrarlo una vez creado:
 
         ![Imagen](../images/01_conceptos/image%2020.png){width=240px}
 
-    3. Escribir el nuevo nombre.
-    4. Aparecerá un aviso indicando que si se cambia el nombre del proyecto no se van a poder hacer cambios online (en caso de que se esté ejecutando). **CI** en Sí.
+    2. Escribir el nuevo nombre.
+    3. Aparecerá un aviso indicando que si se cambia el nombre del proyecto no se van a poder hacer cambios online (en caso de que se esté ejecutando). **CI** en Sí.
 
         ![Imagen](../images/01_conceptos/image%2021.png){width=432px}
 
-    5. Tras unos segundos, el proyecto PLC habrá cambiado de nombre.
-    6. **Importante:** Puede ocurrir que, tras el cambio de nombre, al hacer **CI** sobre el proyecto, salga un aviso de error por no encontrar el nombre anterior. Esto se debe solucionar haciendo **CI** sobre `Build → Rebuild Solution`.
+    4. Tras unos segundos, el proyecto PLC habrá cambiado de nombre.
+    5. **Importante:** Puede ocurrir que, tras el cambio de nombre, al hacer **CI** sobre el proyecto, salga un aviso de error por no encontrar el nombre anterior. Esto se debe solucionar haciendo **CI** sobre `Build → Rebuild Solution`.
 
 ### Bloques Funcionales
 
@@ -80,7 +79,7 @@ Para renombrarlo una vez creado:
 
     !!! question "Ejemplo"
         `FB_Estacion_ST`
-        
+
         `FB_Coordinador_ST`
         
         `FB_Alimentador_SFC`
@@ -89,11 +88,11 @@ Para renombrarlo una vez creado:
     1. **CD** sobre el nombre del **FB** y seleccionar ***Rename***.
     2. Escribir el nuevo nombre.
     3. Aparecerá un aviso indicando que se van a adaptar todas las referencias en el proyecto. Pulsar en ***Yes***.
-    
+
         ![Imagen](../images/01_conceptos/image%2022.png){width=384px}
-    
+
     4. Aparecerá una ventana mostrando todos los cambios que se van a realizar. Pulsar en **OK**.
-    
+
         ![Imagen](../images/01_conceptos/image%2023.png){width=598px}
 
 ### Variables
@@ -102,10 +101,9 @@ Para renombrarlo una vez creado:
 - Si las variables se van a asociar con los terminales de entrada y salida, es **obligatorio** llamarlas con el nombre indicado en la columna **Variable** de la tabla de E/S.
 - Para renombrar una variable y que ese cambio se corrija en todas las referencias que se hagan a la misma en el proyecto, hay que hacer **CD** sobre el nombre de la variable y seleccionar `Refactoring → Rename`.
 - Aparecerá un *popup* donde se debe indicar el nuevo nombre.
-    
+
     ![Imagen](../images/01_conceptos/image%2024.png){width=240px}
 
 - Aparecerá una ventana mostrando todos los cambios que se van a realizar. Pulsar en **OK**.
 
     ![Imagen](../images/01_conceptos/image%2025.png){width=626px}
-

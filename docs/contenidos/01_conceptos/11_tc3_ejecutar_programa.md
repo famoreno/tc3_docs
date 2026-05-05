@@ -2,10 +2,10 @@
 
 El procedimiento para ejecutar el programa implica, habitualmente, la siguiente secuencia de pasos:
 
-- Seleccionar el controlador que queremos que ejecute el mismo. 
+- Seleccionar el controlador que queremos que ejecute el mismo.
 - Posteriormente, compilaremos el proyecto y activaremos la configuración.
 - Descargaremos el programa en el controlador.
-- Finalmente pondremos el programa en ejecución. 
+- Finalmente pondremos el programa en ejecución.
 
 Este proceso lo llamaremos, de manera informal, el **Ciclo Básico del Programador en TC3**.
 
@@ -21,11 +21,11 @@ El programa puede ser ejecutado en distintos "controladores"
 
 #### Emulador local
 
-Para poder usar este controlador debemos haberle dejado a TwinCAT 3 que tuviera acceso al *kernel* de Windows durante la instalación, de manera que pueda hacer uso de, al menos, un *core* del equipo para ejecutar el programa. 
+Para poder usar este controlador debemos haberle dejado a TwinCAT 3 que tuviera acceso al *kernel* de Windows durante la instalación, de manera que pueda hacer uso de, al menos, un *core* del equipo para ejecutar el programa.
 
 El emulador local ejecuta el programa exactamente de la misma manera que si lo hiciéramos en un equipo remoto pero, obviamente, no tenemos acceso al *hardware*. De esta forma, podremos interactuar con las variables de entrada y salida mediante la escritura/forzado de variables o usando la visualización (si hemos diseñado alguna para controlar las variables).
 
-En este caso no tendremos que asociar las variables a los terminales de E/S ya que no habrá ninguno disponible.
+En este caso no tendremos que asociar las variables a los terminales de E/S, ya que no habrá ninguno disponible.
 
 Para usar este controlador, simplemente asegúrate de seleccionar `Local` en el desplegable del `Target`.
 
@@ -61,7 +61,7 @@ Una vez hecho esto, aparecerá el texto `UmRT_Default` en el desplegable del `ta
 
 Por último, podremos ejecutar nuestro programa en un controlador remoto (por ejemplo, el PLC de la estación FMS20x). De esta manera, tendremos acceso al *hardware* que esté conectado al controlador y podremos interactuar con él.
 
-Para usar este controlador, lo seleccionaremos en el desplegable de `Target`. 
+Para usar este controlador, lo seleccionaremos en el desplegable de `Target`.
 ![Imagen](../images/01_conceptos/target_umrt_default.png){width=200px}
 
 !!! warning "Importante"
@@ -70,17 +70,18 @@ Para usar este controlador, lo seleccionaremos en el desplegable de `Target`.
 Al usar este controlador, tendremos acceso al *hardware* conectado a él, y podremos vincular las variables que hemos declarado en las imágenes de entrada y salida con los terminales y canales que queramos. Para ello, simplemente repetiremos este proceso para cada variable:
 
 - **DCI** sobre la variable a vincular en la lista que aparece en la sección de instancia del proyecto.
-    
+
     ![Imagen](../images/01_conceptos/image%2026.png){width=200px}
 
 - Seleccionar el terminal/canal deseado del listado que aparece.
 
 ### Compilar programa
+
 Una vez el programa está implementado (independientemente del lenguaje utilizado):
 
 - Compilar el proyecto: Menú `Build → Build [nombre del proyecto]`.
 - Asegurarse de que no hay errores.
-- Si has declarado variables en las **imágenes de entrada y/o salida**:     
+- Si has declarado variables en las **imágenes de entrada y/o salida**:
     - **Verificar** que las variables aparecen en la zona de la instancia.
         ![Imagen](../images/01_conceptos/image%2026.png){width=200px}
 
@@ -92,7 +93,7 @@ Para ello, deberemos pulsar el icono de ***Activate Configuration*** y activar e
 
 ![Imagen](../images/01_conceptos/image%2028.png){width=40px}
 
-### Transferir y ejecutar programa 
+### Transferir y ejecutar programa
 
 Posteriormente, debemos enviar el programa al controlador pulsando el icono de ***Login***, tras lo que se preguntará, en un *popup*, si queremos crear un puerto de comunicación con el controlador y descargar el programa. Pulsaremos en ***Yes***.
 

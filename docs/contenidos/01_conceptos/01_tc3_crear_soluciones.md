@@ -30,32 +30,32 @@
 2. Hacer **CD** sobre la sección `PLC` y seleccionar ***Add New Item***.
 3. Seleccionar ***Standard PLC Project***, darle un nombre y pulsar ***Add***.  
     ![Imagen](../images/01_conceptos/image%203.png){width=384px}
-        
+
     !!! question "Ejemplo"
         `Lampara_PLC`
 
-1. En la sección de `SYSTEM > Tasks` aparecerá por defecto una nueva tarea `PLC Task` con sus parámetros por defecto (ej. 10 ms de ciclo).
-2. En la sección `PLC` aparece el proyecto con dos secciones nuevas:
+4. En la sección de `SYSTEM > Tasks` aparecerá por defecto una nueva tarea `PLC Task` con sus parámetros por defecto (ej. 10 ms de ciclo).
+5. En la sección `PLC` aparece el proyecto con dos secciones nuevas:
     1. `Project`
-          1. `External Types`. Almacena definiciones de tipos de datos externos que provienen de fuentes externas al PLC.
-          2. `References`. Listado de referencias a las librerías utilizadas en el proyecto.
-          3. `DUTs`. Tipos de Dato de Usuario (*Data User Types*) (`ENUM`, `STRUCT`).
-          4. `GVLs`. Listas de Variables Globales (*Global Variables Lists*).
-          5. `POUs`. Unidades de Organización del Programa (Program Organization Units). Programas, bloques funcionales y funciones que implementaremos.
-          6. `VISUs`. Visualizaciones creadas.
-          7. Tarea creada (`PLCTask`) y programa `MAIN`
-   
+          1.  `External Types`. Almacena definiciones de tipos de datos externos que provienen de fuentes externas al PLC.
+          2.  `References`. Listado de referencias a las librerías utilizadas en el proyecto.
+          3.  `DUTs`. Tipos de Dato de Usuario (*Data User Types*) (`ENUM`, `STRUCT`).
+          4.  `GVLs`. Listas de Variables Globales (*Global Variables Lists*).
+          5.  `POUs`. Unidades de Organización del Programa (Program Organization Units). Programas, bloques funcionales y funciones que implementaremos.
+          6.  `VISUs`. Visualizaciones creadas.
+          7.  Tarea creada (`PLCTask`) y programa `MAIN`
+
             ![Imagen](../images/01_conceptos/image%204.png){width=132px}
-    
+
     2. `Instance`. Aquí aparecerán las variables en las imágenes de Entrada y Salida.
- 
-3. A partir de aquí se puede empezar a implementar el proyecto.
+
+6. A partir de aquí se puede empezar a implementar el proyecto.
 
 ### Crear bloque funcional
 
-Habitualmente, encapsularemos las funcionalidades del sistema en **bloques funcionales**. 
-Un bloque funcional (**Function Block** o **FB**) es *módulo* de programa que encapsula **datos** y **comportamiento** para realizar una tarea concreta dentro del control de un PLC. 
-A diferencia de una función simple, un bloque funcional **mantiene memoria interna entre ciclos de ejecución**, lo que permite modelar cosas que tienen estado, como temporizadores, contadores o el control de una estación. 
+Habitualmente, encapsularemos las funcionalidades del sistema en **bloques funcionales**.
+Un bloque funcional (**Function Block** o **FB**) es *módulo* de programa que encapsula **datos** y **comportamiento** para realizar una tarea concreta dentro del control de un PLC.
+A diferencia de una función simple, un bloque funcional **mantiene memoria interna entre ciclos de ejecución**, lo que permite modelar cosas que tienen estado, como temporizadores, contadores o el control de una estación.
 Se utiliza **creando una instancia** del bloque en el programa y llamándola en cada ciclo, pasando entradas y recibiendo salidas, mientras el bloque conserva sus variables internas para saber qué ocurrió en ciclos anteriores.
 
 !!! warning "Importante"
@@ -63,10 +63,10 @@ Se utiliza **creando una instancia** del bloque en el programa y llamándola en 
 
 Para crear un FB, seguimos este procedimiento:
 
-1. Hacer **CD** sobre la sección `POUs`.
-2. Seleccionar `Add → POU → Function Block`.
-3. Darle un nombre significativo.
-4. Seleccionar el lenguaje a utilizar. Normalmente utilizaremos `ST` o `SFC`.
+1.  Hacer **CD** sobre la sección `POUs`.
+2.  Seleccionar `Add → POU → Function Block`.
+3.  Darle un nombre significativo.
+4.  Seleccionar el lenguaje a utilizar. Normalmente, utilizaremos `ST` o `SFC`.
 
 ### Instanciar bloque funcional
 
@@ -79,7 +79,7 @@ Para hacer uso del bloque funcional en un programa, deberemos **instanciar** dic
         Carro: FB_Carro;
     END_VAR
     ```
-    
+
 !!! info "Código"
     ```pascal
     Carro();

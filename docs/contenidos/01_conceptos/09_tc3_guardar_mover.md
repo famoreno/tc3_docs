@@ -1,8 +1,8 @@
 ## 💾 Guardar y mover proyectos
 
 !!! warning "Importante"
-    Se ha detectado que el sincronizar la carpeta del proyecto usando servicios como **Google Drive** está produciendo problemas a la hora de poder abrir los proyectos. Posiblemente esto se deba a que algunos ficheros no son sincronizados correctamente por Drive (por motivos desconocidos), lo que lleva a que, a la hora de abrir el proyecto, no se carguen los ficheros necesarios. 
-    
+    Se ha detectado que el sincronizar la carpeta del proyecto usando servicios como **Google Drive** está produciendo problemas a la hora de poder abrir los proyectos. Posiblemente esto se deba a que algunos ficheros no son sincronizados correctamente por Drive (por motivos desconocidos), lo que lleva a que, a la hora de abrir el proyecto, no se carguen los ficheros necesarios.
+
     **Se recomienda, por tanto, no usar este método sino alguno de los otros.**
 
 ### Usando la carpeta completa
@@ -12,7 +12,7 @@
 
     ![Imagen](../images/01_conceptos/image%2017.png){width=132px}
 
-4. Posteriormente, hacer **DCI** sobre el fichero de ***Solution*** (`.sln`) para que se abra de nuevo en TC3.
+3. Posteriormente, hacer **DCI** sobre el fichero de ***Solution*** (`.sln`) para que se abra de nuevo en TC3.
 
 !!! warning "Importante"
     Si la carpeta ha sido comprimida para ser trasladada, hay que asegurarse de haber descomprimido la carpeta completa en el destino antes de abrir el proyecto.
@@ -22,18 +22,19 @@
 !!! warning "Importante"
     La entrega final del proyecto deberá seguir este procedimiento.
 
-1. Este proceso genera el mínimo tamaño posible para trasladar un proyecto.
-2. Seleccionar `File → Save [nombre_del_proyecto] as Archive...`.
-3. Seleccionar dónde guardar el proyecto, darle un nombre y asegurarse de que el formato es de tipo `.tnzip`.
+1.  Este proceso genera el mínimo tamaño posible para trasladar un proyecto.
+2.  Seleccionar `File → Save [nombre_del_proyecto] as Archive...`.
+3.  Seleccionar dónde guardar el proyecto, darle un nombre y asegurarse de que el formato es de tipo `.tnzip`.
 
 #### Abrir un fichero `.tnzip`
+
 Una vez movido el fichero `.tnzip` al equipo destino, para volver a abrir el proyecto, seguimos este procedimiento:
 
 - Abrir TC3.
 - Seleccionar `File → Open → Solution from Archive...`.
 - Buscar el archivo `.tnzip`.
 - Seleccionar (o crear si no existe) la carpeta donde queremos que se genere la *Solution*.
-   
+
 !!! tip "Sugerencia"
     En principio, se puede seleccionar siempre la misma carpeta cada vez que se repita este procedimiento.
 
@@ -47,8 +48,7 @@ Una vez movido el fichero `.tnzip` al equipo destino, para volver a abrir el pro
 
 ### Usando GIT
 
-TwinCAT3, al estar basado en Visual Studio, tiene compatibilidad directa con GitHub. 
+TwinCAT3, al estar basado en Visual Studio, tiene compatibilidad directa con GitHub.
 Se recomienda seguir el tutorial en este video:
 
 [PLC Programming using TwinCAT 3 - Version control](https://www.youtube.com/watch?v=1g6eYnlzKtA)
-

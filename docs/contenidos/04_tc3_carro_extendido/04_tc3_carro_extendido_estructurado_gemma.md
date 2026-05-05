@@ -20,7 +20,7 @@ En este caso, la funcionalidad (secuencia) está distribuida en:
 
 - `Estación` (`ST`): contenedor principal
 - `Director` (`ST`): **implementación completa del gráfico GDMMA**
-- `Coordinador` (`SFC`): coordinación de tareas para la producción normal 
+- `Coordinador` (`SFC`): coordinación de tareas para la producción normal
 - `Tareas` (`SFC`): sub-secuencias que implementan las distintas funcionalidades (conjunto de etapas/transiciones con sentido propio)
 
 ![Arquitectura](../../images/04_tc3_carro_extendido/Carro_Extendido_Estructurado_GEMMA_Arquitectura.png){width=600px}
@@ -47,7 +47,7 @@ La lista de funcionalidades es idéntica a la de la versión <span class="fondo-
 
 ### Incorporación de la guía GEMMA en el `Director`
 
-En la implementación <span class="fondo-amarillo">**EST**</span>, el `Director` estaba implementado en `SFC` y encapsulaba la secuencia simplificada de la estación a alto nivel, incluyendo la producción. En esta nueva implementación, el `Director` abarca un ámbito mucho mayor, incorporando la **guía GEMMA** (*Guide d'Etude des Modes de Marche et d'Arrêt*) al sistema. 
+En la implementación <span class="fondo-amarillo">**EST**</span>, el `Director` estaba implementado en `SFC` y encapsulaba la secuencia simplificada de la estación a alto nivel, incluyendo la producción. En esta nueva implementación, el `Director` abarca un ámbito mucho mayor, incorporando la **guía GEMMA** (*Guide d'Etude des Modes de Marche et d'Arrêt*) al sistema.
 
 Esta guía es una herramienta metodológica que permite analizar los modos de funcionamiento de un sistema de automatización. Al aplicar la guía GEMMA a un sistema concreto, se obtiene el **GDMMA** (*Gráfico Descriptivo de los Modos de Marcha y Parada*), una máquina de estados que describe el funcionamiento general de un sistema de automatización concreto.
 

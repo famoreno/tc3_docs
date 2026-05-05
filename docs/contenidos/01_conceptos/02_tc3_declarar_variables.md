@@ -61,28 +61,27 @@ Los tipos de datos más utilizados son los siguientes:
 
         !!! question "Ejemplo"
             `T#2s` (dos segundos)
-            
+
             `T#500ms` (quinientos milisegundos).
-    
-    - El acceso a los *arrays* se hace con el índice entre corchetes. 
-        
+
+    - El acceso a los *arrays* se hace con el índice entre corchetes.
+
         !!! question "Ejemplo"
             `Ocupado[1] := TRUE;`
 
 - Ejemplos de llamadas a los bloques funcionales estándar:
-    
+
     !!! question "Ejemplo"
         **Detector de flanco:** Se activa su salida `Flanco_Pulsador.Q` cuando la señal `boton` pasa de `FALSE` a `TRUE`.
             ```pascal
                 Flanco_Pulsador(CLK := boton);
             ```
-    
+
     !!! question "Ejemplo"
         **Temporizador:** Se activa cuando la señal `start` pasa a `TRUE` y activa su salida `Temporizador.Q` tras pasar 10s.
         ```pascal
             Temporizador(IN:=start, PT:=T#10s);
         ```
-
 
 Las variables en TC3 se declaran dentro de los ámbitos existentes en el POU correspondiente: **locales**, **entrada** y **salida**.
 
@@ -146,13 +145,13 @@ VAR_IN_OUT
 END_VAR
 ```
 
-Este ámbito no aparece por defecto al crear un **FB** pero puede ser añadido simplemente escribiendo la sección `VAR_IN_OUT ... END_VAR`.
+Este ámbito no aparece por defecto al crear un **FB**, pero puede ser añadido simplemente escribiendo la sección `VAR_IN_OUT ... END_VAR`.
 
-Las variables declaradas aquí deben tomar un valor como entrada al **FB** y su valor final tras cada ciclo puede ser accedido desde fuera del **FB**.
+Las variables declaradas aquí **deben** tomar un valor como entrada al **FB** y su valor final tras cada ciclo puede ser accedido desde fuera del **FB**, es decir, las modificaciones que se realicen a esta variable dentro del **FB** se mantendrán fuera de él.
 
 Combina las condiciones de los ámbitos de entrada y salida.
 
-- En un programa (ej. `MAIN`) sólo disponemos del ámbito `VAR`.
+- En un programa (ej. `MAIN`) solo disponemos del ámbito `VAR`.
 - En un **FB**, además del ámbito `VAR`, disponemos de los ámbitos `VAR_INPUT` y `VAR_OUTPUT`.
 
 ---
@@ -207,7 +206,7 @@ END_VAR
 
 !!! warning "Importante"
     Declarar una variable en la imagen de entrada o salida es **independiente** de que sean entradas o salidas del bloque funcional.
-    
+
     Estas declaraciones son completamente correctas.
 
     ```pascal
@@ -225,4 +224,3 @@ END_VAR
         PresenciaPale AT %I*: BOOL;
     END_VAR
     ```
-

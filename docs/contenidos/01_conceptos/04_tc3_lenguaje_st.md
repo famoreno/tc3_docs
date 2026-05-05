@@ -4,6 +4,7 @@
     Es recomendable acceder a la ayuda y documentación del lenguaje ST (*Structured Text*) que ofrece Beckhoff en su portal **[Infosys](https://infosys.beckhoff.com/)**.
   
 ### Sintaxis general
+
 - Las **instrucciones** deben terminar con `;`.
 - Los **comentarios** se pueden realizar con `//` hasta final de línea o metiendo el texto entre `(*` y `*)`.
 - La **asignación** de valores entre variables se realiza con el operador `:=`.
@@ -15,11 +16,13 @@
     !!! question "Ejemplo"
         `Estacion();`
 
-        `Lampara(TiempoEncedido:=T#2s);`
+        `Lampara(TiempoEncedido := T#2s);`
 
 ### Estructuras de control
+
 - Las **estructuras de control** básicas son:
     - Condicionales (`if`, `case`)
+
         ```pascal
         IF <condition> THEN
             <statements>
@@ -35,7 +38,9 @@
             <statements>
         END_CASE;
         ```
+
     - Bucles (`for`, `while`, `repeat`)
+
         ```pascal
         FOR <variable> := <expression> TO <expression> BY <expression> DO
             <statements>

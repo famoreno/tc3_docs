@@ -60,7 +60,7 @@ Además de la información proporcionada en el documento de descripción funcion
     - Como mínimo debe haber un conjunto de botones que permitan seleccionar las características de la tapa deseada (alta/baja, clara/oscura, metal/nylon), teniendo en cuenta que la combinación **oscura + metal** no es posible, por ejemplo.
     - Alternativamente, se pueden implementar seis botones para los seis tipos distintos de tapa. En este caso se puede optar por permitir seleccionar solo un tipo de tapa o permitir seleccionar libremente un conjunto de combinaciones como válidas.
 - Esta estación debe mantener en memoria la **información** de las tapas situadas en su disco giratorio. Como recomendación, defina *arrays* y estructuras para gestionar esta información.
-- **Mientras el volteador de tapas no esté operativo**, la gestión de la detección de tapa invertida debe solucionarse simplemente mediante el aviso al operador de la situación y la espera a que el mismo lo solucione.
+- **El volteador de tapas está temporalmente inoperativo**, por lo que la gestión de la detección de tapa invertida debe solucionarse simplemente mediante el aviso al operador de la situación y la espera a que el mismo lo solucione.
 
 ### FMS-206
 

@@ -2,7 +2,7 @@
 
 Además de los tipos de datos simples (`BOOL`, `INT`, etc.) y los bloques funcionales ya existentes (`R_TRIG`) o creados por nosotros (`FB_Coordinador_ST`), en ocasiones podemos necesitar crear tipos de dato que están compuestos por otros tipos de dato. A estos tipos de datos se les denomina **tipos de unidad de datos** (*Data Unit Type*, DUT).
 
-En nuestros proyectos vamos a poder hacer uso de dos de ellos: 
+En nuestros proyectos vamos a poder hacer uso de dos de ellos:
 
 - **Estructuras** (`STRUCT`)
 - **Enumeraciones** (`ENUM`).
@@ -88,17 +88,16 @@ IF Color <> E_ColorBasic.eRed THEN // comprobacion de valor
     [...]
 END_IF
 ```
+
 #### Declaración compacta
 
 !!! warning "Importante"
     Este método se utiliza si el tipo **va a ser utilizado solo en un mismo POU**. Si se pretende utilizar el tipo enumerado declarado en más de uno, es más conveniente declararlo como DUT siguiendo el procedimiento anterior.
-    
-Existe otra manera más compacta de declarar una variable de tipo ***Enumeration***. Para ello, basta con declarar el nombre de la variable y los posibles valores que puede tomar. 
+
+Existe otra manera más compacta de declarar una variable de tipo ***Enumeration***. Para ello, basta con declarar el nombre de la variable y los posibles valores que puede tomar.
 
 ```pascal
 VAR
     Estado : (E_Reposo, E_MarchandoDerecha, E_MarchandoIzquierda);
 END_VAR
-``` 
-
-
+```

@@ -11,16 +11,16 @@ En esta sección explicaremos cómo buscar controladores remotos en la red del l
 Si queremos utilizar un controlador remoto (PLC), lo primero que debemos hacer es buscarlo en la red local del laboratorio y establecer una conexión con él. Para ello, seguiremos este procedimiento:
 
 - Desplegar `Target` y seleccionar `Choose Target System...`.
-    
+
     ![Imagen](../images/01_conceptos/target_umrt_default.png){width=150px}
 
     ![Imagen](../images/01_conceptos/choose_target_system.png){width=400px}
 
     - Pulsar sobre `Search (Ethernet)`
-        
+
         !!! warning "Importante"
             Aceptar si aparece el siguiente mensaje: *Searching for remote system only possible from local system. Change back to local system*.
-        
+
         - Se abre el siguiente cuadro de diálogo:
 
             ![Imagen](../images/01_conceptos/add_route_dialog.png){width=400px}
@@ -40,7 +40,7 @@ Si queremos utilizar un controlador remoto (PLC), lo primero que debemos hacer e
             - Escribir: `Password` la que corresponda (1, por defecto).
         - Observar que aparece una `x` en la columna *Connected*.
         - Cerrar el cuadro de diálogo pulsando `Close`.
-    
+
     - Ahora debería aparecer el controlador en el listado del cuadro de diálogo `Choose Target System`:
         - Seleccionar el controlador en la lista y pulsar `OK`.
     - Si aparece un *popup* indicando que es necesario cambiar la plataforma, pulsar en `Yes`.
@@ -79,22 +79,22 @@ El procedimiento a seguir es el siguiente:
     - Desplegar el contenido del **Canal** y hacer **DC** sobre su `Input`.
     - Seleccionar la pestaña *Online* y verificar que se corresponde con el pulsador:
         - Accionar el pulsador de marcha y observar el cambio de valor mostrado en la gráfica.
-    
+
     !!! warning "Importante"
-        Se recomienda seleccionar la pestaña *Variable* y **cambiar el nombre** de `Input` por el nombre de la variable asociada en el listado de E/S (por ejemplo, `i_PulsadorMarcha`). 
-        
+        Se recomienda seleccionar la pestaña *Variable* y **cambiar el nombre** de `Input` por el nombre de la variable asociada en el listado de E/S (por ejemplo, `i_PulsadorMarcha`).
+
         Este paso **NO** vincula el terminal/canal con la variable sino que simplemente lo renombra para ayudarnos a localizarlo posteriormente durante el proceso de vinculación.
 
-- Buscar en el listado de E/S del controlador la salida correspondiente a la lámpara de marcha:    
+- Buscar en el listado de E/S del controlador la salida correspondiente a la lámpara de marcha:
     - Localizar el **Terminal** y el **Canal** de salida especificado.
     - Desplegar el contenido del **Canal** y hacer **DC** sobre su `Output`.
     - Seleccionar la pestaña *Online* y verificar que se corresponde con la lámpara:
         - Pulsar `Write`.
         - Pulsar alternativamente `0`/`1` y comprobar que la lámpara se enciende y se apaga.
-    
+
     !!! warning "Importante"
-        Se recomienda seleccionar la pestaña *Variable* y **cambiar el nombre** `Output` por el nombre de la variable asociada en el listado de E/S (por ejemplo, `o_LamparaMarcha`). 
-        
+        Se recomienda seleccionar la pestaña *Variable* y **cambiar el nombre** `Output` por el nombre de la variable asociada en el listado de E/S (por ejemplo, `o_LamparaMarcha`).
+
         Este paso **NO** vincula el terminal/canal con la variable sino que simplemente lo renombra para ayudarnos a localizarlo posteriormente durante el proceso de vinculación.
 
 Una vez realizado esto, guardamos el proyecto.

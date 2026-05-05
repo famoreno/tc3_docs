@@ -3,15 +3,16 @@
 !!! warning "NOTAS"
     - La descripción general sobre este ejemplo puede encontrarse [aquí](../../contenidos/04_tc3_carro_extendido.md).
     - Descargue y abra el proyecto en una ventana de TwinCAT3 para seguir la explicación.
-    
+
 En esta implementación estructurada del carro extendido, presentamos una primera automatización real organizada en tareas, es decir, la lógica de control está distribuida en lugar de concentrada en un solo bloque funcional.
 
 ## Arquitectura
+
 En esta implementación, la arquitectura se divide en el siguiente conjunto de bloques funcionales:
 
 - `Estación` (`ST`): contenedor principal
-- `Director` (`SFC`): gestión del modo de funcionamiento (**Reposo**, **Preparación**, **Producción**, **Finalización**, **Parada Solicitada**, **Restauración**) 
-- `Coordinador` (`SFC`): coordinación de tareas para la producción normal 
+- `Director` (`SFC`): gestión del modo de funcionamiento (**Reposo**, **Preparación**, **Producción**, **Finalización**, **Parada Solicitada**, **Restauración**)
+- `Coordinador` (`SFC`): coordinación de tareas para la producción normal
 - `Tareas` (`SFC`): sub-secuencias que implementan las distintas funcionalidades (conjunto de etapas/transiciones con sentido propio)
 
 ![Estructura del proyecto](../../images/04_tc3_carro_extendido/Carro_Extendido_Estructurado_Proyecto.png){width=250px}
@@ -25,11 +26,12 @@ La implementación se estructura de la siguiente manera:
 Como se observa en la figura, la `Estación` es un contenedor de datos y **métodos** desde donde se llama al resto de bloques funcionales. Cada bloque funcional distinto de la `Estación` se implementa como una **rutina GRAFCET** que permite su sincronización con el resto de **FBs**, tal y como se verá más adelante.
 
 ## Funcionalidades
+
 La lista de funcionalidades es prácticamente la misma que en el caso <span class="fondo-verde">**MONO**</span> aunque en esta implementación se incorporan nuevos conceptos como los métodos o la funciones y se añade una serie de mejoras y extensiones.
 
 ??? info "Tabla de contenidos"
     [Uso de rutinas GRAFCET/SFC](#uso-de-rutinas-grafcetsfc)
-    
+
     [Uso de métodos](#uso-de-metodos)
     
     [Uso de secuencias de preparación, finalización y restauración](#uso-de-secuencias-de-preparacion-finalizacion-y-restauracion)
@@ -44,6 +46,7 @@ La lista de funcionalidades es prácticamente la misma que en el caso <span clas
     Utiliza el menú de la derecha para ir directamente a la explicación de cada funcionalidad.
 
 ### Uso de rutinas GRAFCET/SFC
+
 Una **rutina GRAFCET/SFC** consiste en un conjunto de etapas con una estructura definida que implementan la lógica de control de una funcionalidad concreta. Aunque en este proyecto se distinguirán entre rutinas de coordinación/dirección y rutinas de tareas, estructuralmente son idénticas.
 
 Las rutinas GRAFCET/SFC tienen la siguiente estructura:
@@ -105,21 +108,23 @@ Nótese como se asigna la señal `Coordinador.CintaEvacua` a la señal `Execute`
     Inspeccione el código del **FB** del `Coordinador` y el de las tareas relacionadas con la cinta y la vagoneta para ver más ejemplos de esta sincronización.
 
 #### Rutina de dirección
+
 Esta rutina está implementada en un **FB** en `SFC` y encapsula la secuencia completa (no solo producción) de la estación a alto nivel.
 
 ![Rutina de Dirección](../../images/04_tc3_carro_extendido/Carro_Extendido_Estructurado_Director.png){width=700px}
 
 Nótese cómo la secuencia incluye etapas de:
 
-1. Preparación
-2. Producción
-3. Finalización
-4. Solicitud de parada
-5. Restauración
+1.  Preparación
+2.  Producción
+3.  Finalización
+4.  Solicitud de parada
+5.  Restauración
 
 Cada etapa activará una señal que *disparará* la ejecución de otro **FB** y se parará hasta que este indique que ha terminado. Por ejemplo, la señal `OrdenPreparacion` activará la señal `Execute` del `FB_EstacionPreparar` y la señal `FinPreparacion` se activará cuando este active su señal `Done`.
 
 #### Rutina de coordinación
+
 En un nivel de abstracción inferior al `Director`, encontramos al `Coordinador`, que se encargará de gestionar la secuencia de producción mediante la llamada a las distintas rutinas de tareas.
 
 ![Rutina de Coordinación](../../images/04_tc3_carro_extendido/Carro_Extendido_Estructurado_Coordinador.png){width=300px}
@@ -134,6 +139,7 @@ Una vez terminadas las activaciones de las rutinas de las tareas de producción,
 Una vez se vuelva al inicio, si su señal `Execute` sigue activa, se volverá a realizar un nuevo ciclo de producción.
 
 #### Rutinas de tareas
+
 Finalmente, tendremos **FBs** dedicados a cada una de las tareas de la estación. Cada una de ellas se puede entender como una subrutina que realiza una tarea específica. En este ejemplo, tendremos rutinas que podemos agrupar conceptualmente en dos grupos:
 
 - Tareas de producción: cargar vagoneta, trasladar vagoneta, gestionar cinta.
@@ -144,13 +150,14 @@ A modo de ejemplo, en la figura se puede observar el código de la rutina que se
 ![Rutina de Tarea](../../images/04_tc3_carro_extendido/Carro_Extendido_Estructurado_TareaEjemplo.png){width=300px}
 
 ### Uso de métodos
+
 En TwinCAT 3, un **método** es una función que pertenece a un bloque funcional y que tiene acceso a sus variables internas. Puede recibir parámetros de entrada y salida e incluso devolver un valor (opcional). Conceptualmente, es similar a una función, pero ligada al contexto del **FB**.
 
 Un método sirve principalmente para organizar el código en partes reutilizables y claras dentro del **FB**, encapsulando la lógica específica del bloque. Así, se evita repetir código y mejora la modularidad y su mantenimiento.
 
 Para crear un método asociado a un **FB**, en el árbol del proyecto, haga **CD** sobre el **FB** y pulse `Add → Method`. En el menú contextual, hay que definir:
 
-- El nombre del método 
+- El nombre del método.
 - Tipo del valor devuelto (opcional).
 - El lenguaje que vamos a utilizar en la implementación (nosotros usaremos `ST`).
 
@@ -174,6 +181,7 @@ En este ejemplo, hemos encapsulado las funcionalidades de la estación dentro de
 - `m_GestorTareas`. Procesamiento del estado (solo en modo automático).
 
 #### Gestor de Entradas
+
 Este método se ejecuta tanto en modo manual como en automático y se encarga de realizar el acondicionamiento de las entradas al PLC. Esto incluye:
 
 - Ejecución de los detectores de flanco para los pulsadores.
@@ -181,12 +189,13 @@ Este método se ejecuta tanto en modo manual como en automático y se encarga de
 - Cálculo de variables de estado del sistema como: `CondicionInicial`, `OrdenPausa`, `ModoAutomatico`, `SolicitudMarcha`, etc.
 
 #### Gestor de Acciones
+
 Este método solo se ejecuta en **modo automático** y encapsula las activaciones de las salidas del sistema relacionadas con:
 
-- La **vagoneta** (marcha)
-- El **silo** (tajadera y válvula)
-- El **sistema hidráulico** (activación, compuerta y volquete)
-- La **cinta transportadora** (marcha)
+- La **vagoneta** (marcha).
+- El **silo** (tajadera y válvula).
+- El **sistema hidráulico** (activación, compuerta y volquete).
+- La **cinta transportadora** (marcha).
 
 Estas salidas se activarán cuando los distintos **FBs** de las tareas lo demanden. Por ejemplo, el código:
 
@@ -201,7 +210,8 @@ realizará la bajada del volquete cuando el **FB** `VagonetaTrasladar` active su
     Al ejecutarse solo en modo automático, este método dejará *libres* las salidas **en modo manual** para que puedan ser accionadas desde la visualización.
 
 #### Gestor de Panel
-En este método se activarán los avisadores que tienen que ver con el panel del operador: 
+
+En este método se activarán los avisadores que tienen que ver con el panel del operador:
 
 - Avisador sonoro
 - Lámpara de alarma
@@ -221,12 +231,14 @@ o_LamparaParada := SistemaEnEspera
 Nótese que, para permitir que estas salidas se activen intermitentemente, en este método se llamará al **FB** que permite la intermitencia: `Intermitencia`.
 
 #### Gestor de Modo
+
 Este método se encarga de determinar en qué modo está la estación: **Reposo**, **Preparación**, **Producción**, **Finalización**, **Parada Solicitada** y **Restauración**, y pasar esta información al `FB_Director`, el cual se encargará de hacer evolucionar el sistema de un modo a otro.
 
 !!! info "NOTA"
     El gestor de modo debe ejecutarse tanto en modo automático como manual.
 
 #### Gestor de Tareas
+
 En este último método, encapsulamos la llamada a las rutinas relacionadas con las tareas, **incluyendo al `Coordinador`**.
 
 Como se puede observar en el código, este método se limita a llamar a los **FBs** correspondientes, enlazando las entradas y salidas para conseguir la sincronización entre las rutinas.
@@ -261,12 +273,13 @@ Coordinador(
 );
 ```
 
-puede observarse cómo las señales `Done` de los distintos **FBs** de tareas se asocian a las variables de entrada del `Coordinador` que le permitirán evolucionar en su secuencia. 
+puede observarse cómo las señales `Done` de los distintos **FBs** de tareas se asocian a las variables de entrada del `Coordinador` que le permitirán evolucionar en su secuencia.
 
 !!! info "Consejo"
     Inspecciona cuidadosamente el código de este método para entender las asociaciones entre las señales de sincronización.
 
 ### Uso de secuencias de preparación, finalización y restauración
+
 En esta versión, usaremos rutinas GRAFCET para implementar algunas secuencias relacionadas con la estación que **no tienen que ver directamente con la producción**, sino que solucionan situaciones especiales de la estación. En concreto, definiremos secuencias de:
 
 - **Preparación**, que se encarga de realizar todas aquellas acciones necesarias para preparar la estación para empezar a producir.
