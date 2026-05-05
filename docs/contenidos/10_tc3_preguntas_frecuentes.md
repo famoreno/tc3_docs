@@ -1,5 +1,30 @@
 # Preguntas frecuentes
 
+## General
+
+### ¿Qué significan los contadores de ciclos/maniobras y piezas que tiene el programa?
+
+El número de **maniobras solicitadas** contiene el tamaño total del lote a producir. El programa debe producir tantos elementos válidos como indique este número. **Debe ser modificable desde la visualización**.
+
+El contador de **maniobras pendientes** toma inicialmente el valor de maniobras solicitadas y se va decrementando en cada ciclo exitoso, hasta alcanzar el valor cero. Si se vuelve a ejecutar el ciclo, volverá a tomar el valor de maniobras solicitadas y volverá a decrementarse hasta cero. **Debe mostrarse en la visualización, pero no será modificable desde ella**.
+
+El contador de **piezas realizadas** se va incrementando con cada ciclo exitoso, pero no se reinicia tras una tarea completa, sino que sigue incrementando su valor hasta que finalicemos todos las tareas que queramos. **Debe mostrarse en la visualización, pero no será modificable desde ella**.
+
+El contador de **piezas rechazadas** se va incrementando con cada ciclo que haya rechazado una pieza (si procede), pero, al igual que el contador de piezas realizadas no se reinicia tras la tarea. **Debe mostrarse en la visualización, pero no será modificable desde ella**.
+
+### ¿Cómo accedo a los bits de un número decimal?
+
+El lenguaje `ST` proporciona un mecanismo sencillo de acceso a los bits de una variable de otro tipo (habitualmente de tipo entero). Para ello basta con usar el operador punto (`.`) tras el nombre de la variable y escoger el bit deseado. Por ejemplo:
+
+```pascal
+    // suponiendo que 'Contador' sea de tipo UINT, por ejemplo
+    Contador.0 := FALSE;
+    Contador.1 := FALSE;
+    Contador.2 := TRUE;
+```
+
+De esta forma estamos asignando el valor `100` en binario a la variable `Contador`, que tomará el valor entero `4`.
+
 ## Declaración de variables
 
 ### ¿Debo declarar en `VAR_INPUT` una variable que quiero conectar a una entrada física del sistema? (equivalentemente para `VAR_OUPUT`)
@@ -85,4 +110,4 @@ Es la **conversión numérica** (decimal) de los bits del código de palé. Los 
 
 ### ¿Qué son los bits del código de palé?
 
-Mira la descripción de la cinta transportadora en la **descripción funcional** del sistema FMS200.
+Mire la descripción de la cinta transportadora en la **descripción funcional** del sistema FMS200.
