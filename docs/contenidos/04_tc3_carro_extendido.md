@@ -115,7 +115,7 @@ El sistema de control también dispone de una visualización (panel de operador 
 !!! info "Leyenda"
     <span class="fondo-amarillo">**E**</span> Entrada / <span class="fondo-rojo">**S**</span> Salida
 
-| <div style="width: 150px;">Nombre</div> | Tipo | Origen | Descripción |
+| <div style="width: 160px;">Nombre</div> | Tipo | Origen | Descripción |
 | :--- | :--- | :--- | :--- |
 | `SistemaConectado` | `BOOL` | <span class="fondo-amarillo">**E**</span> | Parte operativa conectada |
 | `PulsadorEmergencia` | `BOOL` | <span class="fondo-amarillo">**E**</span> | Desconecta el circuito de seguridad |
@@ -172,7 +172,7 @@ Implementa el funcionamiento del sistema de transporte de material que represent
 1. 🧱 <span class="fondo-verde">**MONO**</span> **Monolítico** (orientada al sistema). Implementación directa. Toda la secuencia de control se encuentra recogida en un único elemento de programación.
 2. 🗂️ **Estructurado** (orientado a la tarea). La secuencia de funcionamiento se organiza y distribuye en sub-secuencias denominadas tareas (acciones complejas). Hay dos versiones:
       1.  🗂️ <span class="fondo-amarillo">**EST**</span> **Estructurado**
-      2.  🧩 <span class="fondo-rojo">**EST+GEMMA**</span> **Estructurado con GEMMA** (incluye guía GEMMA).
+      2.  ⚙️ <span class="fondo-rojo">**EST+GEMMA**</span> **Estructurado con GEMMA** (incluye guía GEMMA).
 <!-- 3. 🧩 **Funcional** (orientado a la unidad funcional). La lógica de control del sistema se organiza en términos de unidades funcionales, entidades formadas por un subconjunto de dispositivos (sensores y actuadores), capaces de llevar a cabo una o más tareas. <span class="fondo-naranja">**Próximamente!**</span>
 -->
 ---
@@ -197,7 +197,7 @@ Implementa el funcionamiento del sistema de transporte de material que represent
 
     !!! info "**Estructurado**"
         - 🗂️ <span class="fondo-amarillo">**EST**</span> `CV → Automatización → ejemplos → 4_tc3_carro_estructurado → tc3_carro_extendido_estructurado_lite.tnzip`
-        - 🧩 <span class="fondo-rojo">**EST+GEMMA**</span> `CV → Automatización → ejemplos → 5_tc3_carro_gemma → tc3_carro_extendido_estructurado_basic.tnzip`
+        - ⚙️ <span class="fondo-rojo">**EST+GEMMA**</span> `CV → Automatización → ejemplos → 5_tc3_carro_gemma → tc3_carro_extendido_estructurado_basic.tnzip`
 
     <!-- !!! info "🧩 **Funcional**" 
         <span class="fondo-naranja">**Próximamente!**</span> -->
@@ -227,7 +227,7 @@ git clone https://github.com/vetorres-uma/TC3_Carro_Extendido.git
 
 🗂️ <span class="fondo-amarillo">**EST**</span> [➡️](./04_tc3_carro_extendido/04_tc3_carro_extendido_estructurado.md)
 
-🧩 <span class="fondo-rojo">**EST+GEMMA**</span> [➡️](./04_tc3_carro_extendido/04_tc3_carro_extendido_estructurado_gemma.md)
+⚙️ <span class="fondo-rojo">**EST+GEMMA**</span> [➡️](./04_tc3_carro_extendido/04_tc3_carro_extendido_estructurado_gemma.md)
 
 <!-- 🧩 **Funcional** <span class="fondo-naranja">**Próximamente!**</span> -->
 

@@ -61,6 +61,21 @@
   border: 1px solid #ededed;
 }
 
+/* TOC izquierda */
+.md-nav__item > .md-nav__link {
+  font-size: 0.8rem;
+}
+
+/* Nivel 2 */
+.md-nav__item .md-nav__item > .md-nav__link {
+  font-size: 0.7rem;
+}
+
+/* Nivel 3 */
+.md-nav__item .md-nav__item .md-nav__item > .md-nav__link {
+  font-size: 0.6rem;
+}
+
 /* ===== TOC derecho: barra a la izquierda del activo ===== */
 .md-nav--secondary .md-nav__link--active {
   border-left: 4px solid #e50000; /* solid var(--md-accent-fg-color); */
@@ -84,8 +99,24 @@
   background-color: rgba(229, 0, 0, 0.15);
   border-radius: 4px;
   padding: 2px 6px;
+  font-size: 0.7rem;
 }
 
+/* Nivel 2 */
+.md-nav--secondary > .md-nav__list >
+.md-nav__item .md-nav__item > .md-nav__link {
+  background-color: rgba(208, 118, 249, 0.15);/*rgba(255, 161, 161, 0.15);*/
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.65rem;
+}
+
+/* Nivel 3 */
+.md-nav--secondary > .md-nav__list >
+.md-nav__item .md-nav__item .md-nav__item > .md-nav__link {
+  background-color: rgba(0, 0, 0, 0.15);
+  font-size: 0.55rem;
+}
 
 /* ===== Botones header (hamburguesa + clear highlight) ===== */
 #toggle-sidebar-btn svg,
