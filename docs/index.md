@@ -31,6 +31,7 @@ Bienvenido/a al tutorial de TwinCAT 3. Aquí encontrarás guías y material de a
 - [Descripción general](contenidos/01e_practicas.md)
 - [Demo](contenidos/05_tc3_practicas/05_tc3_demo.md)
 - [Carro básico](contenidos/05_tc3_practicas/05_tc3_carro_basico.md)
-- [Proyecto monolítico](contenidos/05_tc3_practicas/05_tc3_proyecto_mono.md)
-- [Proyecto estructurado](contenidos/05_tc3_practicas/05_tc3_proyecto_estructurado.md)
-- [Proyecto estructurado + GEMMA](contenidos/05_tc3_practicas/05_tc3_proyecto_estructurado_gemma.md)
+- Proyectos
+    - [Proyecto monolítico](contenidos/05_tc3_practicas/05_tc3_proyecto_mono.md)
+    - [Proyecto estructurado](contenidos/05_tc3_practicas/05_tc3_proyecto_estructurado.md)
+    - [Proyecto estructurado + GEMMA](contenidos/05_tc3_practicas/05_tc3_proyecto_estructurado_gemma.md)

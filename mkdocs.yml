@@ -57,11 +57,11 @@ nav:
     - ℹ️ Información: contenidos/01e_practicas.md 
     - 👋 Demo: contenidos/05_tc3_practicas/05_tc3_demo.md
     - 🛒 Carro básico: contenidos/05_tc3_practicas/05_tc3_carro_basico.md
-    - 🧱 Proyecto monolítico: contenidos/05_tc3_practicas/05_tc3_proyecto_mono.md
-    - 🗂️ Proyecto estructurado: contenidos/05_tc3_practicas/05_tc3_proyecto_estructurado.md
-    - ⚙️ Proyecto estructurado + GEMMA: contenidos/05_tc3_practicas/05_tc3_proyecto_estructurado_gemma.md
-    # - 🧩 Proyecto funcional: contenidos/05_tc3_practicas/05_tc3_proyecto_funcional.md
-
+    - 🧩 Proyectos:
+      - 🧱 Monolítico: contenidos/05_tc3_practicas/05_tc3_proyecto_mono.md
+      - 🗂️ Estructurado: contenidos/05_tc3_practicas/05_tc3_proyecto_estructurado.md
+      - ⚙️ Estructurado + GEMMA: contenidos/05_tc3_practicas/05_tc3_proyecto_estructurado_gemma.md
+      # - 🧩 Funcional: contenidos/05_tc3_practicas/05_tc3_proyecto_funcional.md
 
 markdown_extensions:
   - admonition
