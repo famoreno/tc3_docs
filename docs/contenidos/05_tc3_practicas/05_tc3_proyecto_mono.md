@@ -34,7 +34,7 @@ Utilice el ejemplo del [**carro extendido monolítico**](../04_tc3_carro_extendi
 
 El proyecto desarrollado debe tener las siguientes funcionalidades:
 
-??? info "Requeridas"
+!!! info "Requeridas"
     1. Evaluación de las condiciones iniciales.
     2. Evaluación de las condiciones de marcha.
     3. Secuencia automática de restauración de las condiciones iniciales.

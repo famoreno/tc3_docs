@@ -34,7 +34,7 @@ Utilice el ejemplo del [**carro extendido estructurado + gemma**](../04_tc3_carr
 
 El proyecto desarrollado debe tener implementar las siguientes funcionalidades (en <font color="red">rojo</font>, funcionalidades nuevas respecto a la versión estructurada simple):
 
-??? info "Requeridas"
+!!! info "Requeridas"
     1. Evaluación de las condiciones iniciales.
     2. Evaluación de las condiciones de marcha.
     3. Secuencia automática de restauración de las condiciones iniciales.

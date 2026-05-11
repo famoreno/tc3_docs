@@ -20,7 +20,7 @@ Ninguno.
 
 El proyecto desarrollado debe tener las siguientes funcionalidades:
 
-??? info "Requeridas"
+!!! info "Requeridas"
     1. Secuencia de producción normal.
     1. Visualización funcional.
     1. Modo manual (mandos directos) y automático.
