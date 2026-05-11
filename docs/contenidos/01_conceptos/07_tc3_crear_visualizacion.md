@@ -14,7 +14,7 @@
 !!! note "Recomendación"
     Se recomienda utilizar **rectángulos** para crear botones tanto para las entradas como para las salidas.
 
-### Botones para cambiar valores de variables
+### Botones para variables binarias
 
 - Dibujar un rectángulo con el tamaño deseado.
 
@@ -29,6 +29,25 @@
     - Si queremos que la variable cambie de valor cada vez que pulsemos el botón lo introduciremos en la sección `Toggle` (el valor conmutará entre `TRUE` y `FALSE`):
 
         ![Imagen](../images/01_conceptos/image%2015.png){width=240px}
+
+### Rectángulos para valores numéricos
+
+- Dibujar un rectángulo con el tamaño deseado.
+
+- Escribir dentro el *placeholder* correspondiente según el tipo de valor numérico que queremos introducir:
+  
+    - `%d` para variables enteras: `INT`, `UINT`.
+    - `%.2f` para variables reales/flotantes: `FLOAT`, `REAL` (en este caso con dos decimales).
+    - `%s` para variables de tiempo `TIME` con un formato estándar, ej: `T#2s`.
+    - `%t[mm:ss]` para variables de tiempo `TIME` con un formato extendido en minutos y segundos, ej: `01:30` (1 minuto y 30 segundos).
+
+- Escribir dentro de la propiedad `Text Variables` el nombre de la variable que queremos asociar a este rectángulo (ej. `MAIN.ManiobrasSolicitadas`).
+
+- Si además de visualizar el valor queremos tener la opción de **cambiar su valor durante la ejecución del programa**, deberemos añadir un comportamiento al pulsar el botón del ratón:
+
+    - En la sección `InputConfiguration`, hacer clic sobre `OnMouseClick > Configure` y seleccionar `Write a Variable`. Dejando los parámetros por defecto en la ventana *popup* que se muestra, lo que se escriba en este rectángulo **se asignará a la variable especificada en** `Text Variables`.
+
+        ![Imagen](../images/01_conceptos/visu_write_variable.png){width=600px}
 
 ### Usar imágenes en la visualización
 
