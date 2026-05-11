@@ -32,12 +32,17 @@ Si queremos utilizar un controlador remoto (PLC), lo primero que debemos hacer e
                 ![Imagen](../images/01_conceptos/select_adapter.png){width=400px}
 
         - Seleccionar el PLC de la lista que aparezca.
-        - Marcar `🔳 IP Address`
+        - Marcar `🔳 IP Address`. <span class="fondo-amarillo">**Importante**</span>
         - Pulsar en el botón `Add Route`.
         - En el *popup* que aparece (**Add Remote Route**):
-            - Deseleccionar `🔲 Secure ADS`
+            - Desmarcar `🔲 Secure ADS` si está seleccionado. <span class="fondo-amarillo">**Importante**</span>
+            - Dejar los campos `User` y `Password` tal y como están.
+
+            <!-- 
             - Escribir: `User` el que corresponda (Administrator, por defecto).
-            - Escribir: `Password` la que corresponda (1, por defecto).
+            - Escribir: `Password` la que corresponda (1, por defecto). 
+            -->
+
         - Observar que aparece una `x` en la columna *Connected*.
         - Cerrar el cuadro de diálogo pulsando `Close`.
 
@@ -62,7 +67,7 @@ Comenzamos por buscar los dispositivos de entrada/salida conectados al controlad
     - Aceptar la búsqueda de *boxes* (terminales) pulsando `Yes`.
     - Aceptar la activación del modo *Free Run* pulsando `Yes`.
 
-- Observar el arbol de I/O en el explorador de la solución.
+- Observar el árbol de I/O en el explorador de la solución.
 - Desplegar el elemento `EK1200` y verificar que la lista de terminales se corresponde con la configuración del controlador (en su documentación).
 
     !!! info "Info"
