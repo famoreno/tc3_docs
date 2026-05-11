@@ -29,3 +29,28 @@
     - Si queremos que la variable cambie de valor cada vez que pulsemos el botón lo introduciremos en la sección `Toggle` (el valor conmutará entre `TRUE` y `FALSE`):
 
         ![Imagen](../images/01_conceptos/image%2015.png){width=240px}
+
+### Usar imágenes en la visualización
+
+- Crear una carpeta en el proyecto PLC para las imágenes: **CD** sobre el proyecto y pulsar `Add → New Folder...` y llamarlo `_resources` (por ejemplo).
+
+    ![Imagen](../images/01_conceptos/add_folder.png){width=450px}
+
+- Arrastrar desde el explorador de Windows hasta la carpeta `_resources` las imágenes que se quieran utilizar en la visualización.
+
+- Añadir una lista de imágenes (*Image Pool*): **CD** sobre el proyecto `Add → Image Pool...` y darle un nombre (`IP_Carro` en la imagen).
+
+    ![Imagen](../images/01_conceptos/image_pool_add.png){width=450px}
+
+- Añadir las imágenes al listado: Doble clic sobre `IP_Carro` y **CI** en los tres puntos sobre la columna `File name` para buscar el fichero de imagen que queramos añadir al listado. Escribir un `ID` en la primera columna para poder referirnos a la imagen posteriormente (`LOGO_UMA` en la imagen de ejemplo).
+
+    ![Imagen](../images/01_conceptos/image_pool_add_image.png){width=350px}
+
+- Insertar una imagen en la visualización: Arrastrar un objeto de tipo `Image` desde la *Toolbox* (sección `Basic`) hasta la visualización.
+
+- Escribir el `ID` de la imagen a utilizar en la propiedad `Static ID` del objeto, por ejemplo: `IP_Carro.LOGO_UMA`.
+
+    ![Imagen](../images/01_conceptos/image_pool_static_id.png){width=350px}
+
+!!! warning "Importante"
+    Nótese que se necesita especificar la `ID` completa, incluyendo el nombre de la *Image Pool*.
