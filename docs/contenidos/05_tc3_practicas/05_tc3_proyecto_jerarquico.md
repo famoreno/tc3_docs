@@ -1,9 +1,9 @@
-# ⚙️ Proyecto Estructurado + GEMMA
+# ⚙️ Proyecto Jerárquico
 
 !!! info "Nota"
     Esta práctica es **entregable**.
 
-- Esta sección describe un enfoque modular para estructurar proyectos de automatización en TwinCAT 3 utilizando Lenguaje Estructurado (`ST`) y Diagrama de Flujo Secuencial (`SFC`), que sigue parcialmente la guía GEMMA (*Guide d'Etude des Modes de Marche et d'Arrêt*) para la gestión de los modos de funcionamiento y parada de la máquina.
+- Esta sección describe un enfoque modular para estructurar proyectos de automatización en TwinCAT 3 utilizando Lenguaje Estructurado {{ST}} y Diagrama de Flujo Secuencial {{SFC}}, que sigue parcialmente la guía GEMMA (*Guide d'Etude des Modes de Marche et d'Arrêt*) para la gestión de los modos de funcionamiento y parada de la máquina.
 - La guía **GEMMA** es una herramienta metodológica que permite analizar los modos de funcionamiento de un sistema de automatización.
 - EL **GDMMA** (Gráfico Descriptivo de los Modos de Marcha y Parada) resulta de aplicar la guía GEMMA a un sistema concreto. El GDMMA resultante es una **máquina de estados** que describe el funcionamiento general de un sistema de automatización.
 - Beneficios del uso de la guía GEMMA:
@@ -17,11 +17,10 @@
 
 ## Ejemplo de apoyo
 
-Utilice el ejemplo del [**carro extendido estructurado + gemma**](../04_tc3_carro_extendido/04_tc3_carro_extendido_estructurado_gemma.md) como apoyo para entender la estructura del proyecto.
+Utilice el ejemplo del [**carro extendido jerárquico**](../04_tc3_carro_extendido/04_tc3_carro_extendido_jerarquico.md) como apoyo para entender la estructura del proyecto.
 
 ## Entregables
 
-- GRAFCET del proyecto estructurado en formato PDF.
 - Programa TC3 con la lógica de control del proyecto en formato `.tnzip`.
 
 !!! warning "Normas de entrega"
@@ -32,7 +31,7 @@ Utilice el ejemplo del [**carro extendido estructurado + gemma**](../04_tc3_carr
 !!! warning "Atención"
     📃 Versión descargable [aquí](../../pdfs/Checklist_Func_Estructurado_Gemma.pdf){target="_blank"}.
 
-El proyecto desarrollado debe tener implementar las siguientes funcionalidades (en <font color="red">rojo</font>, funcionalidades nuevas respecto a la versión estructurada simple):
+El proyecto desarrollado debe tener implementar las siguientes funcionalidades (en <font color="red">**rojo**</font>, funcionalidades nuevas respecto a la versión estructurada simple):
 
 !!! info "Requeridas"
     1. Evaluación de las condiciones iniciales.
@@ -40,21 +39,21 @@ El proyecto desarrollado debe tener implementar las siguientes funcionalidades (
     3. Secuencia automática de restauración de las condiciones iniciales.
     4. Secuencia de producción normal.
     5. Tratamiento mejorado de la falta de material (en dos etapas: **Silenciar** y **Continuar**).
-    6. Visualización funcional <font color="red">con descripción de modo.</font>
+    6. Visualización funcional <font color="red">**con descripción de modo**.</font>
     7. Modo manual correcto y adecuado (mandos directos) y automático.
     8. Modo de procesamiento por lotes (tarea).
     9. Modo ciclo a ciclo.
     10. Solicitud de parada a final de ciclo.
     11. Gestión de la tarea (maniobras solicitadas, pendientes y realizadas).
     12. Parametrización de todas las variables (tiempos y cantidades).
-    13. Reinicio del estado <font color="red">mejorado</font> en las situaciones:
+    13. Reinicio del estado <font color="red">**mejorado**</font> en las situaciones:
         1.  Botón en visualización.
-        2.  <font color="red">Pulsación simultánea de pulsador de marcha y de parada durante un tiempo.</font>
-        3.  <font color="red">Tras el desenclavamiento del pulsador de emergencia.</font>
+        2.  <font color="red">**Pulsación simultánea de pulsador de marcha y de parada durante un tiempo**.</font>
+        3.  <font color="red">**Tras el desenclavamiento del pulsador de emergencia**.</font>
     14. Pausa del estado.
-    15. <font color="red">Uso de un método gestor de modos para el reinicio y la pausa.</font>
-    16. <font color="red">Inicialización de `ManiobrasPendientes` al entrar en `F2`.</font>
-    17. <font color="red">Uso del modo en los distintos métodos.</font>
+    15. <font color="red">**Uso de un método gestor de modos para el reinicio y la pausa**.</font>
+    16. <font color="red">**Inicialización de `ManiobrasPendientes` al entrar en `F2`**.</font>
+    17. <font color="red">**Uso del modo en los distintos métodos**.</font>
 
 ??? info "Opcionales"
     1.  Normalización y escalado de las señales de entrada analógicas.
@@ -62,16 +61,16 @@ El proyecto desarrollado debe tener implementar las siguientes funcionalidades (
     3.  Señalización mejorada:
         1.  Lámpara de alarma y lámpara de falta material intermitente en falta material.
         2.  Lámpara de parada intermitente para indicar parada pedida.
-    4.  <font color="red">Temporizador para la desconexión automática por falta de actividad durante 5min.</font>
+    4.  <font color="red">**Temporizador para la desconexión automática por falta de actividad durante 5min**.</font>
 
 ## Componentes
 
-- `MAIN`: programa principal (`ST`)
-    - `FB_Estacion`: contenedor principal (`ST`)
-        - `FB_EstacionDirector`: gestor de los modos de funcionamiento (implementación del gráfico GDMMA) (`ST`).
-        - `FB_EstacionCoordinador_SFC`: implementa el grafcet coordinador de tareas (`SFC`).
-        - `FB_*_SFC`: implementa la lógica de control de la tarea; un bloque funcional por cada tarea (ej.: `FB_SituarPale`) (`SFC`).
-- `VISU_Estacion`: interfaz gráfica
+- {{ST}} `MAIN`: programa principal.
+    - {{ST}} `FB_Estacion`: contenedor principal.
+        - {{ST}} `FB_EstacionDirector`: gestor de los modos de funcionamiento (implementación del gráfico GDMMA).
+        - {{SFC}} `FB_EstacionCoordinador_SFC`: implementa el grafcet coordinador de tareas.
+        - {{SFC}} `FB_*_SFC`: implementa la lógica de control de la tarea; un bloque funcional por cada tarea (ej.: `FB_SituarPale`).
+- `VISU_Estacion`: interfaz gráfica.
 
 ## Itinerario
 
@@ -85,7 +84,7 @@ El proyecto desarrollado debe tener implementar las siguientes funcionalidades (
 
 - [ ] Crear un tipo `ENUM` para contener los modos de funcionamiento (`E_GEMMA`).
 - [ ] Crear una lista de textos para contener las descripciones de los modos de funcionamiento (`TL_GEMMA`).
-- [ ] Crear un **director** en `ST` que implemente el gráfico **GDMMA** (`FB_EstacionDirector`).
+- [ ] Crear un **director** en {{ST}} que implemente el gráfico **GDMMA** (`FB_EstacionDirector`).
 - [ ] Incluir, inicialmente, solo los modos: **"Parada en el estado inicial"** y **"Producción normal"** (`A1`, `F1`).
 - [ ] Incluir en la visualización la indicación de los modos de funcionamiento (etiqueta y descripción).
     - Utilizar textos dinámicos para la descripción.

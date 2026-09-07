@@ -2,7 +2,7 @@
 
 !!! warning "NOTAS"
     - La descripción general sobre este ejemplo puede encontrarse [**aquí**](../../contenidos/04_tc3_carro_extendido.md).
-    - Descargue y abra el proyecto en una ventana de TwinCAT3 para seguir la explicación.
+    - Descargue y abra el proyecto en una ventana de TwinCAT 3 para seguir la explicación.
 
 En esta implementación estructurada del carro extendido, presentamos una primera automatización estructurada con aplicación de la guía GEMMA. Aquí, el `Director` implementa un gráfico **GDMMA**.
 
@@ -18,10 +18,10 @@ La implementación se estructura de la siguiente manera:
 
 En este caso, la funcionalidad (secuencia) está distribuida en:
 
-- `Estación` (`ST`): contenedor principal
-- `Director` (`ST`): **implementación completa del gráfico GDMMA**
-- `Coordinador` (`SFC`): coordinación de tareas para la producción normal
-- `Tareas` (`SFC`): sub-secuencias que implementan las distintas funcionalidades (conjunto de etapas/transiciones con sentido propio)
+- {{ST}} `Estación`: contenedor principal
+- {{ST}} `Director`: **implementación completa del gráfico GDMMA**
+- {{SFC}} `Coordinador`: coordinación de tareas para la producción normal
+- {{SFC}} `Tareas`: sub-secuencias que implementan las distintas funcionalidades (conjunto de etapas/transiciones con sentido propio)
 
 ![Arquitectura](../../images/04_tc3_carro_extendido/Carro_Extendido_Estructurado_GEMMA_Arquitectura.png){width=600px}
 
@@ -32,7 +32,7 @@ La lista de funcionalidades es idéntica a la de la versión <span class="fondo-
 ??? info "Tabla de contenidos"
     [Incorporación de la guía GEMMA en el `Director`](#incorporacion-de-la-guia-gemma-en-el-director)
 
-    [Codificación de una máquina de estados (**GDMMA**) en `ST`](#codificacion-de-una-maquina-de-estados-gdmma-en-st)
+    [Codificación de una máquina de estados (**GDMMA**) en {{ST}}](#codificacion-de-una-maquina-de-estados-gdmma-en-st)
     
     [Temporizador de reinicio manual](#temporizador-de-reinicio-manual)
     
@@ -47,7 +47,7 @@ La lista de funcionalidades es idéntica a la de la versión <span class="fondo-
 
 ### Incorporación de la guía GEMMA en el `Director`
 
-En la implementación <span class="fondo-amarillo">**EST**</span>, el `Director` estaba implementado en `SFC` y encapsulaba la secuencia simplificada de la estación a alto nivel, incluyendo la producción. En esta nueva implementación, el `Director` abarca un ámbito mucho mayor, incorporando la **guía GEMMA** (*Guide d'Etude des Modes de Marche et d'Arrêt*) al sistema.
+En la implementación <span class="fondo-amarillo">**EST**</span>, el `Director` estaba implementado en {{SFC}} y encapsulaba la secuencia simplificada de la estación a alto nivel, incluyendo la producción. En esta nueva implementación, el `Director` abarca un ámbito mucho mayor, incorporando la **guía GEMMA** (*Guide d'Etude des Modes de Marche et d'Arrêt*) al sistema.
 
 Esta guía es una herramienta metodológica que permite analizar los modos de funcionamiento de un sistema de automatización. Al aplicar la guía GEMMA a un sistema concreto, se obtiene el **GDMMA** (*Gráfico Descriptivo de los Modos de Marcha y Parada*), una máquina de estados que describe el funcionamiento general de un sistema de automatización concreto.
 
@@ -99,14 +99,14 @@ Recuerde que un tipo `ENUM` no es más que un tipo entero al que se le **da un n
 
 En nuestro sistema definiremos dos variables de este tipo: `ModoActual` y `ModoAnterior`, para especificar el modo en el ciclo actual y en el ciclo anterior, respectivamente. De esta manera también podremos detectar los cambios de modo.
 
-### Codificación de una máquina de estados (**GDMMA**) en `ST`
+### Codificación de una máquina de estados (**GDMMA**) en {{ST}}
 
-Realizaremos la implementación del **GDMMA** en el lenguaje `ST`, ya que, a pesar de que podría parecer más sencillo implementarlo en `SFC` (el diagrama **GDMMA** no deja de ser una máquina de estados), existen un par de particularidades que son más inclinan a utilizar `ST`:
+Realizaremos la implementación del **GDMMA** en el lenguaje {{ST}}, ya que, a pesar de que podría parecer más sencillo implementarlo en {{SFC}} (el diagrama **GDMMA** no deja de ser una máquina de estados), existen un par de particularidades que nos inclinan a utilizar {{ST}}:
 
 - Paso **inmediato** al modo de parada de emergencia: El sistema debe evolucionar al modo `D1` (**parada de emergencia**) desde cualquier modo del diagrama de manera inmediata tras pulsar la seta de emergencia.
 - Reinicio **inmediato** desde cualquier modo.
 
-La manera de implementar esta máquina de estados es idéntica a la utilizada en el ejemplo del carro básico (en `ST`) [➡️](../../03_tc3_carro_basico/#explicacion).
+La manera de implementar esta máquina de estados es idéntica a la utilizada en el ejemplo del carro básico (en {{ST}}) [➡️](../../03_tc3_carro_basico/#explicacion).
 
 ### Temporizador de reinicio manual
 
@@ -158,7 +158,7 @@ ELSIF OrdenReinicio THEN
 ELSE
 ```
 
-Además, la señal `OrdenReinicio` se asignará a la variable `SFCReset` de todos los **FBs** que la vayan a utilizar, como, por ejemplo:
+Además, la señal `OrdenReinicio` se asignará a la variable `SFCReset` de todos los **FB** que la vayan a utilizar, como, por ejemplo:
 
 ```pascal
 // en m_GestorTareas
@@ -225,7 +225,7 @@ o_SistemaDesconecta := TemporizadorDesconexion.Q; // Desconexión de la parte op
 
 En nuestro programa, el valor por defecto de `TiempoDesconexion` será de **5 minutos**.
 
-El sistema se considera en reposo cuando todos los **FBs** están en su etapa inicial, en espera de que se les *active*.
+El sistema se considera en reposo cuando todos los **FB** están en su etapa inicial, en espera de que se les *active*.
 
 ```pascal
 SistemaEnReposo := Coordinador.Ready
@@ -237,7 +237,7 @@ SistemaEnReposo := Coordinador.Ready
     AND CintaEvacuar.Ready;
 ```
 
-Recuerde que, en las rutinas GRAFCET, los **FBs** activan una señal llamada `Ready` en su etapa inicial, lo que utilizaremos para identificar el reposo del sistema.
+Recuerde que, en las rutinas GRAFCET, los **FB** activan una señal llamada `Ready` en su etapa inicial, lo que utilizaremos para identificar el reposo del sistema.
 
 ### Uso de una lista de texto
 
