@@ -66,7 +66,7 @@ Las siguientes especificaciones funcionales describen el comportamiento del carr
 
 Implementa el funcionamiento básico de este "famoso" problema de automatización del carro va y viene en sus diferentes modalidades (básico, pulsado, temporizado, limitado y señalizado).
 
-Una de las característica más relevante de este proyecto didáctico es que se muestran diferentes formas de especificar e implementer un problema simple de automatización, empleando el lenguaje de especificación GRAFCET y usando diferentes lenguajes de programación de la norma IEC 61131-3 (`SFC` y `ST`).
+Una de las características más relevantes de este proyecto didáctico es que se muestran diferentes formas de especificar e implementar un problema simple de automatización, empleando el lenguaje de especificación GRAFCET y usando diferentes lenguajes de programación de la norma IEC 61131-3 ({{SFC}} y {{ST}}). <span class="fondo-rojo">**SFC**</span>
 
 - GRF → [SFC / ST]
 
@@ -85,7 +85,7 @@ Una de las característica más relevante de este proyecto didáctico es que se 
 
 !!! warning "Importante"
     El proyecto completo que se explica aquí se corresponde con la versión **señalizada** del carro va y viene:
-    
+
     - El carro inicia un viaje de ida y vuelta, únicamente, cuando estando en su posición inicial se acciona el pulsador de marcha (se utiliza la detección del flanco de subida).
     - El carro se detiene durante un determinado tiempo sobre el final de carrera derecha antes de iniciar el camino de regreso hacia su posición inicial.
     - Este proceso de ida y vuelta se realiza un determinado número de veces (configurable en la visualización) con una sola acción del pulsador de marcha.
@@ -96,16 +96,17 @@ Una de las característica más relevante de este proyecto didáctico es que se 
 !!! tip "Sugerencia"
     Pulsa en ➡️ para obtener más información sobre cómo realizar el paso especificado.
 
-1. Crear una solución de TwinCAT3 con nombre `tc3_carro_basico` [➡️](../../contenidos/01_conceptos/#crear-proyecto-tc3)
-2. Crear un proyecto PLC con nombre `carro_basico_PLC` [➡️](../../contenidos/01_conceptos/#crear-proyecto-plc)
-3. Escoger un lenguaje para la implementación: **ST** o **SFC**.
+1.  Crear una solución de TwinCAT 3 con nombre `tc3_carro_basico` [➡️](../../contenidos/01_conceptos/#crear-proyecto-tc3)
+2.  Crear un proyecto PLC con nombre `carro_basico_PLC` [➡️](../../contenidos/01_conceptos/#crear-proyecto-plc)
+3.  Escoger un lenguaje para la implementación: **ST** o **SFC**.
+
 ---
 
 ### Versión en ST
 
 !!! info "Información"
-    En esta versión conoceremos cómo implementar una máquina de estados en lenguaje **ST**. 
-    
+    En esta versión conoceremos cómo implementar una máquina de estados en lenguaje **ST**.
+
     Para ello, vamos a necesitar una variable específica que guarde el valor actual del estado: `Estado`, que
     será de tipo `ENUM` y podrá tomar los siguientes valores:
     
@@ -184,7 +185,7 @@ Una de las característica más relevante de este proyecto didáctico es que se 
     
     El código va a estar formado por tres regiones que se implementan todas en la caja de código: una para la llamada a las **utilidades**, otra para la **función de estado** y otra para la **función de salida**.
     
-    1. Llamada a los FBs de **utilidades**:
+    1. Llamada a los FB de **utilidades**:
 
         ```pascal
         // --- UTILIDADES ---
@@ -434,7 +435,7 @@ Una de las característica más relevante de este proyecto didáctico es que se 
 ## 🚀 Descarga
 
 !!! info "Lenguaje"
-    Se proporciona con implementaciones equivalentes en `ST` y en `SFC`.
+    Se proporciona con implementaciones equivalentes en {{ST}} y en {{SFC}}.
 
 **Para descargar, compilar y ejecutar este proyecto en el entorno de TwinCAT 3, seguir una de estas dos opciones:**
 
