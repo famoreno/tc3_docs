@@ -51,7 +51,7 @@ nav:
       - ✏️ Descripción: contenidos/04_tc3_carro_extendido.md
       - 🧱 Monolítico: contenidos/04_tc3_carro_extendido/04_tc3_carro_extendido_mono.md
       - 🗂️ Estructurado: contenidos/04_tc3_carro_extendido/04_tc3_carro_extendido_estructurado.md
-      - ⚙️ Jerárquico: contenidos/04_tc3_carro_extendido/04_tc3_carro_extendido_estructurado_gemma.md
+      - ⚙️ Jerárquico: contenidos/04_tc3_carro_extendido/04_tc3_carro_extendido_jerarquico.md
       # - 🧩 Impl. Funcional: contenidos/04_tc3_carro_extendido/04_tc3_carro_extendido_funcional.md
   - Prácticas:
     - ℹ️ Información: contenidos/01e_practicas.md 
@@ -61,7 +61,7 @@ nav:
     - 🧩 Proyectos:
       - 🧱 Monolítico: contenidos/05_tc3_practicas/05_tc3_proyecto_mono.md
       - 🗂️ Estructurado: contenidos/05_tc3_practicas/05_tc3_proyecto_estructurado.md
-      - ⚙️ Jerárquico: contenidos/05_tc3_practicas/05_tc3_proyecto_estructurado_gemma.md
+      - ⚙️ Jerárquico: contenidos/05_tc3_practicas/05_tc3_proyecto_jerarquico.md
       # - 🧩 Funcional: contenidos/05_tc3_practicas/05_tc3_proyecto_funcional.md
 
 markdown_extensions:
