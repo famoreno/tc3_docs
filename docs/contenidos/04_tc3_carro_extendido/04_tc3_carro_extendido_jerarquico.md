@@ -51,7 +51,7 @@ En la implementación <span class="fondo-amarillo">**EST**</span>, el `Director`
 
 Esta guía es una herramienta metodológica que permite analizar los modos de funcionamiento de un sistema de automatización. Al aplicar la guía GEMMA a un sistema concreto, se obtiene el **GDMMA** (*Gráfico Descriptivo de los Modos de Marcha y Parada*), una máquina de estados que describe el funcionamiento general de un sistema de automatización concreto.
 
-#### **Beneficios del uso de la guía GEMMA:**
+#### **Beneficios del uso de la guía GEMMA**
 
 - **Estandarización y Lenguaje Común**: La guía GEMMA proporciona un marco estandarizado y reconocido para los modos de marcha y paro. Esto significa que diferentes ingenieros, técnicos de mantenimiento y operadores pueden entender rápidamente el comportamiento de la máquina, incluso si no participaron en su diseño original.
 - **Claridad en la Operación y Mantenimiento**: Define explícitamente estados como "Parada en estado inicial" (`A1`), "Producción normal" (`F1`), "Parada de emergencia" (`D1`), etc. Estos estados son intuitivos para los operadores y facilitan la capacitación. Para mantenimiento, saber que la máquina está en un modo específico (ej. "Verificación sin orden" - `F4`) ayuda a diagnosticar problemas.
