@@ -14,7 +14,7 @@ Para renombrarlo una vez creado:
 
   1.  Escribir el nuevo nombre.
 
-### Proyectos TwinCAT3
+### Proyectos TwinCAT 3
 
 - Se recomienda llamar a los proyectos TC3 de la siguiente forma:
     - **Para los ejemplos**: `TC3_[nombre]`  
@@ -74,8 +74,8 @@ Para renombrarlo una vez creado:
 
 - Se recomienda llamar a los bloques funcionales de la forma `FB_[nombre]_[lenguaje]`, donde el nombre debe ser algo significativo.
 - Los lenguajes suelen ser:
-    - `ST` (*Structured Text*)
-    - `SFC` (*Sequential Function Chart*)
+    - {{ST}} (*Structured Text*)
+    - {{SFC}} (*Sequential Function Chart*)
 
     !!! question "Ejemplo"
         `FB_Estacion_ST`

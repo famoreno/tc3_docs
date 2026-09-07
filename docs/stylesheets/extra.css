@@ -1,7 +1,7 @@
 /* ===== Manual universitario (limpio) ===== */
 
 .md-typeset h1 {
-  color: #e50000;
+  color: #002e5d; /* #e50000; */
   font-weight: 750;
   letter-spacing: -0.4px;
 }
@@ -18,7 +18,7 @@
 .md-typeset hr {
   border: none;
   height: 1px;
-  background-color: #e50000;
+  background-color: #002e5d; /* #e50000;*/
   opacity: 0.3;   /* rojo claro */
   margin: 2em 0;
 }
@@ -26,39 +26,90 @@
 .md-typeset h2 {
   font-weight: 700;
   font-size: 1.6em;
-  border-left: 6px solid #e50000;
+  border-left: 6px solid #002e5d; /* #e50000; */
   padding-left: 0.6em;
 }
 
 .md-typeset h3 {
-  font-weight: 500;
+  font-weight: 700;
   font-size: 1.2em;
-  border-left: 6px solid #ef7d7d;
+  border-left: 6px solid #00aec7; /* #ef7d7d; */
+  padding-left: 0.6em;
+}
+
+.md-typeset h4 {
+  font-weight: 600;
+  font-size: 1em;
+  border: 1px solid #6a6363;
+  border-left: 4px solid #6a6363;
   padding-left: 0.6em;
 }
 
 .md-typeset p { line-height: 1.65; }
 
-/* Código inline rojo (solo inline, no bloques) */
+/* Código inline (solo inline, no bloques) */
 .md-typeset :not(pre) > code {
-  color: #b71c1c;
-  background-color: #fff1f1;
+  color: #ffffff; /*#002e5d;*/ /* #b71c1c; */
+  background-color:#00aec7; /*#9c9994;*/ /*#63666a;*/ /* #00aec7; */ /* #fff1f1; */
   padding: 2px 6px;
   border-radius: 6px;
-  font-weight: 650;
-  font-size: 0.92em;
+  font-weight: 400; /* 650 */
+  font-size: 0.8em; /* 0.92em */
 }
 
 /* Bloques de código sobrios */
 .md-typeset pre {
-  border-left: 4px solid #b71c1c;
+  border-left: 4px solid #002e5d; /* #b71c1c; */
   border-radius: 8px;
 }
+
+.md-search__form {
+  border-radius: 12px;
+  animation: searchInsetPulse 3s infinite !important;
+}
+
+@keyframes searchInsetPulse {
+  0%, 100% {
+    /*box-shadow: inset 0 0 0 999px rgba(229, 0, 0, 0.02);*/
+    box-shadow: inset 0 0 0 999px rgb(0, 172, 200, 0.5);
+    /*box-shadow: inset 0 0 0 999px rgba(0, 46, 93, 0.02);*/
+  }
+
+  50% {
+    /* box-shadow: inset 0 0 0 999px rgba(229, 0, 0, 0.75); */
+    box-shadow: inset 0 0 0 999px rgba(0, 46, 93, 0.75);
+  }
+}
+
+/* 
+.md-search__form {
+    animation: searchHighlight 2s infinite !important;
+}
+
+@keyframes searchHighlight {
+  0% {
+    background-color: rgba(229, 0, 0, 0.05) !important;
+    border-color: rgba(229, 0, 0, 0.4) !important;
+  }
+
+  50% {
+    background-color: rgb(255, 0, 0) !important;
+    border-color: rgba(229, 0, 0, 1) !important;
+  }
+
+  100% {
+    background-color: rgba(229, 0, 0, 0.05) !important;
+    border-color: rgba(229, 0, 0, 0.4) !important;
+  }
+}
+*/
 
 /* Imágenes */
 .md-typeset img {
   border-radius: 8px;
   border: 1px solid #ededed;
+  padding: 4px;
+  background-color: white;
 }
 
 /* TOC izquierda */
@@ -78,12 +129,12 @@
 
 /* ===== TOC derecho: barra a la izquierda del activo ===== */
 .md-nav--secondary .md-nav__link--active {
-  border-left: 4px solid #e50000; /* solid var(--md-accent-fg-color); */
+  border-left: 4px solid #002e5d; /* #e50000;*/ /* solid var(--md-accent-fg-color); */
   padding-left: 0.7rem;
 }
 
 .md-nav--secondary .md-nav__link--active {
-  color: #e50000;
+  color: #002e5d; /* #e50000;*/
 }
 /*
 .md-nav--secondary > .md-nav__list > 
@@ -96,7 +147,8 @@
 
 .md-nav--secondary > .md-nav__list > 
 .md-nav__item > .md-nav__link {
-  background-color: rgba(229, 0, 0, 0.15);
+  /* background-color: rgba(229, 0, 0, 0.15);*/ 
+  background-color: rgba(0, 46, 93, 0.25);
   border-radius: 4px;
   padding: 2px 6px;
   font-size: 0.7rem;
@@ -105,7 +157,8 @@
 /* Nivel 2 */
 .md-nav--secondary > .md-nav__list >
 .md-nav__item .md-nav__item > .md-nav__link {
-  background-color: rgba(208, 118, 249, 0.15);/*rgba(255, 161, 161, 0.15);*/
+  /* background-color: rgba(208, 118, 249, 0.15);*/ /*rgba(255, 161, 161, 0.15);*/
+  background-color: rgba(0,174,199, 0.15);
   border-radius: 4px;
   padding: 2px 6px;
   font-size: 0.65rem;
@@ -114,7 +167,8 @@
 /* Nivel 3 */
 .md-nav--secondary > .md-nav__list >
 .md-nav__item .md-nav__item .md-nav__item > .md-nav__link {
-  background-color: rgba(0, 0, 0, 0.15);
+  /* background-color: rgba(0, 0, 0, 0.15);*/
+  background-color: rgba(99, 102, 106, 0.15);
   font-size: 0.55rem;
 }
 
@@ -202,7 +256,7 @@
 
 /* Barra superior color rojo personalizado */
 .md-header, .md-header__inner {
-  background-color: #e50000 !important;
+  background-color: #002e5d !important; /* #e50000;*/
 }
 
 /* Tablas más compactas */
@@ -244,7 +298,7 @@
   border-radius: 4px;
 }
 
-/* Fondo rojo (texto claro) */
+/* Fondo naranja (texto claro) */
 .fondo-naranja {
   background-color: #ef8f13;
   color: white;
@@ -260,7 +314,7 @@
   border-radius: 4px;
 }
 
-/* Fondo gris (texto oscuro) */
+/* Fondo gris (texto claro) */
 .fondo-gris {
   background-color: #807f7f;
   color: white;
@@ -268,10 +322,66 @@
   border-radius: 4px;
 }
 
-/* Fondo verde (texto oscuro) */
+/* Fondo verde (texto claro) */
 .fondo-verde {
   background-color: #4caf50;
   color: white;
   padding: 2px 6px;
   border-radius: 4px;
+}
+
+/* Fondo azul (texto claro) */
+.fondo-azul {
+  background-color: #002e5d;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Fondo azul (texto claro) */
+.fondo-azul-lang {
+  background-color: #002e5d;
+  color: white;
+  font-weight: bold;
+  padding: 1px 3px;
+  border-radius: 3px;
+}
+
+/* Fondo rojo (texto claro) */
+.fondo-rojo-lang {
+  background-color: #de3744;
+  color: white;
+  font-weight: bold;
+  padding: 1px 3px;
+  border-radius: 3px;
+}
+
+/* USAR FUENTE DE LA UMA PARA EL TEXTO */
+/* TODO: pedir permiso */
+@font-face {
+  font-family: "Malacitana";
+  src: url("../assets/fonts/Malacitana-Sans-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Malacitana";
+  src: url("../assets/fonts/Malacitana-Sans-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fuente general de Material for MkDocs */
+:root {
+  --md-text-font: "IBM Plex Sans"; /* "Roboto"; "Malacitana"; */
+  --md-code-font: "IBM Plex Mono"; /* "Roboto mono"; "Fira Code"; */
+}
+
+:root  > * {
+  --md-primary-fg-color:        #002e5d;
+  --md-primary-fg-color--light: #00aec7;
+  --md-primary-fg-color--dark:  #6a6363;
 }

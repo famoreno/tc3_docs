@@ -3,7 +3,7 @@
 !!! warning "NOTA"
     La descripción general sobre este ejemplo puede encontrarse [aquí](../../contenidos/04_tc3_carro_extendido.md).
 
-En esta implementación monolítica del carro extendido, toda la operación del sistema está concentrada en un solo bloque funcional, implementado en el lenguaje `SFC`.
+En esta implementación monolítica del carro extendido, toda la operación del sistema está concentrada en un solo bloque funcional, implementado en el lenguaje {{SFC}}.
 
 ## Funcionalidades
 
@@ -102,7 +102,7 @@ Una vez pulsado, se volverá a la etapa de comprobación de falta material (**no
 
 Para poder conmutar entre el modo manual y el automático, utilizaremos el valor del selector manual (`i_SelectorManual`).
 
-En TwinCAT3, cuando instanciamos un bloque funcional, estamos ejecutando su código. Si este código accede a las señales de E/S (por ejemplo, activa actuadores), no podremos hacer uso de la visualización para modificar su valor. Es decir, no podremos activar aquellos actuadores que estén controlados por el programa de manera manual. Para poder hacer esto, tendremos que quitar la llamada al código del bloque funcional.
+En TwinCAT 3, cuando instanciamos un bloque funcional, estamos ejecutando su código. Si este código accede a las señales de E/S (por ejemplo, activa actuadores), no podremos hacer uso de la visualización para modificar su valor. Es decir, no podremos activar aquellos actuadores que estén controlados por el programa de manera manual. Para poder hacer esto, tendremos que quitar la llamada al código del bloque funcional.
 
 Para ello, usaremos el siguiente código en el `MAIN`:
 !!! info "Declaración"
@@ -173,7 +173,7 @@ Por su parte, `SFCReset` fuerza la reinicialización del programa, desactivando 
 Estas dos variables forman parte del control estándar del `XAR` y son muy útiles para implementar funciones de parada, reinicio o gestión externa del flujo secuencial.
 
 !!! warning "Importante"
-    Para poder usar estas variables es necesario permitir su uso en las propiedades del proyecto PLC haciendo **CD** sobre el nombre de proyecto, seleccionando `Properties` y, posteriormente, `SFC`. Del listado de variables implícitas que aparecen, hay que marcar la columna `Use` correspondiente a las que se quieran usar.
+    Para poder usar estas variables es necesario permitir su uso en las propiedades del proyecto PLC haciendo **CD** sobre el nombre de proyecto, seleccionando `Properties` y, posteriormente, {{SFC}}. Del listado de variables implícitas que aparecen, hay que marcar la columna `Use` correspondiente a las que se quieran usar.
 
     ![Uso SFC Flags](../../images/04_tc3_carro_extendido/Carro_Extendido_Uso_SFCFlags.png){width=500px} 
 
@@ -201,7 +201,7 @@ Además, dentro de estas acciones se da valor a variables de estado que indican,
 
 ### Uso de constantes, variables `REAL` y *arrays*
 
-Finalmente, este ejemplo incorpora el uso de nuevos conceptos de programación en TwinCAT3:
+Finalmente, este ejemplo incorpora el uso de nuevos conceptos de programación en TwinCAT 3:
 
 - **Uso de constantes**. Dentro de un entorno `VAR_CONSTANT` podemos declarar constantes con un valor específico que podremos usar a lo largo de nuestro código. Por convenio, se utilizan mayúsculas en su nombre.
 

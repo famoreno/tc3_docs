@@ -154,7 +154,7 @@ El sistema de control también dispone de una visualización (panel de operador 
 | `CintaMarcha` | `BOOL` | <span class="fondo-rojo">**S**</span> | Marcha/para el motor de la cinta transportadora |
 
 ---
-
+<!--
 ### Especificación funcional
 
 Las siguientes especificaciones funcionales describen el comportamiento del carro extendido (lógica de control) de una manera precisa utilizando lenguaje GRAFCET.
@@ -167,13 +167,12 @@ Las siguientes especificaciones funcionales describen el comportamiento del carr
 
 ### Implementación
 
-Implementa el funcionamiento del sistema de transporte de material que representa el carro extendido utilizando tres paradigmas de programación (monolítico, estructurado y estructurado con guía GEMMA) para ilustrar, con fines didácticos, las posibilidades y el alcance que cada uno de ellos.
+Implementa el funcionamiento del sistema de transporte de material que representa el carro extendido utilizando tres paradigmas de programación (**monolítico**, **estructurado** y **jerárquico**) para ilustrar, con fines didácticos, las posibilidades y el alcance que cada uno de ellos.
 
-1. 🧱 <span class="fondo-verde">**MONO**</span> **Monolítico** (orientada al sistema). Implementación directa. Toda la secuencia de control se encuentra recogida en un único elemento de programación.
-2. 🗂️ **Estructurado** (orientado a la tarea). La secuencia de funcionamiento se organiza y distribuye en sub-secuencias denominadas tareas (acciones complejas). Hay dos versiones:
-      1.  🗂️ <span class="fondo-amarillo">**EST**</span> **Estructurado**
-      2.  ⚙️ <span class="fondo-rojo">**EST+GEMMA**</span> **Estructurado con GEMMA** (incluye guía GEMMA).
-<!-- 3. 🧩 **Funcional** (orientado a la unidad funcional). La lógica de control del sistema se organiza en términos de unidades funcionales, entidades formadas por un subconjunto de dispositivos (sensores y actuadores), capaces de llevar a cabo una o más tareas. <span class="fondo-naranja">**Próximamente!**</span>
+1. 🧱 <span class="fondo-verde">**MON**</span> **Monolítico** (orientada al sistema). Implementación directa. Toda la secuencia de control se encuentra recogida en un único elemento de programación.
+2. 🗂️ <span class="fondo-amarillo">**EST**</span> **Estructurado** (orientado a la tarea). La secuencia de funcionamiento se organiza y distribuye en sub-secuencias denominadas tareas (acciones complejas).
+3. ⚙️ <span class="fondo-rojo">**JER**</span> **Jerárquico** (incluye guía GEMMA). Se incorpora un director que implementa la evolución del sistema entre distintos modos de funcionamiento.
+<!-- 4. 🧩 <span class="fondo-negro">**FUN**</span> **Funcional** (orientado a la unidad funcional). La lógica de control del sistema se organiza en términos de unidades funcionales, entidades formadas por un subconjunto de dispositivos (sensores y actuadores), capaces de llevar a cabo una o más tareas. <span class="fondo-naranja">**Próximamente!**</span>
 -->
 ---
 
@@ -182,7 +181,7 @@ Implementa el funcionamiento del sistema de transporte de material que represent
 ### Software
 
 - **IDE:** Microsoft Visual Studio / TwinCAT 3 XAE (Versión mínima recomendada: **3.1.4024.x**).
-- **Lenguajes:** Texto Estructurado (`ST`) y Diagrama de Funciones Secuenciales (`SFC`).
+- **Lenguajes:** Texto Estructurado {{ST}} y Diagrama de Funciones Secuenciales {{SFC}}.
 
 ## 🚀 Descarga
 
@@ -195,9 +194,11 @@ Implementa el funcionamiento del sistema de transporte de material que represent
     !!! info "🧱 **Monolítico**"
         `CV → Automatización → ejemplos → 3_tc3_carro_monolitico → tc3_carro_extendido_monolitico_lite.tnzip`
 
-    !!! info "**Estructurado**"
-        - 🗂️ <span class="fondo-amarillo">**EST**</span> `CV → Automatización → ejemplos → 4_tc3_carro_estructurado → tc3_carro_extendido_estructurado_lite.tnzip`
-        - ⚙️ <span class="fondo-rojo">**EST+GEMMA**</span> `CV → Automatización → ejemplos → 5_tc3_carro_gemma → tc3_carro_extendido_estructurado_basic.tnzip`
+    !!! info "🗂️ **Estructurado**"
+        `CV → Automatización → ejemplos → 4_tc3_carro_estructurado → tc3_carro_extendido_estructurado_lite.tnzip`
+
+    !!! info "⚙️ **Jerárquico**"
+        `CV → Automatización → ejemplos → 5_tc3_carro_gemma → tc3_carro_extendido_estructurado_basic.tnzip`
 
     <!-- !!! info "🧩 **Funcional**" 
         <span class="fondo-naranja">**Próximamente!**</span> -->
@@ -223,11 +224,11 @@ git clone https://github.com/vetorres-uma/TC3_Carro_Extendido.git
 
 ## 🔨 Explicación
 
-🧱 <span class="fondo-verde">**MONO**</span> [➡️](./04_tc3_carro_extendido/04_tc3_carro_extendido_mono.md)
+🧱 <span class="fondo-verde">**MON**</span> [➡️](./04_tc3_carro_extendido/04_tc3_carro_extendido_mono.md)
 
 🗂️ <span class="fondo-amarillo">**EST**</span> [➡️](./04_tc3_carro_extendido/04_tc3_carro_extendido_estructurado.md)
 
-⚙️ <span class="fondo-rojo">**EST+GEMMA**</span> [➡️](./04_tc3_carro_extendido/04_tc3_carro_extendido_estructurado_gemma.md)
+⚙️ <span class="fondo-rojo">**JER**</span> [➡️](./04_tc3_carro_extendido/04_tc3_carro_extendido_estructurado_gemma.md)
 
 <!-- 🧩 **Funcional** <span class="fondo-naranja">**Próximamente!**</span> -->
 
@@ -243,9 +244,9 @@ git clone https://github.com/vetorres-uma/TC3_Carro_Extendido.git
 !!! tip "Sugerencia"
     Pulsa en ➡️ para obtener más información sobre cómo realizar el paso especificado.
 
-1. Crear una solución de TwinCAT3 con nombre `tc3_carro_basico` [➡️](../../contenidos/01_conceptos/#crear-proyecto-tc3)
+1. Crear una solución de TwinCAT 3 con nombre `tc3_carro_basico` [➡️](../../contenidos/01_conceptos/#crear-proyecto-tc3)
 2. Crear un proyecto PLC con nombre `carro_basico_PLC` [➡️](../../contenidos/01_conceptos/#crear-proyecto-plc)
-3. **Escoger un lenguaje** para la implementación: `ST` o `SFC`. ==Aunque aquí expliquemos ambas versiones, en el curso habrá que replicar el correspondiente al lenguaje `SFC`==.
+3. **Escoger un lenguaje** para la implementación: {{ST}} o {{SFC}}. ==Aunque aquí expliquemos ambas versiones, en el curso habrá que replicar el correspondiente al lenguaje {{SFC}}==.
 4. Crear un bloque funcional con ese lenguaje llamado `FB_Carro_basico_ST` o `FB_Carro_basico_SFC` [➡️](../../contenidos/01_conceptos/#crear-bloque-funcional)
 5. Declarar las variables:
     
@@ -257,11 +258,11 @@ git clone https://github.com/vetorres-uma/TC3_Carro_Extendido.git
             - <span class="fondo-amarillo">**E**</span>: `i_FinalDerecha`, `i_FinalIzquierda`, `i_PulsadorMarcha` 
             - <span class="fondo-rojo">**S**</span>: `o_LamparaMarcha`, `o_MarchaDerecha`, `o_MarchaIzquierda`
     
-    ??? info "Específicas para `ST`"
+    ??? info "Específicas para {{ST}}"
         - Control del estado: `Estado`: Variable de tipo `ENUM` que puede tomar los valores que identifican los estados posibles mostrados en el GRAFCET.
         - Temporizador: `TemporizadorEspera (TON)`
 
-    ??? info "Específicas para `SFC`"
+    ??? info "Específicas para {{SFC}}"
         - Ninguna. 
             - **No necesitamos una variable de estado**, porque viene implícito en el lenguaje. Además, TwinCAT 3 asocia una variable booleana a cada estado que indica si éste está activo: `[nombre_etapa].x` (ejemplo `S2.x`).
             - **Tampoco necesitamos el temporizador** ya que TwinCAT 3 incorpora un temporizador asociado a cada etapa, al que se puede acceder mediante el código `[nombre_etapa].t` (ejemplo `S2.t`).
@@ -269,8 +270,8 @@ git clone https://github.com/vetorres-uma/TC3_Carro_Extendido.git
 
 1. Escribir el código del **FB**:
     
-    ??? info "`ST`"
-        1. Se llama a los FBs de **utilidades**: `BLK`, `FlancoPulsadorMarcha` y `TemporizadorEspera`.
+    ??? info "{{ST}}"
+        1. Se llama a los FB de **utilidades**: `BLK`, `FlancoPulsadorMarcha` y `TemporizadorEspera`.
         2. Se implementa la **función de estado** usando esta estructura:
             ```pascal
             CASE Estado OF:
@@ -310,15 +311,15 @@ git clone https://github.com/vetorres-uma/TC3_Carro_Extendido.git
 
             Nótese aquí el uso de la salida de `BLK` para conseguir que `o_LamparaMarcha` alterne de valor en el estado de reposo (la lámpara parpadeará), y quede fija en cualquier otro estado.
 
-    ??? info "`SFC`"
-        4. La conversión de GRAFCET a lenguaje `SFC` es más directa que con `ST`, al ser un lenguaje gráfico que representa muy claramente la secuencia de estados por la que pasa el sistema.
+    ??? info "{{SFC}}"
+        4. La conversión de GRAFCET a lenguaje {{SFC}} es más directa que con {{ST}}, al ser un lenguaje gráfico que representa muy claramente la secuencia de estados por la que pasa el sistema.
             
             ![Código de carro básico SFC](../images/03_tc3_carro_basico/carro_basico_sfc.png){width=500px}
         
         5. El código incluye cinco tipos de acciones ([➡️](../../contenidos/01_conceptos/#asociar-acciones-a-etapas)):
               1. No memorizadas para activar salidas binarias (equivalencia directa con GRAFCET). **Ejemplo**: `o_MarchaDerecha`
               
-              2. No memorizadas con llamada a acciones en `ST` (para acciones continuas condicionadas). **Ejemplo**: `a_LamparaMarcha`.
+              2. No memorizadas con llamada a acciones en {{ST}} (para acciones continuas condicionadas). **Ejemplo**: `a_LamparaMarcha`.
               3. Activas a la entrada (para acciones memorizadas a la entrada de la etapa). **Ejemplo**: `a_ManiobrasPendientes_calcular`.
               4. Activas a la salida (para acciones memorizadas a la salida de la etapa). **Ejemplo**: `a_ManiobrasPendientes_iniciar`.
               5. Acciones principales (para acciones continuas durante la activación de la etapa). **Ejemplo**: `a_FlancoMarcha`.

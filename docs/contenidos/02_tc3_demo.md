@@ -101,7 +101,7 @@ git clone https://github.com/vetorres-uma/TC3_Demo.git
 !!! tip "Sugerencia"
     Pulsa en ➡️ para obtener más información sobre cómo realizar el paso especificado.
 
-1. Crear una solución de TwinCAT3 con nombre `tc3_demo` [➡️](../../contenidos/01_conceptos/#crear-proyecto-tc3)
+1. Crear una solución de TwinCAT 3 con nombre `tc3_demo` [➡️](../../contenidos/01_conceptos/#crear-proyecto-tc3)
 2. Crear un proyecto PLC con nombre `demo_PLC` [➡️](../../contenidos/01_conceptos/#crear-proyecto-plc)
 
     !!! warning "Importante"
@@ -174,7 +174,7 @@ git clone https://github.com/vetorres-uma/TC3_Demo.git
             - Color variables > Toggle color = [`MAIN.o_Lampara`]
 
 6. **Poner en marcha** el proyecto [➡️](../contenidos/01b_ejecucion.md)
-7. **Utilizar la visualización** creada PLC para facilitar la prueba:
+7. **Utilizar la visualización** creada para facilitar la prueba:
     1.  Reiniciar el contador desde la visualización pulsando en el botón **Reinicia**.
     2.  Cambiar el valor de la lámpara de marcha pulsando el **botón de marcha** en la visualización.
     3.  Alternativamente, **escribe o fuerza** las variables deseadas desde TwinCAT 3.
@@ -183,18 +183,18 @@ git clone https://github.com/vetorres-uma/TC3_Demo.git
 
 Ahora vamos a ejecutar el programa en un **controlador remoto** (por ejemplo, un PLC del laboratorio).
 
-1. **Buscar** el controlador en la red, **escanear** los módulos y **probar** dos terminales/canales, uno de entrada y otro de salida. [➡️](../../contenidos/01_conceptos/#busqueda-de-controladores-remotos)
+1. **Buscar** el controlador en la red, **escanear** los módulos y **probar** dos terminales/canales, uno de entrada y otro de salida. [➡️](../../contenidos/01b_ejecucion/#busqueda-de-controladores-remotos)
 
     !!! tip "Sugerencia"
-        Abrir la hoja de cálculo con la lista de entradas y salidas del sistema FMS200, seleccionar la pestaña correspondiente a tu estación y escoger un **pulsador** de entre los elementos de entrada y una **lámpara** de entre los elementos de salida.
+        Abrir el documento de la descripción funcional con la lista de entradas y salidas del sistema FMS-200, buscar la tabla correspondiente a tu estación y escoger un **pulsador** de entre los elementos de entrada y una **lámpara** de entre los elementos de salida.
 
-2. **Vincular** los terminales/canales correspondiente con las variables de E/S [➡️](../../contenidos/01_conceptos/#vinculacion-de-variables-y-es)
-    2.  Variable de entrada `i_Pulsador`
+2. **Vincular** los terminales/canales correspondientes con las variables de E/S [➡️](../../contenidos/01b_ejecucion/#vinculacion-de-variables-y-es)
+    1.  Variable de entrada `i_Pulsador`
     2.  Variable de salida `i_Lampara`
 
-3. **Activar la configuración** y reiniciar TwinCAT 3 en modo **Ejecución (Run Mode)** [➡️](../../contenidos/01_conceptos/#activar-la-configuracion)
-4. **Cargar el código** en el controlador (**Login**) [➡️](../../contenidos/01_conceptos/#transferir-y-ejecutar-el-programa)
-5. Poner el código en **ejecución** (**Start**) [➡️](../../contenidos/01_conceptos/#transferir-y-ejecutar-el-programa)
+3. **Activar la configuración** y reiniciar TwinCAT 3 en modo **Ejecución (Run Mode)** [➡️](../../contenidos/01b_ejecucion/#3-activar-configuracion)
+4. **Transferir el programa** al controlador (**Login**) [➡️](../../contenidos/01b_ejecucion/#4-transferir-programa)
+5. Poner el código en **ejecución** (**Start**) [➡️](../../contenidos/01b_ejecucion/#5-ejecutar-programa)
 6. Comprobar que, accionando el pulsador físico, se enciende la lámpara física.
 7. **Utilizar la visualización** integrada en el proyecto PLC para facilitar la prueba:
     - Comprobar en la visualización que, accionando el pulsador físico, cambia de estado la lámpara.

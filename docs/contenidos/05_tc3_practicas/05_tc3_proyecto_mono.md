@@ -54,8 +54,8 @@ El proyecto desarrollado debe tener las siguientes funcionalidades:
 
 ## Componentes
 
-- `MAIN`: programa principal (`ST`)
-    - `FB_Estacion`: lógica de control (`SFC`)
+- `MAIN`: programa principal {{ST}}
+    - `FB_Estacion`: lógica de control {{SFC}}
 - `VISU_Estacion`: interfaz gráfica
 
 ## Itinerario
@@ -67,7 +67,7 @@ El proyecto desarrollado debe tener las siguientes funcionalidades:
 
 - [ ] Crear una solución con el nombre apropiado (`XXX_TC3_GYY`, `XXX` = iniciales de la asignatura, `YY` = número del grupo).
 - [ ] Crear el proyecto PLC (`FMS_20X_PLC`).
-- [ ] Crear el bloque funcional `FB_Estacion` (`SFC`).
+- [ ] Crear el bloque funcional `FB_Estacion` {{SFC}}.
 - [ ] Declarar las variables pertinentes en el **FB** según la tabla de entrada y salida de la estación.
 - [ ] Declarar e invocar la instancia `Estacion` de `FB_Estacion` en el programa `MAIN`.
 - [ ] Compilar.

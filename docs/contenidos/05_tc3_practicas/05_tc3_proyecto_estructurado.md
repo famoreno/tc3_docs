@@ -3,13 +3,13 @@
 !!! info "Nota"
     Esta práctica es **entregable**.
 
-- Esta sección describe un enfoque **modular** para estructurar proyectos de automatización en TwinCAT 3, utilizando *Function Blocks* (**FBs**) basados en *Sequential Function Chart* (`SFC`).
+- Esta sección describe un enfoque **modular** para estructurar proyectos de automatización en TwinCAT 3, utilizando *Function Blocks* (**FB**) basados en *Sequential Function Chart* {{SFC}}.
 - Beneficios del Enfoque Modular:
     - **Claridad:** Cada **FB** realiza una tarea específica (ej. Cargar Base, Prensar Rodamiento).
-    - **Reutilización:** Los **FBs** de tareas pueden ser reutilizados en otras estaciones o proyectos con lógica similar.
-    - **Mantenimiento:** Los cambios se localizan en **FBs** específicos, reduciendo el riesgo de efectos secundarios.
+    - **Reutilización:** Los **FB** de tareas pueden ser reutilizados en otras estaciones o proyectos con lógica similar.
+    - **Mantenimiento:** Los cambios se localizan en **FB** específicos, reduciendo el riesgo de efectos secundarios.
     - **Testabilidad:** Cada **FB** puede probarse individualmente (si se diseña adecuadamente).
-    - **Colaboración:** Diferentes desarrolladores pueden trabajar en distintos **FBs** simultáneamente.
+    - **Colaboración:** Diferentes desarrolladores pueden trabajar en distintos **FB** simultáneamente.
 
 ## Ejemplo de apoyo
 
@@ -54,11 +54,11 @@ El proyecto desarrollado debe tener implementar las siguientes funcionalidades (
 
 ## Componentes
 
-- `MAIN`: programa principal (`ST`)
-    - `FB_Estacion`: contenedor principal (`ST`)
-        - `FB_EstacionDirector_SFC`: implementa el gestor de modos del sistema (`SFC`).
-        - `FB_EstacionCoordinador_SFC`: implementa el grafcet coordinador de tareas (`SFC`).
-        - `FB_*_SFC`: implementa la lógica de control de la tarea; un bloque funcional por cada tarea (ej.: `FB_SituarPale`) (`SFC`).
+- {{ST}} `MAIN`: programa principal.
+    - {{ST}} `FB_Estacion`: contenedor principal.
+        - {{SFC}} `FB_EstacionDirector_SFC`: implementa el gestor de modos del sistema.
+        - {{SFC}} `FB_EstacionCoordinador_SFC`: implementa el grafcet coordinador de tareas.
+        - {{SFC}} `FB_*_SFC`: implementa la lógica de control de la tarea; un bloque funcional por cada tarea (ej.: `FB_SituarPale`).
 - `VISU_Estacion`: interfaz gráfica
 
 ## Itinerario
@@ -72,7 +72,7 @@ El proyecto desarrollado debe tener implementar las siguientes funcionalidades (
     📃 Versión descargable [aquí](../../pdfs/Checklist_Itinerario_Proyecto_Estructurado.pdf){target="_blank"}.
 
 - [ ] Renombrar `FB_Estacion` por `_FB_Estacion_Monolitico`.
-- [ ] Crear un nuevo `FB_Estacion` en lenguaje `ST`.
+- [ ] Crear un nuevo `FB_Estacion` en lenguaje {{ST}}.
 - [ ] Trasladar toda la parte de declaración de `_FB_Estacion_Monolitico` a `FB_Estacion`.
 - [ ] Eliminar la invocación al proceso (`MAIN`).
 - [ ] Eliminar la gestión del modo manual (`MAIN`).
@@ -82,14 +82,14 @@ El proyecto desarrollado debe tener implementar las siguientes funcionalidades (
     - Incluir en cada tarea un **parámetro de entrada** para cada sensor que necesite utilizar y un **parámetro de salida** para cada actuador que necesite para cumplir su función (`FB_*_SFC`).
     - Integrar cada tarea en la estación (declarar una variable cuyo tipo es el correspondiente **FB**, invocarlo en el código y especificar sus parámetros de entrada y salida) (`FB_Estacion`).
     - Validar cada tarea antes de iniciar la siguiente, usando el pulsador de marcha para iniciar la tarea seleccionada (`FB_Estacion`, `FB_*_SFC`).
-- [ ] Crear un **coordinador** de tareas secuencial en lenguaje `SFC` (`FB_EstacionCoordinador_SFC`).
+- [ ] Crear un **coordinador** de tareas secuencial en lenguaje {{SFC}} (`FB_EstacionCoordinador_SFC`).
     - Dotar al bloque funcional de coordinación de la estructura de rutina SFC.
     - Implementar únicamente la secuencia principal «directa» (la equivalente a un ciclo completo de producción).
     - El coordinador dispondrá de parámetros de entrada y salida para comunicarse con cada tarea de forma que, al menos, tenga un parámetro de salida (indicado en imperativo) para dar la orden de ejecución de la funcionalidad y un parámetro de entrada (indicado en participio pasado) para recibir la respuesta de que la tarea se ha completado satisfactoriamente. Ejemplo: `AlimentaBase` y `BaseAlimentada`.
     - Integrar el coordinador de tareas en la estación (declarar una variable de tipo `FB_EstacionCoordinador_SFC`, invocarlo y especificar sus parámetros de entrada y salida) (`FB_Estacion`).
     - Integrar el coordinador con cada una de las tareas (ajustar los parámetros de entrada/salida) en el `FB_Estacion`.
     - Usar el pulsador de marcha para iniciar una **prueba** de ejecución del coordinador (`FB_Estacion`, `FB_EstacionCoordinador_SFC`).
-- [ ] Crear un **director** para la gestión del modo de funcionamiento en lenguaje `SFC` (`FB_EstacionDirector_SFC`).
+- [ ] Crear un **director** para la gestión del modo de funcionamiento en lenguaje {{SFC}} (`FB_EstacionDirector_SFC`).
     - Incluir la secuencia principal para la **Preparación**, **Producción** y **Finalización** (`FB_EstacionDirector_SFC`, `FB_*_SFC`).
 - [ ] Incluir la gestión de las condiciones iniciales (`FB_Estacion`).
 - [ ] Incluir la gestión de la tarea: contadores de maniobras (`FB_Estacion`, `FB_EstacionDirector_SFC`, `FB_EstacionCoordinador_SFC`).

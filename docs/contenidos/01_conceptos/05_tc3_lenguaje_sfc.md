@@ -14,6 +14,15 @@
 
 ### Asociar acciones a etapas
 
+De manera general, se utilizarán los siguientes tipos de acciones:
+
+1. Continua (o no memorizada)
+      1. Condicionada
+2. Memorizada
+      1. Con activación a la entrada
+      2. Con activación a la salida
+4. Principal
+
 #### Acción continua
 
 Las acciones continuas se ejecutan de manera continuada mientras el sistema está en la etapa asociada. Esto nos va a permitir:
@@ -57,7 +66,7 @@ Si, por el contrario, lo que queremos asociar a esta etapa es una **acción cond
 
     ![Imagen](../images/01_conceptos/add_action.png){width=400px}
 
-- Especificar el nombre de la acción que queramos y seleccionar el lenguaje en el que la vamos a implementar (`ST` habitualmente).
+- Especificar el nombre de la acción que queramos y seleccionar el lenguaje en el que la vamos a implementar ({{ST}} habitualmente).
 
     ![Imagen](../images/01_conceptos/select_lang_action.png){width=250px}
 
@@ -71,7 +80,7 @@ Si, por el contrario, lo que queremos asociar a esta etapa es una **acción cond
     o_LamparaMarcha := (S0.x AND BLK.Q) OR NOT S0.x;  // acción condicionada que enciende la lámpara
     ```
 
-- Asociarlo a una etapa en la caja de acción contínua.
+- Asociarlo a una etapa en la caja de acción continua.
 
     ![Imagen](../images/01_conceptos/action_step.png){width=350px}
 
@@ -90,8 +99,8 @@ También podemos crear acciones memorizadas con activación **a la entrada** o *
 
     ![Imagen](../images/01_conceptos/image%206.png){width=384px}
 
-- En nuestros proyectos, **estas acciones siempre serán implementadas en `ST`**, pero podrían ser codificadas en cualquier otro lenguaje de la norma.
-- Una vez creada, se representa en el programa `SFC` como un cuadrado con una **E** en la esquina inferior izquierda de la etapa.
+- En nuestros proyectos, **estas acciones siempre serán implementadas en {{ST}}**, pero podrían ser codificadas en cualquier otro lenguaje de la norma.
+- Una vez creada, se representa en el programa {{SFC}} como un cuadrado con una **E** en la esquina inferior izquierda de la etapa.
 
     ![Imagen](../images/01_conceptos/image%207.png){width=288px}
 
@@ -105,9 +114,9 @@ También podemos crear acciones memorizadas con activación **a la entrada** o *
     ![Imagen](../images/01_conceptos/image%208.png){width=384px}
 
     !!! warning "Importante"
-        En nuestros proyectos, **estas acciones siempre serán en `ST`**, pero podrían ser implementadas en cualquier otro lenguaje de la norma.
+        En nuestros proyectos, **estas acciones siempre serán en {{ST}}**, pero podrían ser implementadas en cualquier otro lenguaje de la norma.
 
-- Una vez creada, se representa en el programa `SFC` como un cuadrado con una **X** en la esquina inferior derecha de la etapa.
+- Una vez creada, se representa en el programa {{SFC}} como un cuadrado con una **X** en la esquina inferior derecha de la etapa.
     ![Imagen](../images/01_conceptos/image%209.png){width=288px}
 
 !!! warning "Importante"
@@ -115,7 +124,7 @@ También podemos crear acciones memorizadas con activación **a la entrada** o *
 
 #### Acción principal
 
-Existe un cuarto tipo de acciones que podemos utilizar: las **acciones principales**. Estas acciones también se asocian a una etapa y se ejecutan de manera continua durante todo el tiempo que la etapa esté activa.
+Por último, podremos utilizar las **acciones principales**. Estas acciones también se asocian a una etapa y se ejecutan de manera continua durante todo el tiempo que la etapa esté activa.
 
 El procedimiento de creación de estas acciones es el mismo que el indicado [aquí](../01_conceptos/#accion-compleja), pero, en lugar de introducir el nombre de la acción en la caja de acción, lo introduciremos en el campo `Main Action` dentro de las propiedades de la etapa.
 

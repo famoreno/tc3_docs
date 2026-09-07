@@ -9,11 +9,11 @@
 
 El **carro va y viene** es un móvil que se desplaza longitudinalmente entre los extremos izquierdo y derecho de un tramo de vía.
 
-![Esquematico del Carro Básico](../images/03_tc3_carro_basico/Carro_Basico_Esquematico.png){width=300px}
+![Esquemático del Carro Básico](../images/03_tc3_carro_basico/Carro_Basico_Esquematico.png){width=300px}
 
 ### Elementos constituyentes
 
-La **parte operativa** del carro básico está constituida por los siguiente dispositivos:
+La **parte operativa** del carro básico está constituida por los siguientes dispositivos:
 
 - Un **motor** con dos señales de mando (izquierda y derecha)
 - Un par de **sensores finales de carrera** (izquierdo y derecho)
@@ -64,14 +64,17 @@ Las siguientes especificaciones funcionales describen el comportamiento del carr
 
 ### Implementación
 
-Implementa el funcionamiento básico de este "famoso" problema de automatización del carro va y viene en sus diferentes modalidades (básico, pulsado, temporizado, limitado y **señalizado**).
+Implementa el funcionamiento básico de este *famoso* problema de automatización del «carro va y viene» en sus diferentes modalidades (básico, pulsado, temporizado, limitado y **señalizado**).
 
 !!! warning "Importante"
-    Puesto que el desarrollo es incremental, se incluye solo el código correspondiente al nivel superior, que incluye los anteriores.
+    Puesto que el desarrollo es incremental, aquí se presenta solo el código correspondiente al nivel **señalizado**, que incluye los anteriores.
 
-Una de las características más relevante de este proyecto didáctico es que se muestran diferentes formas de especificar e implementar un problema simple de automatización, empleando el lenguaje de especificación GRAFCET y usando diferentes lenguajes de programación de la norma IEC 61131-3 (`SFC` y `ST`).
+Una de las características más relevantes de este proyecto didáctico es que se muestran diferentes formas de especificar e implementar un problema simple de automatización, empleando el lenguaje de especificación GRAFCET y usando diferentes lenguajes de programación de la norma IEC 61131-3:
 
-- **GRF → [SFC / ST]**
+- {{SFC}} - *Sequential Function Chart*
+- {{ST}} - *Structured Text*
+
+<!-- - **GRF → [SFC / ST]** -->
 
 ---
 
@@ -80,14 +83,14 @@ Una de las características más relevante de este proyecto didáctico es que se
 ### Software
 
 - **IDE:** Microsoft Visual Studio / TwinCAT 3 XAE (Versión mínima recomendada: **3.1.4024.x**).
-- **Lenguajes:** Texto Estructurado (ST) y Diagrama de Funciones Secuenciales (SFC).
+- **Lenguajes:** Texto Estructurado {{ST}} y Diagrama de Funciones Secuenciales {{SFC}}.
 
 ---
 
 ## 🚀 Descarga
 
 !!! info "Lenguaje"
-    Se proporciona con implementaciones equivalentes en `ST` y en `SFC`.
+    Se proporciona con implementaciones equivalentes en {{ST}} y en {{SFC}}.
 
 **Para descargar, compilar y ejecutar este proyecto en el entorno de TwinCAT 3, seguir el siguiente procedimiento**.
 <!-- 
@@ -105,7 +108,7 @@ Una de las características más relevante de este proyecto didáctico es que se
 
     que hay en la carpeta del campus virtual.
 
-2. **Seguir el procedimiento** descrito [aquí](../../contenidos/01_conceptos/#abrir-un-fichero-tnzip) para generar la **Solución** a partir del fichero.
+2. **Seguir el procedimiento** descrito [en esta sección](../../contenidos/01_conceptos/#abrir-un-fichero-tnzip) para generar la **Solución** a partir del fichero.
 <!-- 
 ### Mediante GIT
 
@@ -135,9 +138,9 @@ git clone https://github.com/vetorres-uma/TC3_Carro_Basico.git
 !!! tip "Sugerencia"
     Pulsa en ➡️ para obtener más información sobre cómo realizar el paso especificado.
 
-1. Crear una solución de TwinCAT3 con nombre `tc3_carro_basico` [➡️](../../contenidos/01_conceptos/#crear-proyecto-tc3)
+1. Crear una solución de TwinCAT 3 con nombre `tc3_carro_basico` [➡️](../../contenidos/01_conceptos/#crear-proyecto-tc3)
 2. Crear un proyecto PLC con nombre `carro_basico_PLC` [➡️](../../contenidos/01_conceptos/#crear-proyecto-plc)
-3. **Escoger un lenguaje** para la implementación: `ST` o `SFC`. ==Aunque aquí expliquemos ambas versiones, en el curso habrá que replicar el correspondiente al lenguaje `SFC`==.
+3. **Escoger un lenguaje** para la implementación: {{ST}} o {{SFC}}. ==Aunque aquí expliquemos ambas versiones, en el curso habrá que replicar el correspondiente al lenguaje {{SFC}}==.
 4. Crear un bloque funcional con ese lenguaje llamado `FB_Carro_basico_ST` o `FB_Carro_basico_SFC` [➡️](../../contenidos/01_conceptos/#crear-bloque-funcional)
 5. Declarar las variables:
 
@@ -149,11 +152,11 @@ git clone https://github.com/vetorres-uma/TC3_Carro_Basico.git
             - <span class="fondo-amarillo">**E**</span>: `i_FinalDerecha`, `i_FinalIzquierda`, `i_PulsadorMarcha`
             - <span class="fondo-rojo">**S**</span>: `o_LamparaMarcha`, `o_MarchaDerecha`, `o_MarchaIzquierda`
 
-    ??? info "Específicas para `ST`"
+    ??? info "Específicas para {{ST}}"
         - Control del estado: `Estado`: Variable de tipo `ENUM` que puede tomar los valores que identifican los estados posibles mostrados en el GRAFCET.
         - Temporizador: `TemporizadorEspera (TON)`
 
-    ??? info "Específicas para `SFC`"
+    ??? info "Específicas para {{SFC}}"
         - Ninguna.
             - **No necesitamos una variable de estado**, porque viene implícito en el lenguaje. Además, TwinCAT 3 asocia una variable booleana a cada estado que indica si este está activo: `[nombre_etapa].x` (ejemplo `S2.x`).
             - **Tampoco necesitamos el temporizador**, ya que TwinCAT 3 incorpora un temporizador asociado a cada etapa, al que se puede acceder mediante el código `[nombre_etapa].t` (ejemplo `S2.t`).
@@ -162,8 +165,8 @@ git clone https://github.com/vetorres-uma/TC3_Carro_Basico.git
 
 1. Escribir el código del **FB**:
 
-    ??? info "`ST`"
-        1. Se llama a los **FBs** de **utilidades**: `BLK`, `FlancoPulsadorMarcha` y `TemporizadorEspera`.
+    ??? info "{{ST}}"
+        1. Se llama a los **FB** de **utilidades**: `BLK`, `FlancoPulsadorMarcha` y `TemporizadorEspera`.
         2. Se implementa la **función de estado** usando esta estructura:
             ```pascal
             CASE Estado OF:
@@ -203,15 +206,14 @@ git clone https://github.com/vetorres-uma/TC3_Carro_Basico.git
 
             Nótese aquí el uso de la salida de `BLK` para conseguir que `o_LamparaMarcha` alterne de valor en el estado de reposo (la lámpara parpadeará), y quede fija en cualquier otro estado.
 
-    ??? info "`SFC`"
-        4. La conversión de GRAFCET a lenguaje `SFC` es más directa que con `ST`, al ser un lenguaje gráfico que representa muy claramente la secuencia de estados por la que pasa el sistema.
+    ??? info "{{SFC}}"
+        4. La conversión de GRAFCET a lenguaje {{SFC}} es más directa que con {{ST}}, al ser un lenguaje gráfico que representa muy claramente la secuencia de estados por la que pasa el sistema.
 
             ![Código de carro básico SFC](../images/03_tc3_carro_basico/carro_basico_sfc.png){width=500px}
         
         5. El código incluye cinco tipos de acciones ([➡️](../../contenidos/01_conceptos/#asociar-acciones-a-etapas)):
               1. No memorizadas para activar salidas binarias (equivalencia directa con GRAFCET). **Ejemplo**: `o_MarchaDerecha`
-              
-              2. No memorizadas con llamada a acciones en `ST` (para acciones continuas condicionadas). **Ejemplo**: `a_LamparaMarcha`.
+              2. No memorizadas con llamada a acciones en {{ST}} (para acciones continuas condicionadas). **Ejemplo**: `a_LamparaMarcha`.
               3. Activas a la entrada (para acciones memorizadas a la entrada de la etapa). **Ejemplo**: `a_ManiobrasPendientes_calcular`.
               4. Activas a la salida (para acciones memorizadas a la salida de la etapa). **Ejemplo**: `a_ManiobrasPendientes_iniciar`.
               5. Acciones principales (para acciones continuas durante la activación de la etapa). **Ejemplo**: `a_FlancoMarcha`.

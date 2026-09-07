@@ -1,5 +1,15 @@
 # Preguntas frecuentes
 
+## Proyecto
+
+### ¿Hasta qué nivel de proyecto debo llegar?
+
+El grupo entregará, para ser evaluado, el nivel más alto que funcione correctamente, siendo el **mínimo exigido** para aprobar el proyecto el nivel **monolítico completo**, incluyendo todas las funcionalidades especificadas.
+
+### ¿La entrega del proyecto exime de realizar la prueba de conocimiento?
+
+No. La evaluación consiste en dos partes: la entrega del proyecto y la superación de la prueba de conocimiento. Se deben superar **ambas** partes para superar la asignatura.
+
 ## General
 
 ### ¿Qué significan los contadores de ciclos/maniobras y piezas que tiene el programa?
@@ -14,7 +24,7 @@ El contador de **piezas rechazadas** se va incrementando con cada ciclo que haya
 
 ### ¿Cómo accedo a los bits de un número decimal?
 
-El lenguaje `ST` proporciona un mecanismo sencillo de acceso a los bits de una variable de otro tipo (habitualmente de tipo entero). Para ello basta con usar el operador punto (`.`) tras el nombre de la variable y escoger el bit deseado. Por ejemplo:
+El lenguaje {{ST}} proporciona un mecanismo sencillo de acceso a los bits de una variable de otro tipo (habitualmente de tipo entero). Para ello basta con usar el operador punto (`.`) tras el nombre de la variable y escoger el bit deseado. Por ejemplo:
 
 ```pascal
     // suponiendo que 'Contador' sea de tipo UINT, por ejemplo
@@ -59,13 +69,19 @@ No necesariamente. Hay que tener clara la distinción entre variables que se dec
 Si imaginamos un **FB** como una caja negra que realiza una funcionalidad, esta caja negra tiene una serie de entradas que permite introducir información en el **FB** para operar con ella y tiene una serie de salidas para sacar información del **FB** al exterior, además de un conjunto de variables de uso interno.
 
 !!! info "`VAR_INPUT`"
-    Deberemos declarar en `VAR_INPUT` todas aquellas variables que queramos que se les pueda dar valor **desde fuera del FB**. Por ejemplo, en un **FB** (`Ejemplo: FB_Ejemplo`) que use una variable de tiempo para regir una transición (`TiempoTransicion`), podemos declarar dicha variable como `VAR_INPUT` y así permitir que se le dé un valor concreto al llamar al FB: `Ejemplo(TiempoTransicion:=T#1s);`.
+    Deberemos declarar en `VAR_INPUT` todas aquellas variables que queramos que se les pueda dar valor **desde fuera del FB**, es decir, que entren al **FB**. Por ejemplo, en un **FB** (`Ejemplo: FB_Ejemplo`) que use una variable de tiempo para regir una transición (`TiempoTransicion`), podemos declarar dicha variable como `VAR_INPUT` y así permitir que se le dé un valor concreto al llamar al **FB**: `Ejemplo(TiempoTransicion:=T#1s);`.
 
 !!! info "`VAR_OUTPUT`"
-    De manera similar, deberemos declarar en `VAR_OUTPUT` todas aquellas variables que queramos que el valor que se le da dentro del **FB** **pueda ser accedido** desde fuera del mismo. Para el `Ejemplo: FB_Ejemplo` anterior, debemos declarar como `VAR_OUTPUT` una variable `VariableSalida` que toma valor dentro del **FB** si queremos que desde fuera se pueda usar: `Variable := Ejemplo.VariableSalida;`.
+    De manera similar, deberemos declarar en `VAR_OUTPUT` todas aquellas variables que queramos que el valor que se le da dentro del **FB** **pueda ser utilizado** desde fuera del mismo. Para el `Ejemplo: FB_Ejemplo` anterior, debemos declarar como `VAR_OUTPUT` una variable `VariableSalida` que toma valor dentro del **FB** si queremos que desde fuera se pueda usar: `Variable := Ejemplo.VariableSalida;`.
+
+!!! info "`VAR_IN_OUT`"
+    Si queremos utilizar una variable que se le pase como entrada al bloque funcional, se modifique en su interior y el valor modificado se mantenga fuera del bloque funcional, deberemos declararla en la sección `VAR_IN_OUT`. **Esta sección no aparece por defecto**, así que habrá que escribirla en la zona de declaración.
 
 !!! info "`VAR`"
     El resto de variables que son de uso interno del **FB** deben ser declaradas en `VAR`.
+
+En la siguiente figura se muestra un resumen visual de estos entornos.
+![Entornos_VAR](../../images/10_faqs/Entornos_VAR.png){width=400px}
 
 ## Visualización
 
@@ -78,8 +94,8 @@ Se deben especificar **con su ruta completa**. Por ejemplo, para una variable `V
 Deberán comportarse como botones **todos los elementos** excepto las etiquetas y los rectángulos de introducción y muestra de datos (numéricos o de tiempo):
 
 - Los elementos vinculados a las **salidas** del sistema, para poder actuar sobre la estación al pulsarlos. Deben ser de tipo `TOGGLE` para poder actuar en distintas salidas a la vez.
-- Los elementos vinculados a las **entradas** del sistema, que se asocian a los **pulsadores** (serán de tipo `TAP`) y **conmutadores** (serán de tipo `TOGGLE`). Con esto se permite **simular** la pulsación y conmutación de los mismos **cuando no estemos trabajando con la estación**. Esto nos permitirá hacer evolucionar nuestro programa `SFC` cuando sea suficiente.
-- Los elementos vinculados a las **entradas** del sistema que se asocian a los **sensores** (tipo `TOGGLE`). Aunque no tiene sentido físico que podamos modificar el valor de un sensor desde un panel de visualización (el sensor refleja el estado de la realidad, no lo podemos modificar de forma artificial), definir estos elementos como botones nos permitirá **hacer evolucionar** nuestro programa `SFC` en simulación sin la estación. En algún momento nuestro programa estará en una etapa esperando a que un sensor se active. Si no tenemos la estación, podremos usar este botón para simular que el sensor se ha activado y así pasar a la siguiente etapa. Esto agiliza enormemente el proceso de depuración.
+- Los elementos vinculados a las **entradas** del sistema, que se asocian a los **pulsadores** (serán de tipo `TAP`) y **conmutadores** (serán de tipo `TOGGLE`). Con esto se permite **simular** la pulsación y conmutación de los mismos **cuando no estemos trabajando con la estación**. Esto nos permitirá hacer evolucionar nuestro programa {{SFC}} cuando sea suficiente.
+- Los elementos vinculados a las **entradas** del sistema que se asocian a los **sensores** (tipo `TOGGLE`). Aunque no tiene sentido físico que podamos modificar el valor de un sensor desde un panel de visualización (el sensor refleja el estado de la realidad, no lo podemos modificar de forma artificial), definir estos elementos como botones nos permitirá **hacer evolucionar** nuestro programa {{SFC}} en simulación sin la estación. En algún momento nuestro programa estará en una etapa esperando a que un sensor se active. Si no tenemos la estación, podremos usar este botón para simular que el sensor se ha activado y así pasar a la siguiente etapa. Esto agiliza enormemente el proceso de depuración.
 
 !!! info "Nota"
     En todos los casos, los botones **también** deberán cambiar de color con el cambio de estado de la variable asociada.
@@ -88,23 +104,28 @@ Deberán comportarse como botones **todos los elementos** excepto las etiquetas 
 
 Es la **conversión numérica** (decimal) de los bits del código de palé. Los lenguajes de programación de PLC son especialmente sencillos para acceder a las variables a nivel de bit. Para realizar la conversión bastaría con asignar las variables booleanas correspondientes a cada bit a los bits de la variable numérica.
 
-!!! tip "Ejemplo"
-    ```pascal
-    VAR
-        VariableNumerica : UINT;
-        VariableBit0 : BOOL := TRUE;
-        VariableBit1 : BOOL;
-        VariableBit2 : BOOL := TRUE;
-    END_VAR
+!!! question "Ejemplo"
 
-    ----- 
+    !!! info "Declaración"
+
+        ```pascal
+        VAR
+            VariableNumerica : UINT;
+            VariableBit0 : BOOL := TRUE;
+            VariableBit1 : BOOL;
+            VariableBit2 : BOOL := TRUE;
+        END_VAR
+        ```
     
-    VariableNumerica.0 := VariableBit0; // acceso al bit 0
-    VariableNumerica.1 := VariableBit1; // acceso al bit 1
-    VariableNumerica.2 := VariableBit2; // acceso al bit 2
+    !!! info "Código"
+    
+        ```pascal
+        VariableNumerica.0 := VariableBit0; // acceso al bit 0
+        VariableNumerica.1 := VariableBit1; // acceso al bit 1
+        VariableNumerica.2 := VariableBit2; // acceso al bit 2
 
-    // VariableNumerica toma el valor decimal 5 (101 en binario)
-    ```
+        // VariableNumerica toma el valor decimal 5 (101 en binario)
+        ```
 
 ## Hardware
 

@@ -2,7 +2,7 @@
 
 !!! warning "NOTAS"
     - La descripción general sobre este ejemplo puede encontrarse [aquí](../../contenidos/04_tc3_carro_extendido.md).
-    - Descargue y abra el proyecto en una ventana de TwinCAT3 para seguir la explicación.
+    - Descargue y abra el proyecto en una ventana de TwinCAT 3 para seguir la explicación.
 
 En esta implementación estructurada del carro extendido, presentamos una primera automatización real organizada en tareas, es decir, la lógica de control está distribuida en lugar de concentrada en un solo bloque funcional.
 
@@ -10,10 +10,10 @@ En esta implementación estructurada del carro extendido, presentamos una primer
 
 En esta implementación, la arquitectura se divide en el siguiente conjunto de bloques funcionales:
 
-- `Estación` (`ST`): contenedor principal
-- `Director` (`SFC`): gestión del modo de funcionamiento (**Reposo**, **Preparación**, **Producción**, **Finalización**, **Parada Solicitada**, **Restauración**)
-- `Coordinador` (`SFC`): coordinación de tareas para la producción normal
-- `Tareas` (`SFC`): sub-secuencias que implementan las distintas funcionalidades (conjunto de etapas/transiciones con sentido propio)
+- {{ST}} `Estación`: contenedor principal
+- {{ST}} `Director`: gestión del modo de funcionamiento (**Reposo**, **Preparación**, **Producción**, **Finalización**, **Parada Solicitada**, **Restauración**)
+- {{SFC}} `Coordinador`: coordinación de tareas para la producción normal
+- {{SFC}} `Tareas`: sub-secuencias que implementan las distintas funcionalidades (conjunto de etapas/transiciones con sentido propio)
 
 ![Estructura del proyecto](../../images/04_tc3_carro_extendido/Carro_Extendido_Estructurado_Proyecto.png){width=250px}
 
@@ -23,7 +23,7 @@ La implementación se estructura de la siguiente manera:
 
 ![Arquitectura](../../images/04_tc3_carro_extendido/Carro_Extendido_Estructurado_Arquitectura.png){width=600px}
 
-Como se observa en la figura, la `Estación` es un contenedor de datos y **métodos** desde donde se llama al resto de bloques funcionales. Cada bloque funcional distinto de la `Estación` se implementa como una **rutina GRAFCET** que permite su sincronización con el resto de **FBs**, tal y como se verá más adelante.
+Como se observa en la figura, la `Estación` es un contenedor de datos y **métodos** desde donde se llama al resto de bloques funcionales. Cada bloque funcional distinto de la `Estación` se implementa como una **rutina GRAFCET** que permite su sincronización con el resto de **FB**, tal y como se verá más adelante.
 
 ## Funcionalidades
 
@@ -58,7 +58,7 @@ La lógica de control se encapsula entre dos etapas `Initial` y `End`, que podem
 Las señales `Ready`, `Done`, `Execute` y `Ack` sirven para sincronizar la ejecución de la secuencia de la rutina con el resto de rutinas. Las dos primeras permiten comunicar que la rutina está en su estado inicial o que ya ha terminado su secuencia, mientras que las dos últimas permiten iniciar la secuencia y volver al inicio.
 
 !!! info "Consejo"
-    Analice el código de los **FBs** del proyecto para ver ejemplos de esta estructura.
+    Analice el código de los **FB** del proyecto para ver ejemplos de esta estructura.
 
 A modo de ejemplo, considere el siguiente esquema donde la rutina `FB_EstacionCoordinador_S_SFC` se sincroniza con la rutina `F_CintaEvacuar_SFC`. Cuando la primera activa la señal `CintaEvacua`, la transición regida por `Execute` en la segunda rutina se dispara, ejecutándose su lógica de control hasta alcanzar la etapa `End`. En ese momento, activa la señal `Done` que dispara la transición regida por la señal `CintaEvacuada` en la primera rutina (que estaba detenida) y hace que continúe su ejecución. Al pasar a la siguiente etapa, se activa la señal `Ack` en la segunda rutina para que esta vuelva al inicio.
 
@@ -109,7 +109,7 @@ Nótese como se asigna la señal `Coordinador.CintaEvacua` a la señal `Execute`
 
 #### Rutina de dirección
 
-Esta rutina está implementada en un **FB** en `SFC` y encapsula la secuencia completa (no solo producción) de la estación a alto nivel.
+Esta rutina está implementada en un **FB** en {{SFC}} y encapsula la secuencia completa (no solo producción) de la estación a alto nivel.
 
 ![Rutina de Dirección](../../images/04_tc3_carro_extendido/Carro_Extendido_Estructurado_Director.png){width=700px}
 
@@ -140,7 +140,7 @@ Una vez se vuelva al inicio, si su señal `Execute` sigue activa, se volverá a 
 
 #### Rutinas de tareas
 
-Finalmente, tendremos **FBs** dedicados a cada una de las tareas de la estación. Cada una de ellas se puede entender como una subrutina que realiza una tarea específica. En este ejemplo, tendremos rutinas que podemos agrupar conceptualmente en dos grupos:
+Finalmente, tendremos **FB** dedicados a cada una de las tareas de la estación. Cada una de ellas se puede entender como una subrutina que realiza una tarea específica. En este ejemplo, tendremos rutinas que podemos agrupar conceptualmente en dos grupos:
 
 - Tareas de producción: cargar vagoneta, trasladar vagoneta, gestionar cinta.
 - Tareas de gestión de la estación: preparar, finalizar y restaurar.
@@ -159,7 +159,7 @@ Para crear un método asociado a un **FB**, en el árbol del proyecto, haga **CD
 
 - El nombre del método.
 - Tipo del valor devuelto (opcional).
-- El lenguaje que vamos a utilizar en la implementación (nosotros usaremos `ST`).
+- El lenguaje que vamos a utilizar en la implementación (nosotros usaremos {{ST}}).
 
 !!! warning "Importante"
     Por claridad, tomaremos la convención de añadir un prefijo `m_` al nombre de los métodos.
@@ -197,7 +197,7 @@ Este método solo se ejecuta en **modo automático** y encapsula las activacione
 - El **sistema hidráulico** (activación, compuerta y volquete).
 - La **cinta transportadora** (marcha).
 
-Estas salidas se activarán cuando los distintos **FBs** de las tareas lo demanden. Por ejemplo, el código:
+Estas salidas se activarán cuando los distintos **FB** de las tareas lo demanden. Por ejemplo, el código:
 
 ```pascal
 o_VolqueteBaja := NOT OrdenPausa 
@@ -241,7 +241,7 @@ Este método se encarga de determinar en qué modo está la estación: **Reposo*
 
 En este último método, encapsulamos la llamada a las rutinas relacionadas con las tareas, **incluyendo al `Coordinador`**.
 
-Como se puede observar en el código, este método se limita a llamar a los **FBs** correspondientes, enlazando las entradas y salidas para conseguir la sincronización entre las rutinas.
+Como se puede observar en el código, este método se limita a llamar a los **FB** correspondientes, enlazando las entradas y salidas para conseguir la sincronización entre las rutinas.
 
 Nótese, por ejemplo, el siguiente trozo de código:
 
@@ -273,7 +273,7 @@ Coordinador(
 );
 ```
 
-puede observarse cómo las señales `Done` de los distintos **FBs** de tareas se asocian a las variables de entrada del `Coordinador` que le permitirán evolucionar en su secuencia.
+puede observarse cómo las señales `Done` de los distintos **FB** de tareas se asocian a las variables de entrada del `Coordinador` que le permitirán evolucionar en su secuencia.
 
 !!! info "Consejo"
     Inspecciona cuidadosamente el código de este método para entender las asociaciones entre las señales de sincronización.
@@ -287,7 +287,7 @@ En esta versión, usaremos rutinas GRAFCET para implementar algunas secuencias r
 - **Restauración**, que se encarga de tratar de recuperar las condiciones iniciales.
 
 !!! info "Consejo"
-    Inspeccione el código de los **FBs** de preparación, finalización y restauración en el ejemplo para ver la secuencia de pasos en cada caso. Nótese que, en los dos primeros, lo único que se hace en este ejemplo es activar el avisador sonoro durante un tiempo. En el de restauración, por el contrario, sí se realiza una secuencia de pasos para recuperar las condiciones iniciales.
+    Inspeccione el código de los **FB** de preparación, finalización y restauración en el ejemplo para ver la secuencia de pasos en cada caso. Nótese que, en los dos primeros, lo único que se hace en este ejemplo es activar el avisador sonoro durante un tiempo. En el de restauración, por el contrario, sí se realiza una secuencia de pasos para recuperar las condiciones iniciales.
 
 ### Uso de funciones
 
@@ -297,7 +297,7 @@ Así, una función recibe datos de entrada, ejecuta una operación y devuelve un
 
 En nuestro ejemplo del carro extendido las usaremos para realizar el acondicionamiento de las señales analógicas.
 
-Las funciones no están asociadas a un **FB** concreto, sino que forman parte de las utilidades que podemos crear en nuestro proyecto. Para crear una función, en el árbol del proyecto, hay que hacer **CD** sobre la carpeta `POUs` y pulsar `Add → POU`. En el menú contextual, hay que cambiar el lenguaje de programación a alguno **distinto** a `SFC` (al no tener estado interno, las funciones no pueden ser implementadas en `SFC`). En nuestro caso usaremos `ST`, como habitualmente. Posteriormente, habrá que seleccionar `Function` y definir:
+Las funciones no están asociadas a un **FB** concreto, sino que forman parte de las utilidades que podemos crear en nuestro proyecto. Para crear una función, en el árbol del proyecto, hay que hacer **CD** sobre la carpeta `POUs` y pulsar `Add → POU`. En el menú contextual, hay que cambiar el lenguaje de programación a alguno **distinto** a {{SFC}} (al no tener estado interno, las funciones no pueden ser implementadas en {{SFC}}). En nuestro caso usaremos {{ST}}, como habitualmente. Posteriormente, habrá que seleccionar `Function` y definir:
 
 - El nombre de la función
 - Tipo del valor devuelto (obligatorio).
@@ -384,7 +384,7 @@ IF ModoAutomatico THEN
 END_IF;
 ```
 
-De esta manera, dejamos de exponer, de forma directa, la variable asociada al *hardware* (`i_SelectorManual`) a los **FBs** distintos al de la estación.
+De esta manera, dejamos de exponer, de forma directa, la variable asociada al *hardware* (`i_SelectorManual`) a los **FB** distintos al de la estación.
 
 #### Implementación sencilla de la pausa a final de ciclo
 
@@ -472,9 +472,11 @@ VagonetaCargar(
 );
 ```
 
-El flanco positivo del pulsador de marcha se captura en `m_GestorEntradas` (nótese el uso del operador `=>`):
+El flanco positivo del pulsador de marcha se captura en `m_GestorEntradas`:
 
 ```pascal
 // m_GestorEntradas
 FlancoPulsadorMarcha(CLK := i_PulsadorMarcha, Q => SolicitudMarcha);
 ```
+
+Nótese el uso del operador `=>` para asignar el valor de la variable de salida `Q` del `FlancoPulsadorMarcha` a la variable `SolicitudMarcha`.

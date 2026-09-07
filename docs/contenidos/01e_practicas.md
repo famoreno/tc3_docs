@@ -1,21 +1,21 @@
 # Información general - Prácticas
 
-A lo largo del curso, el alumnado deberá desarrollar, **en grupo**, una serie de prácticas para alcanzar el conocimiento suficiente como para poder realizar un **proyecto de automatización sencillo** (pero completo) de un sistema automático de producción real.
+A lo largo del curso, el alumnado deberá desarrollar, **en grupo**, una serie de prácticas para alcanzar el conocimiento suficiente como para poder realizar un **proyecto de automatización** de un sistema automático de producción real.
 
-El itinerario de prácticas incluye una serie de prácticas iniciales **que no se tienen que entregar** para adquirir y afianzar los conocimientos básicos sobre el *software* de desarrollo TwinCAT 3 y el funcionamiento esencial de los lenguajes de implementación de programas PLC que usaremos durante el curso: `ST` y `SFC`.
+El itinerario de prácticas incluye una serie de prácticas iniciales **no entregables** para adquirir y afianzar los conocimientos básicos sobre el *software* de desarrollo TwinCAT 3 y el funcionamiento esencial de los lenguajes de implementación de programas PLC que usaremos durante el curso: {{ST}} y {{SFC}}.
 
 Tras estas prácticas iniciales, los grupos deberán realizar un **proyecto de automatización** para una de las estaciones del sistema FMS-200 ubicadas en el laboratorio (aula Beckhoff). Para ello, deberán comprender los ejemplos proporcionados en el curso y **trasladar este conocimiento** al desarrollo de su proyecto.
 
 ## Itinerario de prácticas
 
-Las prácticas propuestas están basadas en los ejemplos proporcionados y explicados en esta misma guía, estando cada una de ellas relacionada con uno de los ejemplos. Así, la hoja de ruta prevista para las prácticas es la siguiente :
+Las prácticas propuestas están basadas en los ejemplos proporcionados y explicados en esta guía. Así, la hoja de ruta prevista para las prácticas es la siguiente:
 
 1. <span class="fondo-gris">**No entregable**</span> ⌚ **1-2 sesiones**. Replicar el ejemplo **Demo**. [➡️](../contenidos/05_tc3_practicas/05_tc3_demo.md)
-2. <span class="fondo-gris">**No entregable**</span> ⌚ **2-4 sesiones**. Adaptar el ejemplo **Carro básico (señalizado)** explicado en clase a los elementos de la estación del sistema FMS-200 asignada al grupo. [➡️](../contenidos/05_tc3_practicas/05_tc3_carro_basico.md)
+2. <span class="fondo-gris">**No entregable**</span> ⌚ **2-4 sesiones**. Trasladar los conocimientos adquiridos en el ejemplo **Carro básico (señalizado)** explicado en clase para implementar el funcionamiento de semáforo utilizando ArduTC. [➡️](../contenidos/05_tc3_practicas/05_tc3_semaforo.md) <!-- (../contenidos/05_tc3_practicas/05_tc3_carro_basico.md) -->
 3. <span class="fondo-verde">**Entregable**</span> ⌚ **Resto del curso**. Desarrollar el proyecto de automatización, abordándolo con distintos niveles de complejidad creciente:
-      - <span class="fondo-rojo">**Mínimo**</span> **Monolítico**. Toda la funcionalidad en un solo bloque funcional [➡️](../contenidos/05_tc3_practicas/05_tc3_proyecto_mono.md)
-      - **Estructurado**. La funcionalidad está dividida en distintos bloques funcionales.
-      - **Estructurado + GEMMA**. Se incorpora la guía GEMMA para la gestión de los distintos modos de funcionamiento de un sistema automático de producción.
+      - **Monolítico**. Toda la funcionalidad en un solo bloque funcional. [➡️](../contenidos/05_tc3_practicas/05_tc3_proyecto_mono.md)
+      - **Estructurado**. La funcionalidad está dividida en distintos bloques funcionales. [➡️](../contenidos/05_tc3_practicas/05_tc3_proyecto_estructurado.md)
+      - <span class="fondo-rojo">**Mínimo**</span> **Jerárquico**. Se incorpora la guía GEMMA para la gestión de los distintos modos de funcionamiento de un sistema automático de producción. [➡️](../contenidos/05_tc3_practicas/05_tc3_proyecto_jerarquico.md)
 
 El símbolo ⌚ indica el tiempo estimado para su realización.
 
@@ -26,7 +26,7 @@ Para abordar un nivel de complejidad, es **obligatorio** haber completado satisf
 
 ## Proyectos de automatización
 
-Antes de abordar el proyecto, los grupos deberán leer del documento `fms200_descripcion_funcional.pdf` que se proporciona en el campus virtual donde se muestra:
+Antes de abordar el proyecto, los grupos deberán leer del documento `CV > Automatizacion > Documentos > FMS_200_Descripcion_Funcional.pdf` que se proporciona en el campus virtual donde se muestra:
 
 - Una visión general del sistema completo.
 - Una explicación particular para cada estación disponible en el laboratorio.
@@ -37,7 +37,7 @@ Los grupos también deberán consultar los **vídeos** de las estaciones que se 
 !!! warning "Importante"
     Las visualizaciones mostradas en los vídeos están algo desfasadas y, en los proyectos, deben ser adaptadas para parecerse, en la medida de lo posible, a las visualizaciones incluidas en los ejemplos. Así, los nombres de los elementos que aparecen deberán ser sustituidos por las versiones más recientes que aparecen en la tabla de entrada/salida. Otras variables, como por ejemplo `PV`, deberán ser también sustituidas por sus versiones más explícitas: `Solicitadas`.
 
-Finalmente, se recomienda a los grupos que **tengan visibles siempre los ejemplos** explicados en clase para tenerlos como referencia a la hora de desarrollar sus proyectos.
+Finalmente, se recomienda a los grupos que **tengan abiertos siempre los ejemplos** explicados en clase para tenerlos como referencia a la hora de desarrollar sus proyectos.
 
 ## Particularidades de las estaciones
 

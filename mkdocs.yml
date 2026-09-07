@@ -10,21 +10,21 @@ theme:
 
   palette:
     - scheme: default
-      primary: red #blue grey
-      accent: indigo
+      primary: custom #002e5d #blue grey
+      # accent: indigo
       toggle:
         icon: material/weather-night
         name: Modo oscuro
     - scheme: slate
-      primary: red #blue grey
-      accent: indigo
+      primary: custom #002e5d  #blue grey
+      # accent: indigo
       toggle:
         icon: material/weather-sunny
         name: Modo claro
 
   font:
-    text: Roboto
-    code: Roboto Mono
+    text: IBM Plex Sans # Roboto
+    code: IBM Plex Mono # Roboto Mono
 
   features:
     - navigation.sections
@@ -51,16 +51,17 @@ nav:
       - ✏️ Descripción: contenidos/04_tc3_carro_extendido.md
       - 🧱 Monolítico: contenidos/04_tc3_carro_extendido/04_tc3_carro_extendido_mono.md
       - 🗂️ Estructurado: contenidos/04_tc3_carro_extendido/04_tc3_carro_extendido_estructurado.md
-      - ⚙️ Estructurado + GEMMA: contenidos/04_tc3_carro_extendido/04_tc3_carro_extendido_estructurado_gemma.md
+      - ⚙️ Jerárquico: contenidos/04_tc3_carro_extendido/04_tc3_carro_extendido_estructurado_gemma.md
       # - 🧩 Impl. Funcional: contenidos/04_tc3_carro_extendido/04_tc3_carro_extendido_funcional.md
   - Prácticas:
     - ℹ️ Información: contenidos/01e_practicas.md 
     - 👋 Demo: contenidos/05_tc3_practicas/05_tc3_demo.md
-    - 🛒 Carro básico: contenidos/05_tc3_practicas/05_tc3_carro_basico.md
+    - 🚦 Semáforo (ArduTC): contenidos/05_tc3_practicas/05_tc3_semaforo.md
+    # - 🛒 Carro básico: contenidos/05_tc3_practicas/05_tc3_carro_basico.md
     - 🧩 Proyectos:
       - 🧱 Monolítico: contenidos/05_tc3_practicas/05_tc3_proyecto_mono.md
       - 🗂️ Estructurado: contenidos/05_tc3_practicas/05_tc3_proyecto_estructurado.md
-      - ⚙️ Estructurado + GEMMA: contenidos/05_tc3_practicas/05_tc3_proyecto_estructurado_gemma.md
+      - ⚙️ Jerárquico: contenidos/05_tc3_practicas/05_tc3_proyecto_estructurado_gemma.md
       # - 🧩 Funcional: contenidos/05_tc3_practicas/05_tc3_proyecto_funcional.md
 
 markdown_extensions:
@@ -86,6 +87,11 @@ markdown_extensions:
   - pymdownx.tasklist:
       # custom_checkbox: true
       clickable_checkbox: true
+
+plugins:
+  - macros:
+      include_dir: docs
+
 extra:
   social:
     - icon: fontawesome/brands/github

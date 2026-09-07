@@ -10,7 +10,7 @@
 - La **asignación** de valores entre variables se realiza con el operador `:=`.
 - La **comparación** de valores se realiza con los operadores `=`, `<>`, `<=`, `>=`.
 - Las **operaciones lógicas** se realizan con los operadores `AND`, `OR` y `NOT`.
-- La llamada a los **FBs** se realiza escribiendo el nombre de la instancia del **FB** seguido de, entre paréntesis, las asignaciones de los valores para las variables de entrada (si las hay), separadas por comas: `<nombre_instancia>(var1:=val1, var2:=val2, ...);`
+- La llamada a los **FB** se realiza escribiendo el nombre de la instancia del **FB** seguido de, entre paréntesis, las asignaciones de los valores para las variables de entrada (si las hay), separadas por comas: `<nombre_instancia>(var1:=val1, var2:=val2, ...);`
 - En caso de que no haya ninguna variable de entrada que especificar, simplemente se abre y se cierra paréntesis.
 
     !!! question "Ejemplo"

@@ -21,7 +21,7 @@ Descripción completa de los ejemplos y qué se va añadiendo en cada paso.
     - Utilización de un `PRG`
     - Declaración de variables numéricas (`UINT`)
     - Declaración de variables booleanas (`BOOL`) en el espacio de entradas/salida (`AT`)
-    - Lenguaje `ST` (asignación)
+    - Lenguaje {{ST}} (asignación)
     - **Visualización**
         - Botones, Rectángulos
         - Mostrar y modificar el valor de variables booleanas y numéricas
@@ -39,13 +39,13 @@ Descripción completa de los ejemplos y qué se va añadiendo en cada paso.
 - Programa: `tc3_carro_basico` [➡️](../contenidos/03_tc3_carro_basico.md)
 - **Mi primera máquina de estados**
     - Introducción al GRAFCET
-    - Introducción al `SFC`
-    - Codificación de máquinas de estado en `SFC` y `ST`
+    - Introducción al {{SFC}}
+    - Codificación de máquinas de estado en {{ST}} y {{SFC}}
 
 ??? abstract "Arquitectura"
     - **Monolítica estricta**
         - Toda la lógica de control en un único elemento (`FB_Carro`)
-        - `SFC` únicamente con elementos propios (transiciones y acciones)
+        - {{SFC}} únicamente con elementos propios (transiciones y acciones)
     - `MAIN -> Carro`
 
 ??? info "Contenidos"
@@ -60,12 +60,12 @@ Descripción completa de los ejemplos y qué se va añadiendo en cada paso.
     - Uso de **FB** de la librería `STANDARD` (`R_TRIG`, `TON`)
     - Uso de **FB** de usuario (`FB_Blink`)
         - Intermitencia de elementos de señalización
-    - Lenguaje `ST`: `CASE`, `IF`
-    - Lenguaje `SFC`:
+    - Lenguaje {{ST}}: `CASE`, `IF`
+    - Lenguaje {{SFC}}:
         - elementos: etapas, etapa inicial, transiciones, acciones (continua, principal, entrada, salida), transiciones dependientes del tiempo, divergencias (ramas), saltos
         - acciones continuas condicionadas
         - Variables implícitas de etapa (`.x`, `.t`)
-        - Procesamiento de un `SFC`: bifurcaciones (prioridad implícita)
+        - Procesamiento de un {{SFC}}: bifurcaciones (prioridad implícita)
     - **Visualización**
         - Mostrar y modificar variables de tiempo
         - Propiedades
@@ -85,17 +85,17 @@ Descripción completa de los ejemplos y qué se va añadiendo en cada paso.
 ??? abstract "Arquitectura"
     - **Monolítica estricta**
         - Toda la lógica de control en un único elemento (`FB_Estacion`)
-        - `SFC` únicamente con elementos propios (transiciones y acciones)
+        - {{SFC}} únicamente con elementos propios (transiciones y acciones)
     - `MAIN -> Estacion`
 
 ??? info "Contenidos"
     - `VAR_CONSTANT`
     - `ARRAY` (longitud fija)
-    - Variables implícitas: indicadores `SFC` (`SFCPause`, `SFCReset`)
-    - Procesamiento de un `SFC`: «final scan»
+    - Variables implícitas: indicadores {{SFC}} (`SFCPause`, `SFCReset`)
+    - Procesamiento de un {{SFC}}: «final scan»
     - Tipos de datos: `REAL`
     - Semántica reforzada, uso de variables de estado (`SistemaPreparado`,...)
-    - `SFC`: nada nuevo
+    - {{SFC}}: nada nuevo
     - Visualización
         - Elementos: *Polygon*, *Image Pool*, *Image*
 
@@ -126,7 +126,7 @@ Descripción completa de los ejemplos y qué se va añadiendo en cada paso.
 ??? abstract "Arquitectura"
     - **Estructurado en GRAFCET Coordinador de Tareas (GCT) y GRAFCETs de Tareas (GTs)**
         - La lógica de control está distribuida en un conjunto de bloques funcionales
-        - `SFC` únicamente con elementos propios (transiciones y acciones).
+        - {{SFC}} únicamente con elementos propios (transiciones y acciones).
     - `MAIN -> Estacion`
 
 ??? info "Contenidos"

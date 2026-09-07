@@ -30,8 +30,8 @@ El proyecto desarrollado debe tener las siguientes funcionalidades:
 
 ## Componentes
 
-- `MAIN`: programa principal (`ST`)
-    - `FB_Carro`: lógica de control (`SFC`)
+- {{ST}} `MAIN`: programa principal.
+    - {{SFC}} `FB_Carro`: lógica de control.
 - `VISU_Carro`: interfaz gráfica
 
 ## Itinerario
@@ -43,7 +43,7 @@ El proyecto desarrollado debe tener las siguientes funcionalidades:
 
 - [ ] Crear una solución con el nombre apropiado (`XXX_TC3_GYY`, `XXX` = iniciales de la asignatura, `YY` = número del grupo).
 - [ ] Crear el proyecto PLC (`Carro_Basico_PLC`).
-- [ ] Crear el bloque funcional `FB_Carro` (`SFC`).
+- [ ] Crear el bloque funcional `FB_Carro` {{SFC}}.
 - [ ] Declarar las variables pertinentes en el **FB** según la tabla de entrada y salida de la estación.
 - [ ] Declarar e invocar la instancia `Carro` de `FB_Carro` en el programa `MAIN`.
 - [ ] Compilar.
@@ -56,5 +56,5 @@ El proyecto desarrollado debe tener las siguientes funcionalidades:
 - [ ] Forzar una variable de salida (lámpara de alarma).
 - [ ] Crear una visualización (`VISU_Estacion`) que permita monitorizar todas las entradas y activar todas las salidas
 - [ ] Probar una a una todas las entradas y salidas desde la visualización.
-- [ ] Implementar en `FB_Carro` la secuencia de pasos del GRAFCET del carro básico señalizado (en `SFC`).
+- [ ] Implementar en `FB_Carro` la secuencia de pasos del GRAFCET del carro básico señalizado {{SFC}}.
 - [ ] Compilar y poner el programa en ejecución para comprobar el correcto funcionamiento del sistema.

@@ -48,7 +48,7 @@ Una vez movido el fichero `.tnzip` al equipo destino, para volver a abrir el pro
 
 ### Usando GIT
 
-TwinCAT3, al estar basado en Visual Studio, tiene compatibilidad directa con GitHub.
+TwinCAT 3, al estar basado en Visual Studio, tiene compatibilidad directa con GitHub.
 Se recomienda seguir el tutorial en este video:
 
 [PLC Programming using TwinCAT 3 - Version control](https://www.youtube.com/watch?v=1g6eYnlzKtA)

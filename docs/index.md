@@ -15,7 +15,7 @@ Bienvenido/a al tutorial de TwinCAT 3. Aquí encontrarás guías y material de a
 - [Ejecución de Programas](contenidos/01b_ejecucion.md)
     - Procedimiento de puesta en marcha de un programa, una vez implementado.
 - [Lenguajes de Implementación](contenidos/01c_lenguajes.md)
-    - Información general sobre los lenguajes `ST` y `SFC`.
+    - Información general sobre los lenguajes {{ST}} y {{SFC}}.
 
 ## Ejemplos
 <!-- - [Descripción general](contenidos/01d_ejemplos.md) -->
@@ -24,14 +24,15 @@ Bienvenido/a al tutorial de TwinCAT 3. Aquí encontrarás guías y material de a
 - [Ejemplo - Carro Extendido](contenidos/04_tc3_carro_extendido.md). Primera automatización real.
     - [Monolítico](contenidos/04_tc3_carro_extendido/04_tc3_carro_extendido_mono.md)
     - [Estructurado](contenidos/04_tc3_carro_extendido/04_tc3_carro_extendido_estructurado.md)
-    - [Estructurado con GEMMA](contenidos/04_tc3_carro_extendido/04_tc3_carro_extendido_estructurado_gemma.md)
+    - [Jerárquico](contenidos/04_tc3_carro_extendido/04_tc3_carro_extendido_jerarquico.md)
 
 ## Prácticas
 
 - [Descripción general](contenidos/01e_practicas.md)
 - [Demo](contenidos/05_tc3_practicas/05_tc3_demo.md)
-- [Carro básico](contenidos/05_tc3_practicas/05_tc3_carro_basico.md)
+<!-- - [Carro básico](contenidos/05_tc3_practicas/05_tc3_carro_basico.md) -->
+- [Semáforo (ArduTC)](contenidos/05_tc3_practicas/05_tc3_semaforo.md)
 - Proyectos
     - [Proyecto monolítico](contenidos/05_tc3_practicas/05_tc3_proyecto_mono.md)
     - [Proyecto estructurado](contenidos/05_tc3_practicas/05_tc3_proyecto_estructurado.md)
-    - [Proyecto estructurado + GEMMA](contenidos/05_tc3_practicas/05_tc3_proyecto_estructurado_gemma.md)
+    - [Proyecto jerárquico](contenidos/05_tc3_practicas/05_tc3_proyecto_jerarquico.md)

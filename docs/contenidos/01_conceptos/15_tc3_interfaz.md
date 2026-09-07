@@ -84,10 +84,10 @@ Zona central del trabajo. Es el área donde se edita el código y los diagramas.
 
 Puede mostrar distintos tipos de editores:
 
-- **Structured Text (ST)**
-- **Ladder (LD)**
-- **FBD**
-- **SFC**
+- *Structured Text* {{ST}}
+- *Sequential Function Chart* {{SFC}}
+- *Ladder* (LD)
+- *Function Block Diagram* (FBD)
 - Visualizaciones
 
 En la imagen se observan dos zonas diferenciadas dentro del mismo bloque:
@@ -109,7 +109,7 @@ Es la zona donde se define la interfaz y memoria del bloque.
 
 #### Zona de código (parte inferior)
 
-Aquí se **implementa** el código del bloque. En el ejemplo se visualiza un **diagrama SFC** con:
+Aquí se **implementa** el código del bloque. En el ejemplo se visualiza un **diagrama** {{SFC}} con:
 
 - Pasos (`S0`, `S1`, `S2`...)
 - Transiciones
