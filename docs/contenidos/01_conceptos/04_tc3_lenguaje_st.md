@@ -1,7 +1,7 @@
 ## 📄 Lenguaje ST
 
 !!! tip "Recomendación"
-    Es recomendable acceder a la ayuda y documentación del lenguaje ST (*Structured Text*) que ofrece Beckhoff en su portal **[Infosys](https://infosys.beckhoff.com/)**.
+    Es recomendable acceder a la ayuda y documentación del lenguaje {{ST}} (*Structured Text*) que ofrece Beckhoff en su portal **[Infosys](https://infosys.beckhoff.com/)**.
   
 ### Sintaxis general
 

@@ -52,7 +52,7 @@ Este proyecto incluye además, una **visualización** elemental que permite inte
 ### Software
 
 - **IDE:** Microsoft Visual Studio / TwinCAT 3 XAE (Versión mínima recomendada: **3.1.4024.x**).
-- **Lenguajes:** Texto Estructurado (ST).
+- **Lenguajes:** Texto Estructurado {{ST}}.
 
 ---
 

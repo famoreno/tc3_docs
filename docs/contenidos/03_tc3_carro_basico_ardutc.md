@@ -80,7 +80,7 @@ Una de las características más relevante de este proyecto didáctico es que se
 ### Software
 
 - **IDE:** Microsoft Visual Studio / TwinCAT 3 XAE (Versión mínima recomendada: **3.1.4024.x**).
-- **Lenguajes:** Texto Estructurado (ST) y Diagrama de Funciones Secuenciales (SFC).
+- **Lenguajes:** Texto Estructurado {{ST}} y Diagrama de Funciones Secuenciales {{SFC}}.
 
 ---
 
