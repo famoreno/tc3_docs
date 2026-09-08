@@ -88,7 +88,7 @@ Las variables en TC3 se declaran dentro de los ámbitos existentes en el POU cor
 ### Variables locales
 
 ```pascal
-FUNCTIONAL_BLOCK FB_Estacion
+FUNCTION_BLOCK FB_Estacion
 VAR
     Contador: UINT;
 END_VAR
@@ -99,7 +99,7 @@ Las variables declaradas aquí se pueden utilizar dentro del POU pero **no** pue
 ### Variables de entrada
 
 ```pascal
-FUNCTIONAL_BLOCK FB_Estacion
+FUNCTION_BLOCK FB_Estacion
 VAR_INPUT
     TiempoEntrada: TIME;
     TiempoSalida: TIME := T#2s;
@@ -114,7 +114,7 @@ Las variables declaradas aquí **deben** ser especificadas al llamar al **FB** (
 ### Variables de salida
 
 ```pascal
-FUNCTIONAL_BLOCK FB_Estacion
+FUNCTION_BLOCK FB_Estacion
 VAR_OUTPUT
     LuzAmarilla: BOOL;
     LuzVerde: BOOL;
@@ -139,7 +139,7 @@ LuzAmarillaEstacion := Estacion.LuzAmarilla; // esto es válido
 ### Variables de entrada y salida
 
 ```pascal
-FUNCTIONAL_BLOCK FB_Estacion
+FUNCTION_BLOCK FB_Estacion
 VAR_IN_OUT
     Contador: UINT;
 END_VAR
